@@ -85,9 +85,7 @@ class PortSignalInterfaceItem(VHDLModel_PortSignalInterfaceItem):
         subTypeIndication = GetSubTypeIndicationFromNode(port, "port", name)
 
         defaultValue = nodes.Get_Default_Value(port)
-        value = (
-            GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
-        )
+        value = GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
 
         return cls(name, mode, subTypeIndication, value)
 
@@ -112,9 +110,7 @@ class ParameterConstantInterfaceItem(VHDLModel_ParameterConstantInterfaceItem):
         subTypeIndication = GetSubTypeIndicationFromNode(parameter, "parameter", name)
 
         defaultValue = nodes.Get_Default_Value(parameter)
-        value = (
-            GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
-        )
+        value = GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
 
         return cls(name, mode, subTypeIndication, value)
 
@@ -139,9 +135,7 @@ class ParameterVariableInterfaceItem(VHDLModel_ParameterVariableInterfaceItem):
         subTypeIndication = GetSubTypeIndicationFromNode(parameter, "parameter", name)
 
         defaultValue = nodes.Get_Default_Value(parameter)
-        value = (
-            GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
-        )
+        value = GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
 
         return cls(name, mode, subTypeIndication, value)
 
@@ -166,9 +160,7 @@ class ParameterSignalInterfaceItem(VHDLModel_ParameterSignalInterfaceItem):
         subTypeIndication = GetSubTypeIndicationFromNode(parameter, "parameter", name)
 
         defaultValue = nodes.Get_Default_Value(parameter)
-        value = (
-            GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
-        )
+        value = GetExpressionFromNode(defaultValue) if defaultValue != Null_Iir else None
 
         return cls(name, mode, subTypeIndication, value)
 

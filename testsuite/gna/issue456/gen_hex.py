@@ -1,7 +1,7 @@
 import sys
 import random
 
-n=1024
+n = 1024
 if len(sys.argv) > 1:
     n = int(sys.argv[1])
 

@@ -62,9 +62,7 @@ class Instantiate(TestCase):
                 self.assertEqual(
                     architectureName,
                     "behav",
-                    "expected architecture name 'behav', got '{}'".format(
-                        architectureName
-                    ),
+                    "expected architecture name 'behav', got '{}'".format(architectureName),
                 )
 
             else:

@@ -96,12 +96,8 @@ class ArrayType(VHDLModel_ArrayType):
                     )
                 )
 
-        elementSubTypeIndication = nodes.Get_Element_Subtype_Indication(
-            typeDefinitionNode
-        )
-        elementSubType = GetSubTypeIndicationFromIndicationNode(
-            elementSubTypeIndication, "array declaration", typeName
-        )
+        elementSubTypeIndication = nodes.Get_Element_Subtype_Indication(typeDefinitionNode)
+        elementSubType = GetSubTypeIndicationFromIndicationNode(elementSubTypeIndication, "array declaration", typeName)
 
         return cls(typeName, indices, elementSubType)
 
@@ -113,9 +109,7 @@ class RecordTypeElement(VHDLModel_RecordTypeElement):
         from pyGHDL.dom._Translate import GetSubTypeIndicationFromNode
 
         elementName = GetNameOfNode(elementDeclarationNode)
-        elementType = GetSubTypeIndicationFromNode(
-            elementDeclarationNode, "record element", elementName
-        )
+        elementType = GetSubTypeIndicationFromNode(elementDeclarationNode, "record element", elementName)
 
         return cls(elementName, elementType)
 
@@ -139,12 +133,8 @@ class AccessType(VHDLModel_AccessType):
     def parse(cls, typeName: str, typeDefinitionNode: Iir) -> "AccessType":
         from pyGHDL.dom._Translate import GetSubTypeIndicationFromIndicationNode
 
-        designatedSubtypeIndication = nodes.Get_Designated_Subtype_Indication(
-            typeDefinitionNode
-        )
-        designatedSubType = GetSubTypeIndicationFromIndicationNode(
-            designatedSubtypeIndication, "access type", typeName
-        )
+        designatedSubtypeIndication = nodes.Get_Designated_Subtype_Indication(typeDefinitionNode)
+        designatedSubType = GetSubTypeIndicationFromIndicationNode(designatedSubtypeIndication, "access type", typeName)
 
         return cls(typeName, designatedSubType)
 

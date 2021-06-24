@@ -184,9 +184,7 @@ class SubtractionExpression(VHDLModel_SubtractionExpression, _ParseBinaryExpress
 
 
 @export
-class ConcatenationExpression(
-    VHDLModel_ConcatenationExpression, _ParseBinaryExpression
-):
+class ConcatenationExpression(VHDLModel_ConcatenationExpression, _ParseBinaryExpression):
     def __init__(self, left: Expression, right: Expression):
         super().__init__()
         self._leftOperand = left
@@ -226,9 +224,7 @@ class ModuloExpression(VHDLModel_ModuloExpression, _ParseBinaryExpression):
 
 
 @export
-class ExponentiationExpression(
-    VHDLModel_ExponentiationExpression, _ParseBinaryExpression
-):
+class ExponentiationExpression(VHDLModel_ExponentiationExpression, _ParseBinaryExpression):
     def __init__(self, left: Expression, right: Expression):
         super().__init__()
         self._leftOperand = left
@@ -332,9 +328,7 @@ class GreaterEqualExpression(VHDLModel_GreaterEqualExpression, _ParseBinaryExpre
 
 
 @export
-class ShiftRightLogicExpression(
-    VHDLModel_ShiftRightLogicExpression, _ParseBinaryExpression
-):
+class ShiftRightLogicExpression(VHDLModel_ShiftRightLogicExpression, _ParseBinaryExpression):
     def __init__(self, left: Expression, right: Expression):
         super().__init__()
         self._leftOperand = left
@@ -342,9 +336,7 @@ class ShiftRightLogicExpression(
 
 
 @export
-class ShiftLeftLogicExpression(
-    VHDLModel_ShiftLeftLogicExpression, _ParseBinaryExpression
-):
+class ShiftLeftLogicExpression(VHDLModel_ShiftLeftLogicExpression, _ParseBinaryExpression):
     def __init__(self, left: Expression, right: Expression):
         super().__init__()
         self._leftOperand = left
@@ -352,9 +344,7 @@ class ShiftLeftLogicExpression(
 
 
 @export
-class ShiftRightArithmeticExpression(
-    VHDLModel_ShiftRightArithmeticExpression, _ParseBinaryExpression
-):
+class ShiftRightArithmeticExpression(VHDLModel_ShiftRightArithmeticExpression, _ParseBinaryExpression):
     def __init__(self, left: Expression, right: Expression):
         super().__init__()
         self._leftOperand = left
@@ -362,9 +352,7 @@ class ShiftRightArithmeticExpression(
 
 
 @export
-class ShiftLeftArithmeticExpression(
-    VHDLModel_ShiftLeftArithmeticExpression, _ParseBinaryExpression
-):
+class ShiftLeftArithmeticExpression(VHDLModel_ShiftLeftArithmeticExpression, _ParseBinaryExpression):
     def __init__(self, left: Expression, right: Expression):
         super().__init__()
         self._leftOperand = left

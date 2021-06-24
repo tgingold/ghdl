@@ -50,9 +50,7 @@ __all__ = []
 
 @export
 class Constant(VHDLModel_Constant):
-    def __init__(
-        self, name: str, subType: SubTypeOrSymbol, defaultExpression: Expression
-    ):
+    def __init__(self, name: str, subType: SubTypeOrSymbol, defaultExpression: Expression):
         super().__init__(name)
 
         self._name = name
@@ -79,18 +77,14 @@ class DeferredConstant(VHDLModel_DeferredConstant):
     @classmethod
     def parse(cls, node):
         name = GetNameOfNode(node)
-        subTypeIndication = GetSubTypeIndicationFromNode(
-            node, "deferred constant", name
-        )
+        subTypeIndication = GetSubTypeIndicationFromNode(node, "deferred constant", name)
 
         return cls(name, subTypeIndication)
 
 
 @export
 class Variable(VHDLModel_Variable):
-    def __init__(
-        self, name: str, subType: SubTypeOrSymbol, defaultExpression: Expression
-    ):
+    def __init__(self, name: str, subType: SubTypeOrSymbol, defaultExpression: Expression):
         super().__init__(name)
 
         self._name = name
@@ -124,9 +118,7 @@ class SharedVariable(VHDLModel_SharedVariable):
 
 @export
 class Signal(VHDLModel_Signal):
-    def __init__(
-        self, name: str, subType: SubTypeOrSymbol, defaultExpression: Expression
-    ):
+    def __init__(self, name: str, subType: SubTypeOrSymbol, defaultExpression: Expression):
         super().__init__(name)
 
         self._name = name

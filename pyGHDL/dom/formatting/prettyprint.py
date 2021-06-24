@@ -68,9 +68,7 @@ class PrettyPrint:
                 buffer.append(line)
         buffer.append("{prefix}Documents:".format(prefix=prefix))
         for document in design.Documents:
-            buffer.append(
-                "{prefix}- Path: '{doc!s}':".format(doc=document.Path, prefix=prefix)
-            )
+            buffer.append("{prefix}- Path: '{doc!s}':".format(doc=document.Path, prefix=prefix))
             for line in self.formatDocument(document, level + 1):
                 buffer.append(line)
 
@@ -155,19 +153,11 @@ class PrettyPrint:
 
         return buffer
 
-    def formatArchitecture(
-        self, architecture: Architecture, level: int = 0
-    ) -> StringBuffer:
+    def formatArchitecture(self, architecture: Architecture, level: int = 0) -> StringBuffer:
         buffer = []
         prefix = "  " * level
-        buffer.append(
-            "{prefix}- Name: {name}".format(name=architecture.Name, prefix=prefix)
-        )
-        buffer.append(
-            "{prefix}  Entity: {entity}".format(
-                entity=architecture.Entity.SymbolName, prefix=prefix
-            )
-        )
+        buffer.append("{prefix}- Name: {name}".format(name=architecture.Name, prefix=prefix))
+        buffer.append("{prefix}  Entity: {entity}".format(entity=architecture.Entity.SymbolName, prefix=prefix))
         buffer.append("{prefix}  Declared:".format(prefix=prefix))
         for item in architecture.DeclaredItems:
             for line in self.formatDeclaredItems(item, level + 2):
@@ -178,9 +168,7 @@ class PrettyPrint:
     def formatComponent(self, component: Component, level: int = 0) -> StringBuffer:
         buffer = []
         prefix = "  " * level
-        buffer.append(
-            "{prefix}- Component: {name}".format(name=component.Name, prefix=prefix)
-        )
+        buffer.append("{prefix}- Component: {name}".format(name=component.Name, prefix=prefix))
         buffer.append("{prefix}  Generics:".format(prefix=prefix))
         for generic in component.GenericItems:
             for line in self.formatGeneric(generic, level + 1):
@@ -203,14 +191,10 @@ class PrettyPrint:
 
         return buffer
 
-    def formatPackageBody(
-        self, packageBody: PackageBody, level: int = 0
-    ) -> StringBuffer:
+    def formatPackageBody(self, packageBody: PackageBody, level: int = 0) -> StringBuffer:
         buffer = []
         prefix = "  " * level
-        buffer.append(
-            "{prefix}- Name: {name}".format(name=packageBody.Name, prefix=prefix)
-        )
+        buffer.append("{prefix}- Name: {name}".format(name=packageBody.Name, prefix=prefix))
         buffer.append("{prefix}  Declared:".format(prefix=prefix))
         for item in packageBody.DeclaredItems:
             for line in self.formatDeclaredItems(item, level + 1):
@@ -218,14 +202,10 @@ class PrettyPrint:
 
         return buffer
 
-    def formatConfiguration(
-        self, configuration: Configuration, level: int = 0
-    ) -> StringBuffer:
+    def formatConfiguration(self, configuration: Configuration, level: int = 0) -> StringBuffer:
         buffer = []
         prefix = "  " * level
-        buffer.append(
-            "{prefix}- Name: {name}".format(name=configuration.Name, prefix=prefix)
-        )
+        buffer.append("{prefix}- Name: {name}".format(name=configuration.Name, prefix=prefix))
 
         return buffer
 
@@ -236,29 +216,19 @@ class PrettyPrint:
 
         return buffer
 
-    def formatGeneric(
-        self, generic: Union[NamedEntity, GenericInterfaceItem], level: int = 0
-    ) -> StringBuffer:
+    def formatGeneric(self, generic: Union[NamedEntity, GenericInterfaceItem], level: int = 0) -> StringBuffer:
         if isinstance(generic, GenericConstantInterfaceItem):
             return self.formatGenericConstant(generic, level)
         else:
-            raise PrettyPrintException(
-                "Unhandled generic kind for generic '{name}'.".format(name=generic.Name)
-            )
+            raise PrettyPrintException("Unhandled generic kind for generic '{name}'.".format(name=generic.Name))
 
-    def formatPort(
-        self, port: Union[NamedEntity, PortInterfaceItem], level: int = 0
-    ) -> StringBuffer:
+    def formatPort(self, port: Union[NamedEntity, PortInterfaceItem], level: int = 0) -> StringBuffer:
         if isinstance(port, PortSignalInterfaceItem):
             return self.formatPortSignal(port, level)
         else:
-            raise PrettyPrintException(
-                "Unhandled port kind for port '{name}'.".format(name=port.Name)
-            )
+            raise PrettyPrintException("Unhandled port kind for port '{name}'.".format(name=port.Name))
 
-    def formatGenericConstant(
-        self, generic: GenericConstantInterfaceItem, level: int = 0
-    ) -> StringBuffer:
+    def formatGenericConstant(self, generic: GenericConstantInterfaceItem, level: int = 0) -> StringBuffer:
         buffer = []
         prefix = "  " * level
 
@@ -267,18 +237,14 @@ class PrettyPrint:
                 prefix=prefix,
                 name=generic.Name,
                 mode=generic.Mode,
-                subtypeindication=self.formatSubtypeIndication(
-                    generic.SubType, "generic", generic.Name
-                ),
+                subtypeindication=self.formatSubtypeIndication(generic.SubType, "generic", generic.Name),
                 initialValue=self.formatInitialValue(generic),
             )
         )
 
         return buffer
 
-    def formatPortSignal(
-        self, port: PortSignalInterfaceItem, level: int = 0
-    ) -> StringBuffer:
+    def formatPortSignal(self, port: PortSignalInterfaceItem, level: int = 0) -> StringBuffer:
         buffer = []
         prefix = "  " * level
 
@@ -287,9 +253,7 @@ class PrettyPrint:
                 prefix=prefix,
                 name=port.Name,
                 mode=port.Mode,
-                subtypeindication=self.formatSubtypeIndication(
-                    port.SubType, "port", port.Name
-                ),
+                subtypeindication=self.formatSubtypeIndication(port.SubType, "port", port.Name),
                 initialValue=self.formatInitialValue(port),
             )
         )
@@ -305,9 +269,7 @@ class PrettyPrint:
                 "{prefix}- constant {name} : {subtype} := {expr}".format(
                     prefix=prefix,
                     name=item.Name,
-                    subtype=self.formatSubtypeIndication(
-                        item.SubType, "constant", item.Name
-                    ),
+                    subtype=self.formatSubtypeIndication(item.SubType, "constant", item.Name),
                     expr=str(item.DefaultExpression),
                 )
             )
@@ -316,9 +278,7 @@ class PrettyPrint:
                 "{prefix}- shared variable {name} : {subtype}".format(
                     prefix=prefix,
                     name=item.Name,
-                    subtype=self.formatSubtypeIndication(
-                        item.SubType, "shared variable", item.Name
-                    ),
+                    subtype=self.formatSubtypeIndication(item.SubType, "shared variable", item.Name),
                 )
             )
         elif isinstance(item, Signal):
@@ -326,18 +286,14 @@ class PrettyPrint:
                 "{prefix}- signal {name} : {subtype}{initValue}".format(
                     prefix=prefix,
                     name=item.Name,
-                    subtype=self.formatSubtypeIndication(
-                        item.SubType, "signal", item.Name
-                    ),
+                    subtype=self.formatSubtypeIndication(item.SubType, "signal", item.Name),
                     initValue=" := {expr}".format(expr=str(item.DefaultExpression))
                     if item.DefaultExpression is not None
                     else "",
                 )
             )
         elif isinstance(item, Type):
-            buffer.append(
-                "{prefix}- {type}".format(prefix=prefix, type=self.formatType(item))
-            )
+            buffer.append("{prefix}- {type}".format(prefix=prefix, type=self.formatType(item)))
         elif isinstance(item, SubType):
             buffer.append(
                 "{prefix}- subtype {name} is ?????".format(
@@ -369,20 +325,14 @@ class PrettyPrint:
             for line in self.formatComponent(item, level):
                 buffer.append(line)
         else:
-            raise PrettyPrintException(
-                "Unhandled declared item kind '{name}'.".format(
-                    name=item.__class__.__name__
-                )
-            )
+            raise PrettyPrintException("Unhandled declared item kind '{name}'.".format(name=item.__class__.__name__))
 
         return buffer
 
     def formatType(self, item: BaseType) -> str:
         result = "type {name} is ".format(name=item.Name)
         if isinstance(item, IntegerType):
-            result += "range {left!s} to {right!s}".format(
-                left=item.LeftBound, right=item.RightBound
-            )
+            result += "range {left!s} to {right!s}".format(left=item.LeftBound, right=item.RightBound)
         elif isinstance(item, EnumeratedType):
             result += "(........)"
         elif isinstance(item, ArrayType):
@@ -392,9 +342,7 @@ class PrettyPrint:
         elif isinstance(item, AccessType):
             result += "access ....."
         else:
-            raise PrettyPrintException(
-                "Unknown type '{name}'".format(name=item.__class__.__name__)
-            )
+            raise PrettyPrintException("Unknown type '{name}'".format(name=item.__class__.__name__))
 
         return result
 
@@ -405,9 +353,7 @@ class PrettyPrint:
             ranges = [str(c.Range) for c in subTypeIndication.Constraints]
             constraints = ", ".join(ranges)
 
-            return "{type}({constraints})".format(
-                type=subTypeIndication.SymbolName, constraints=constraints
-            )
+            return "{type}({constraints})".format(type=subTypeIndication.SymbolName, constraints=constraints)
         else:
             raise PrettyPrintException(
                 "Unhandled subtype kind '{type}' for {entity} '{name}'.".format(

@@ -90,10 +90,8 @@ def get_version():
 sourceCodeURL = "https://github.com/{namespace}/{projectName}".format(
     namespace=gitHubNamespace, projectName=projectName
 )
-documentationURL = (
-    "https://{namespace}.github.io/{projectName}/using/py/index.html".format(
-        namespace=gitHubNamespace, projectName=projectName
-    )
+documentationURL = "https://{namespace}.github.io/{projectName}/using/py/index.html".format(
+    namespace=gitHubNamespace, projectName=projectName
 )
 
 # Assemble all package information

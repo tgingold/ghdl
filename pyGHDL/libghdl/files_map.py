@@ -87,9 +87,7 @@ def Location_File_To_Line(Location: LocationType, File: SourceFileEntry) -> int:
 
 @export
 @BindToLibGHDL("files_map__location_file_line_to_offset")
-def Location_File_Line_To_Offset(
-    Location: LocationType, File: SourceFileEntry, Line: int
-) -> int:
+def Location_File_Line_To_Offset(Location: LocationType, File: SourceFileEntry, Line: int) -> int:
     """
     Get the offset in :obj:`Line` of :obj:`Location`.
 
@@ -102,9 +100,7 @@ def Location_File_Line_To_Offset(
 
 @export
 @BindToLibGHDL("files_map__location_file_line_to_col")
-def Location_File_Line_To_Col(
-    Location: LocationType, File: SourceFileEntry, Line: int
-) -> int:
+def Location_File_Line_To_Col(Location: LocationType, File: SourceFileEntry, Line: int) -> int:
     """
     Get logical column (with HT expanded) from :obj:`Location`, :obj:`File` and
     :obj:`Line`.
@@ -223,9 +219,7 @@ def Read_Source_File(Directory: NameId, Name: NameId) -> SourceFileEntry:
 
 @export
 @BindToLibGHDL("files_map__reserve_source_file")
-def Reserve_Source_File(
-    Directory: NameId, Name: NameId, Length: int
-) -> SourceFileEntry:
+def Reserve_Source_File(Directory: NameId, Name: NameId, Length: int) -> SourceFileEntry:
     """
     Reserve an entry, but do not read any file.
 

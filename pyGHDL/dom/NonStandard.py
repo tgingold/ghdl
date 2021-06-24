@@ -118,9 +118,7 @@ class Document(VHDLModel_Document):
     def __ghdl_init(self):
         # Read input file
         self.__ghdlFileID = name_table.Get_Identifier(str(self.Path))
-        self.__ghdlSourceFileEntry = files_map.Read_Source_File(
-            name_table.Null_Identifier, self.__ghdlFileID
-        )
+        self.__ghdlSourceFileEntry = files_map.Read_Source_File(name_table.Null_Identifier, self.__ghdlFileID)
         if self.__ghdlSourceFileEntry == files_map.No_Source_File_Entry:
             raise LibGHDLException("Cannot load file '{!s}'".format(self.Path))
 
@@ -163,7 +161,5 @@ class Document(VHDLModel_Document):
 
             else:
                 raise DOMException(
-                    "Unknown design unit kind '{kindName}'({kind}).".format(
-                        kindName=nodeKind.name, kind=nodeKind
-                    )
+                    "Unknown design unit kind '{kindName}'({kind}).".format(kindName=nodeKind.name, kind=nodeKind)
                 )

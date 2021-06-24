@@ -49,9 +49,7 @@ class Literals(TestCase):
     _root = Path(__file__).resolve().parent.parent
 
     def test_IntegerLiteral(self):
-        self._filename: Path = self._root / "{className}.vhdl".format(
-            className=self.__class__.__name__
-        )
+        self._filename: Path = self._root / "{className}.vhdl".format(className=self.__class__.__name__)
 
         sourceCode = dedent(
             """\

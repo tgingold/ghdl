@@ -7,12 +7,12 @@ from sys import stdout, stderr
 
 def dlopen(path):
     if not Path(path).exists():
-        print('Executable binary not found: ' + path)
+        print("Executable binary not found: " + path)
         exit(1)
     try:
         return ctypes.CDLL(path)
     except OSError:
-        print('Loading executables dynamically seems not to be supported on this platform')
+        print("Loading executables dynamically seems not to be supported on this platform")
         exit(1)
 
 
@@ -26,7 +26,7 @@ def dlclose(obj):
 def enc_args(args):
     xargs = (ctypes.POINTER(ctypes.c_char) * len(args))()
     for idx, arg in enumerate(args):
-        xargs[idx] = ctypes.create_string_buffer(arg.encode('utf-8'))
+        xargs[idx] = ctypes.create_string_buffer(arg.encode("utf-8"))
     return xargs
 
 

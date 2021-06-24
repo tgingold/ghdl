@@ -62,9 +62,7 @@ def handleException(ex):
         print("GHDL:", ex)
         return 2
     else:
-        print(
-            "Fatal: An unhandled exception has reached to the top-most exception handler."
-        )
+        print("Fatal: An unhandled exception has reached to the top-most exception handler.")
         return 1
 
 

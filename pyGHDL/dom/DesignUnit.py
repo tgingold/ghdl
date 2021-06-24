@@ -73,9 +73,7 @@ class Entity(VHDLModel_Entity):
         name = GetNameOfNode(entityNode)
         generics = GetGenericsFromChainedNodes(nodes.Get_Generic_Chain(entityNode))
         ports = GetPortsFromChainedNodes(nodes.Get_Port_Chain(entityNode))
-        declaredItems = GetDeclaredItemsFromChainedNodes(
-            nodes.Get_Declaration_Chain(entityNode), "entity", name
-        )
+        declaredItems = GetDeclaredItemsFromChainedNodes(nodes.Get_Declaration_Chain(entityNode), "entity", name)
         bodyItems = []
 
         return cls(name, generics, ports, declaredItems, bodyItems)
@@ -115,12 +113,8 @@ class Package(VHDLModel_Package):
     @classmethod
     def parse(cls, packageNode: Iir):
         name = GetNameOfNode(packageNode)
-        generics = (
-            None  # GetGenericsFromChainedNodes(nodes.Get_Generic_Chain(packageNode))
-        )
-        declaredItems = GetDeclaredItemsFromChainedNodes(
-            nodes.Get_Declaration_Chain(packageNode), "package", name
-        )
+        generics = None  # GetGenericsFromChainedNodes(nodes.Get_Generic_Chain(packageNode))
+        declaredItems = GetDeclaredItemsFromChainedNodes(nodes.Get_Declaration_Chain(packageNode), "package", name)
 
         return cls(name, generics, declaredItems)
 
@@ -130,9 +124,7 @@ class PackageBody(VHDLModel_PackageBody):
     @classmethod
     def parse(cls, packageBodyNode: Iir):
         name = GetNameOfNode(packageBodyNode)
-        declaredItems = GetDeclaredItemsFromChainedNodes(
-            nodes.Get_Declaration_Chain(packageBodyNode), "package", name
-        )
+        declaredItems = GetDeclaredItemsFromChainedNodes(nodes.Get_Declaration_Chain(packageBodyNode), "package", name)
 
         return cls(name, declaredItems)
 

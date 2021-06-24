@@ -127,9 +127,7 @@ def GetArrayConstraintsFromSubtypeIndication(
     subTypeIndication: Iir,
 ) -> List[Constraint]:
     constraints = []
-    for constraint in utils.flist_iter(
-        nodes.Get_Index_Constraint_List(subTypeIndication)
-    ):
+    for constraint in utils.flist_iter(nodes.Get_Index_Constraint_List(subTypeIndication)):
         constraintKind = GetIirKindOfNode(constraint)
         if constraintKind == nodes.Iir_Kind.Range_Expression:
             constraints.append(RangeExpression(GetRangeFromNode(constraint)))
@@ -204,9 +202,7 @@ def GetSubTypeIndicationFromNode(node: Iir, entity: str, name: str) -> SubTypeOr
 
 
 @export
-def GetSubTypeIndicationFromIndicationNode(
-    subTypeIndicationNode: Iir, entity: str, name: str
-) -> SubTypeOrSymbol:
+def GetSubTypeIndicationFromIndicationNode(subTypeIndicationNode: Iir, entity: str, name: str) -> SubTypeOrSymbol:
     kind = GetIirKindOfNode(subTypeIndicationNode)
     if kind == nodes.Iir_Kind.Simple_Name:
         return GetSimpleTypeFromNode(subTypeIndicationNode)
@@ -421,9 +417,7 @@ def GetParameterFromChainedNodes(
             )
 
 
-def GetDeclaredItemsFromChainedNodes(
-    nodeChain: Iir, entity: str, name: str
-) -> Generator[ModelEntity, None, None]:
+def GetDeclaredItemsFromChainedNodes(nodeChain: Iir, entity: str, name: str) -> Generator[ModelEntity, None, None]:
     for item in utils.chain_iter(nodeChain):
         kind = GetIirKindOfNode(item)
         if kind == nodes.Iir_Kind.Constant_Declaration:

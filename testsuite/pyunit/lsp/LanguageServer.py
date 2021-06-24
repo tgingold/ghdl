@@ -151,11 +151,7 @@ class JSONTest(TestCase):
         self.assertIsNone(rep, "Too many replies.")
 
         if errs != 0:
-            print(
-                "FAILURE between output and {!s} (for {!s})".format(
-                    responseFile, requestFile
-                )
-            )
+            print("FAILURE between output and {!s} (for {!s})".format(responseFile, requestFile))
             print("Writing result output to result.json")
             with open("result.json", "w") as f:
                 f.write(json_dumps(json_res, indent=2))
