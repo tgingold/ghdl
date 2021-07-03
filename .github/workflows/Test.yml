@@ -205,8 +205,8 @@ jobs:
       matrix:
         include: [
           {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: "MINGW32", arch: i686,   pkg: "llvm"  }, ! Not yet functional
-          {icon: '🟦', installs: "MINGW64", arch: x86_64, pkg: "mcode" }, #! simulation with mcode is not yet supported on win64
+          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
+          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
           {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
         ]
     name: '${{ matrix.icon }} Build · ${{ matrix.installs }} · ${{ matrix.pkg }}'
@@ -268,8 +268,8 @@ jobs:
       matrix:
         sys: [
           {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: "MINGW32", arch: i686,   pkg: "llvm"  }, ! Not yet functional
-          #{icon: '🟦', installs: "MINGW64", arch: x86_64, pkg: "mcode" }, #! simulation with mcode is not yet supported on win64
+          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
+          #{icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
           {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
         ]
         suite: [
@@ -328,8 +328,8 @@ jobs:
       matrix:
         include: [
           {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: "MINGW32", arch: i686,   pkg: "llvm"  }, ! Not yet functional
-          {icon: '🟦', installs: "MINGW64", arch: x86_64, pkg: "mcode" }, #! simulation with mcode is not yet supported on win64
+          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
+          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
           {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
         ]
     name: '${{ matrix.icon }} pyGHDL · ${{ matrix.installs }} · ${{ matrix.pkg }}'
@@ -382,7 +382,7 @@ jobs:
       matrix:
         include: [
           {icon: '🟪', installs: 'MINGW32', arch: i686   },
-          {icon: '🟦', installs: "MINGW64", arch: x86_64 }, #! simulation with mcode is not yet supported on win64
+          {icon: '🟦', installs: 'MINGW64', arch: x86_64 }, #! simulation with mcode is not yet supported on win64
         ]
     name: '${{ matrix.icon }} Deps · ${{ matrix.installs }} · mcode'
     defaults:
@@ -419,7 +419,7 @@ jobs:
 
     - name: '🥡 Generate standalone zipfile'
       run: |
-        _zipdir="${{ matrix.installs }}-mcode-standalone"
+        _zipdir='${{ matrix.installs }}-mcode-standalone'
         mkdir -p "${_zipdir}"
         tar xf artifact/mingw-w64-${{ matrix.arch }}-ghdl-mcode-*.zst -C "${_zipdir}"
         cd "${_zipdir}/${{ matrix.installs }}"/bin
@@ -446,8 +446,8 @@ jobs:
       matrix:
         include: [
           {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: "MINGW32", arch: i686,   pkg: "llvm"  }, ! Not yet functional
-          {icon: '🟦', installs: "MINGW64", arch: x86_64, pkg: "mcode" }, #! simulation with mcode is not yet supported on win64
+          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
+          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
           {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
         ]
     name: '${{ matrix.icon }} CPython · ${{ matrix.installs }} · ${{ matrix.pkg }}'
