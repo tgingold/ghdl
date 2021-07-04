@@ -204,10 +204,10 @@ jobs:
       fail-fast: false
       matrix:
         include: [
-          {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
+          #{icon: '🟪', pkg: 'llvm',  installs: 'MINGW32', arch: i686 }, ! Not yet functional
+          {icon: '🟦', pkg: 'llvm',  installs: 'MINGW64', arch: x86_64 },
+          {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
+          {icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
     name: '${{ matrix.icon }} Build · ${{ matrix.installs }} · ${{ matrix.pkg }}'
     env:
@@ -267,10 +267,10 @@ jobs:
       fail-fast: false
       matrix:
         sys: [
-          {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
-          #{icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
+          #{icon: '🟪', pkg: 'llvm',  installs: 'MINGW32', arch: i686 }, ! Not yet functional
+          {icon: '🟦', pkg: 'llvm',  installs: 'MINGW64', arch: x86_64 },
+          {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
+          #{icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
         suite: [
           'sanity pyunit vpi vhpi',
@@ -327,12 +327,12 @@ jobs:
       fail-fast: false
       matrix:
         include: [
-          {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
+          #{icon: '🟪', pkg: 'llvm',  installs: 'MINGW32', arch: i686 }, ! Not yet functional
+          {icon: '🟦', pkg: 'llvm',  installs: 'MINGW64', arch: x86_64 },
+          {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
+          {icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} pyGHDL · ${{ matrix.installs }} · ${{ matrix.pkg }}'
+    name: '${{ matrix.icon }} pip · ${{ matrix.installs }} · ${{ matrix.pkg }}'
     defaults:
       run:
         shell: msys2 {0}
@@ -381,10 +381,10 @@ jobs:
       fail-fast: false
       matrix:
         include: [
-          {icon: '🟪', installs: 'MINGW32', arch: i686   },
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64 }, #! simulation with mcode is not yet supported on win64
+          {icon: '🟪', installs: 'MINGW32', arch: i686,   },
+          {icon: '🟦', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} Deps · ${{ matrix.installs }} · mcode'
+    name: '${{ matrix.icon }} Standalone · ${{ matrix.installs }} · mcode'
     defaults:
       run:
         shell: msys2 {0}
@@ -445,12 +445,12 @@ jobs:
       fail-fast: false
       matrix:
         include: [
-          {icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'mcode' },
-          #{icon: '🟪', installs: 'MINGW32', arch: i686,   pkg: 'llvm'  }, ! Not yet functional
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'mcode' }, #! simulation with mcode is not yet supported on win64
-          {icon: '🟦', installs: 'MINGW64', arch: x86_64, pkg: 'llvm'  },
+          #{icon: '🟪', pkg: 'llvm',  installs: 'MINGW32', arch: i686 }, ! Not yet functional
+          {icon: '🟦', pkg: 'llvm',  installs: 'MINGW64', arch: x86_64 },
+          {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
+          {icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} CPython · ${{ matrix.installs }} · ${{ matrix.pkg }}'
+    name: '${{ matrix.icon }} CPython Test · ${{ matrix.installs }} · ${{ matrix.pkg }}'
     defaults:
       run:
         shell: pwsh
@@ -505,13 +505,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: [
-          {icon: '🟪', pkg: 'MINGW32-mcode' },
-          #{icon: '🟪', pkg: 'MINGW32-llvm'  }, ! Not yet functional
-          {icon: '🟦', pkg: 'MINGW64-mcode' }, #! simulation with mcode is not yet supported on win64
-          #{icon: '🟦', pkg: 'MINGW64-llvm'  },
-        ]
-    name: '${{ matrix.icon }} CPython Test · ${{ matrix.pkg }}'
+        pkg:
+        #- 'MINGW32-llvm' ! Not yet functional
+        #- 'MINGW64-llvm'
+        - 'MINGW32-mcode'
+        - 'MINGW64-mcode' #! simulation with mcode is not yet supported on win64
+    name: '${{ matrix.icon }} CPython Test Standalone · ${{ matrix.pkg }}'
     defaults:
       run:
         shell: pwsh
