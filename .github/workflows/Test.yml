@@ -23,7 +23,7 @@ jobs:
     - name: '🧰 Checkout'
       uses: actions/checkout@v2
 
-    - name: Build ghdl/doc
+    - name: '⛴️ Build ghdl/doc'
       run: |
         docker build -t ghdl/doc . -f- <<-EOF
         FROM ghdl/debug:base
@@ -32,7 +32,7 @@ jobs:
         RUN cd /opt/ghdl && ./configure && make && make install
         EOF
 
-    - name: Run gnatdoc
+    - name: '📚 Run gnatdoc'
       run: |
         cat > run.sh <<-EOF
         #!/usr/bin/env sh
@@ -108,7 +108,7 @@ jobs:
 
   gpl:
     runs-on: ubuntu-latest
-    name: '🐧 GPL · mcode'
+    name: '🚧🚦🐧 GPL · mcode'
     steps:
 
     - name: '🧰 Checkout'
@@ -132,7 +132,7 @@ jobs:
           { os: 18, backend: gcc-8.3.0 },
           { os: 20, backend: gcc-9.3.0 }
         ]
-    name: '🐧 Ubuntu ${{ matrix.os }} · ${{ matrix.backend }}'
+    name: '🚧🚦🐧 ${{ matrix.os }} · ${{ matrix.backend }}'
     runs-on: ubuntu-${{ matrix.os }}.04
     steps:
 
@@ -162,7 +162,7 @@ jobs:
         - mcode
         - llvm
     runs-on: macOS-10.15
-    name: '🍎 macOS 10.15 · ${{ matrix.backend }}'
+    name: '🚧🚦🍎 10.15 · ${{ matrix.backend }}'
     steps:
 
     - name: '🧰 Checkout'
@@ -179,7 +179,7 @@ jobs:
     - name: '⚙️ Dependencies (brew)'
       run: ./scripts/macosx/install-ada.sh
 
-    - name: '🚧 Build and test GHDL'
+    - name: '🚧 Build and 🚦 Test GHDL'
       run: |
         PATH=$PWD/gnat/bin:$PATH
         ./scripts/ci-run.sh -c
@@ -209,7 +209,7 @@ jobs:
           {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
           {icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} Build · ${{ matrix.installs }} · ${{ matrix.pkg }}'
+    name: '🚧${{ matrix.icon }} · ${{ matrix.pkg }}'
     env:
       MINGW_ARCH: ${{ matrix.installs }}
     defaults:
@@ -278,7 +278,7 @@ jobs:
           'vests',
           'synth',
         ]
-    name: '${{ matrix.sys.icon }} Test · ${{ matrix.sys.installs }} · ${{ matrix.sys.pkg }} · ${{ matrix.suite }}'
+    name: '🚦${{ matrix.sys.icon }} ${{ matrix.sys.pkg }} · ${{ matrix.suite }}'
     defaults:
       run:
         shell: msys2 {0}
@@ -308,12 +308,12 @@ jobs:
         path: artifact
         name: ${{ matrix.sys.installs }}-${{ matrix.sys.pkg }}
 
-    - name: '🚧 Install package and Python dependencies'
+    - name: '🛠️ Install package and 🐍 Python dependencies'
       run: |
         pacman --noconfirm -U artifact/mingw-w64-${{ matrix.sys.arch }}-ghdl-${{ matrix.sys.pkg }}-*.zst
         pip3 install -r testsuite/requirements.txt
 
-    - name: '🚧 Test package'
+    - name: '🚦 Test package'
       run: GHDL=ghdl ./testsuite/testsuite.sh ${{ matrix.suite }}
 
 #
@@ -332,7 +332,7 @@ jobs:
           {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
           {icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} pip · ${{ matrix.installs }} · ${{ matrix.pkg }}'
+    name: '🚦${{ matrix.icon }} pip · ${{ matrix.pkg }}'
     defaults:
       run:
         shell: msys2 {0}
@@ -359,13 +359,13 @@ jobs:
         path: artifact
         name: ${{ matrix.installs }}-${{ matrix.pkg }}
 
-    - name: '🚧 Install package'
+    - name: '🛠️ Install package'
       run: pacman --noconfirm -U artifact/mingw-w64-${{ matrix.arch }}-ghdl-${{ matrix.pkg }}-*.zst
 
-    - name: '🚧 Test installation of pyGHDL through pip'
+    - name: '🚦 Test installation of pyGHDL through pip'
       run: pip install git+https://github.com/ghdl/ghdl.git@$(ghdl version hash)
 
-    - name: '🚧 Test pyGHDL entrypoints'
+    - name: '🚦 Test pyGHDL entrypoints'
       run: |
         ghdl-dom help
         ghdl-ls --help
@@ -384,7 +384,7 @@ jobs:
           {icon: '🟪', installs: 'MINGW32', arch: i686,   },
           {icon: '🟦', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} Standalone · ${{ matrix.installs }} · mcode'
+    name: '🚧🥡${{ matrix.icon }} · mcode'
     defaults:
       run:
         shell: msys2 {0}
@@ -414,7 +414,7 @@ jobs:
         path: artifact
         name: ${{ matrix.installs }}-mcode
 
-    - name: '🚧 Install package'
+    - name: '🛠️ Install package'
       run: pacman --noconfirm -U artifact/mingw-w64-${{ matrix.arch }}-ghdl-mcode-*.zst
 
     - name: '🥡 Generate standalone zipfile'
@@ -450,7 +450,7 @@ jobs:
           {icon: '🟪', pkg: 'mcode', installs: 'MINGW32', arch: i686,   },
           {icon: '🟦', pkg: 'mcode', installs: 'MINGW64', arch: x86_64, }, #! simulation with mcode is not yet supported on win64
         ]
-    name: '${{ matrix.icon }} CPython Test · ${{ matrix.installs }} · ${{ matrix.pkg }}'
+    name: '🚦🐍${{ matrix.icon }} · ${{ matrix.pkg }}'
     defaults:
       run:
         shell: pwsh
@@ -474,7 +474,7 @@ jobs:
         path: artifact
         name: ${{ matrix.installs }}-${{ matrix.pkg }}
 
-    - name: '⚙️ Install package'
+    - name: '🛠️ Install package'
       shell: msys2 {0}
       run: |
         pacman --noconfirm -U artifact/mingw-w64-${{ matrix.arch }}-ghdl-${{ matrix.pkg }}-*.zst
@@ -488,7 +488,7 @@ jobs:
       run: |
         pip3 install -r testsuite/requirements.txt
 
-    - name: '🚧 Test package'
+    - name: '🚦 Test package'
       run: |
         $env:GHDL_PREFIX = (& msys2 -c 'cygpath -w /') + '${{ matrix.installs }}\lib\ghdl\'
         $env:PYTHONPATH = (pwd).Path
@@ -510,7 +510,7 @@ jobs:
         #- 'MINGW64-llvm'
         - 'MINGW32-mcode'
         - 'MINGW64-mcode' #! simulation with mcode is not yet supported on win64
-    name: '${{ matrix.icon }} CPython Test Standalone · ${{ matrix.pkg }}'
+    name: '🚦🐍🥡 ${{ matrix.pkg }}'
     defaults:
       run:
         shell: pwsh
@@ -542,7 +542,7 @@ jobs:
       run: |
         pip3 install -r testsuite/requirements.txt
 
-    - name: '🚧 Test package'
+    - name: '🚦 Test package'
       run: |
         $env:GHDL_PREFIX = (pwd).Path + '\GHDL-standalone\lib\ghdl'
         $env:PYTHONPATH = (pwd).Path
@@ -627,12 +627,12 @@ jobs:
         path: artifact
         name: MINGW64-llvm
 
-    - name: '🚧 Install package and Python dependencies'
+    - name: '🛠️ Install package and 🐍 Python dependencies'
       run: |
         pacman --noconfirm -U artifact/mingw-w64-x86_64-ghdl-llvm-*.zst
         pip3 install -r testsuite/requirements.txt
 
-    - name: '🚧 Run tests to generate coverage report'
+    - name: '🚦 Run tests to generate coverage report'
       run: PYTHONPATH=$(pwd) python3 -m pytest -rA --cov=.. --cov-config=.coveragerc testsuite/pyunit
 
     - name: Generate XML coverage report
