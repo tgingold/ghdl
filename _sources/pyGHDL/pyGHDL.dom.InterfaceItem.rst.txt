@@ -1,0 +1,158 @@
+pyGHDL.dom.InterfaceItem
+============================
+
+.. automodule:: pyGHDL.dom.InterfaceItem
+
+
+.. currentmodule:: pyGHDL.dom.InterfaceItem
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`GenericConstantInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`GenericTypeInterfaceItem`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+- :py:class:`GenericPackageInterfaceItem`:
+  A ``GenericInterfaceItem`` is a mixin class for all generic interface items.
+
+- :py:class:`GenericProcedureInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`GenericFunctionInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`PortSignalInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`ParameterConstantInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`ParameterVariableInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`ParameterSignalInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`ParameterFileInterfaceItem`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: GenericConstantInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: GenericConstantInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: GenericTypeInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: GenericTypeInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: GenericPackageInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: GenericPackageInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: GenericProcedureInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: GenericProcedureInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: GenericFunctionInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: GenericFunctionInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: PortSignalInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PortSignalInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: ParameterConstantInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ParameterConstantInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: ParameterVariableInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ParameterVariableInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: ParameterSignalInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ParameterSignalInterfaceItem
+
+   .. rubric:: Members
+
+.. autoclass:: ParameterFileInterfaceItem
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ParameterFileInterfaceItem
+
+   .. rubric:: Members

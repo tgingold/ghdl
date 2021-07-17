@@ -1,0 +1,46 @@
+pyGHDL.dom.Attribute
+========================
+
+.. automodule:: pyGHDL.dom.Attribute
+
+
+.. currentmodule:: pyGHDL.dom.Attribute
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`Attribute`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`AttributeSpecification`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: Attribute
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Attribute
+
+   .. rubric:: Members
+
+.. autoclass:: AttributeSpecification
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: AttributeSpecification
+
+   .. rubric:: Members

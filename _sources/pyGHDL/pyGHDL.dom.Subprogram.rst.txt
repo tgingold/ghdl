@@ -1,0 +1,46 @@
+pyGHDL.dom.Subprogram
+=========================
+
+.. automodule:: pyGHDL.dom.Subprogram
+
+
+.. currentmodule:: pyGHDL.dom.Subprogram
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`Function`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`Procedure`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: Function
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Function
+
+   .. rubric:: Members
+
+.. autoclass:: Procedure
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Procedure
+
+   .. rubric:: Members

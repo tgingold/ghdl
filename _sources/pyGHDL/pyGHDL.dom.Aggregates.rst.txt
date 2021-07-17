@@ -1,0 +1,88 @@
+pyGHDL.dom.Aggregates
+=========================
+
+.. automodule:: pyGHDL.dom.Aggregates
+
+
+.. currentmodule:: pyGHDL.dom.Aggregates
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`SimpleAggregateElement`:
+  A ``AggregateElement`` is a base-class for all aggregate elements.
+
+- :py:class:`IndexedAggregateElement`:
+  A ``AggregateElement`` is a base-class for all aggregate elements.
+
+- :py:class:`RangedAggregateElement`:
+  A ``AggregateElement`` is a base-class for all aggregate elements.
+
+- :py:class:`NamedAggregateElement`:
+  A ``AggregateElement`` is a base-class for all aggregate elements.
+
+- :py:class:`OthersAggregateElement`:
+  A ``AggregateElement`` is a base-class for all aggregate elements.
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: SimpleAggregateElement
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SimpleAggregateElement
+
+   .. rubric:: Members
+
+.. autoclass:: IndexedAggregateElement
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IndexedAggregateElement
+
+   .. rubric:: Members
+
+.. autoclass:: RangedAggregateElement
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: RangedAggregateElement
+
+   .. rubric:: Members
+
+.. autoclass:: NamedAggregateElement
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: NamedAggregateElement
+
+   .. rubric:: Members
+
+.. autoclass:: OthersAggregateElement
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: OthersAggregateElement
+
+   .. rubric:: Members

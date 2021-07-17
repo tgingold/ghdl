@@ -1,0 +1,32 @@
+pyGHDL.dom.Misc
+===================
+
+.. automodule:: pyGHDL.dom.Misc
+
+
+.. currentmodule:: pyGHDL.dom.Misc
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`Alias`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: Alias
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Alias
+
+   .. rubric:: Members

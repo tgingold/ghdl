@@ -1,0 +1,1419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom.Type &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyGHDL.dom._Translate" href="pyGHDL.dom._Translate.html" />
+    <link rel="prev" title="pyGHDL.dom.Symbol" href="pyGHDL.dom.Symbol.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="pyGHDL.html">Python Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.cli.html">pyGHDL.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyGHDL.dom.html">pyGHDL.dom</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Aggregates.html">pyGHDL.dom.Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Attribute.html">pyGHDL.dom.Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.DesignUnit.html">pyGHDL.dom.DesignUnit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Expression.html">pyGHDL.dom.Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.InterfaceItem.html">pyGHDL.dom.InterfaceItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Literal.html">pyGHDL.dom.Literal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Misc.html">pyGHDL.dom.Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Names.html">pyGHDL.dom.Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.NonStandard.html">pyGHDL.dom.NonStandard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Object.html">pyGHDL.dom.Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.PSL.html">pyGHDL.dom.PSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Range.html">pyGHDL.dom.Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Subprogram.html">pyGHDL.dom.Subprogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Symbol.html">pyGHDL.dom.Symbol</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pyGHDL.dom.Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom._Translate.html">pyGHDL.dom._Translate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom._Utils.html">pyGHDL.dom._Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.formatting.html">pyGHDL.dom.formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.libghdl.html">pyGHDL.libghdl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.lsp.html">pyGHDL.lsp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="pyGHDL.dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom.Type</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/ghdl/ghdl/blob/master/doc/pyGHDL/pyGHDL.dom.Type.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyGHDL.dom.Type">
+<span id="pyghdl-dom-type"></span><h1>pyGHDL.dom.Type<a class="headerlink" href="#module-pyGHDL.dom.Type" title="Permalink to this headline">¶</a></h1>
+<p><strong>Classes</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.IncompleteType" title="pyGHDL.dom.Type.IncompleteType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IncompleteType</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">BaseType</span></code> is the base class of all type entities in this model.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.EnumeratedType" title="pyGHDL.dom.Type.EnumeratedType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumeratedType</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">ScalarType</span></code> is a base-class for all scalar types.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.IntegerType" title="pyGHDL.dom.Type.IntegerType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerType</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">RangedScalarType</span></code> is a base-class for all scalar types with a range.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.PhysicalType" title="pyGHDL.dom.Type.PhysicalType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalType</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">RangedScalarType</span></code> is a base-class for all scalar types with a range.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.ArrayType" title="pyGHDL.dom.Type.ArrayType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayType</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">CompositeType</span></code> is a base-class for all composite types.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.RecordTypeElement" title="pyGHDL.dom.Type.RecordTypeElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordTypeElement</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">ModelEntity</span></code> is the base class for all classes in the VHDL language model,</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.RecordType" title="pyGHDL.dom.Type.RecordType"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordType</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">CompositeType</span></code> is a base-class for all composite types.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.ProtectedType" title="pyGHDL.dom.Type.ProtectedType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProtectedType</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">BaseType</span></code> is the base class of all type entities in this model.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.ProtectedTypeBody" title="pyGHDL.dom.Type.ProtectedTypeBody"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProtectedTypeBody</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">BaseType</span></code> is the base class of all type entities in this model.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.AccessType" title="pyGHDL.dom.Type.AccessType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccessType</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">BaseType</span></code> is the base class of all type entities in this model.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.FileType" title="pyGHDL.dom.Type.FileType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileType</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">BaseType</span></code> is the base class of all type entities in this model.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Type.Subtype" title="pyGHDL.dom.Type.Subtype"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subtype</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">BaseType</span></code> is the base class of all type entities in this model.</p></li>
+</ul>
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.IncompleteType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">IncompleteType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#IncompleteType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-7940f466cfb3aea58496b44d2decdfd8815de3b0.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of IncompleteType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IncompleteType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#IncompleteType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.IncompleteType" title="pyGHDL.dom.Type.IncompleteType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IncompleteType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IncompleteType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IncompleteType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IncompleteType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IncompleteType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IncompleteType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IncompleteType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IncompleteType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.IncompleteType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.EnumeratedType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">EnumeratedType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">literals</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#EnumeratedType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-39c5ead2a05a9e756930a301e3052b97a2fe7e85.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of EnumeratedType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.EnumeratedType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#EnumeratedType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.EnumeratedType" title="pyGHDL.dom.Type.EnumeratedType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumeratedType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.EnumeratedType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.EnumeratedType.Literals">
+<em class="property">property </em><code class="sig-name descname">Literals</code><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType.Literals" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.EnumerationLiteral" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumerationLiteral</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.EnumeratedType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.EnumeratedType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.EnumeratedType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.EnumeratedType._literals">
+<code class="sig-name descname">_literals</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.EnumerationLiteral" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.EnumerationLiteral</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType._literals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.EnumeratedType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.EnumeratedType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.EnumeratedType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.EnumeratedType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.IntegerType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">IntegerType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">rng</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#IntegerType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-3805d379f3d1866e8ab5e1021870318d3603f11f.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of IntegerType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IntegerType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IntegerType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IntegerType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.IntegerType.Range">
+<em class="property">property </em><code class="sig-name descname">Range</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType.Range" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Range</span></code></a>, <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Name" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Name</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._range">
+<code class="sig-name descname">_range</code><em class="property">: Union<span class="p">[</span><a class="reference internal" href="#pyGHDL.dom.Type.IntegerType.Range" title="pyGHDL.dom.Type.IntegerType.Range">Range</a><span class="p">, </span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Name" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Name</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._leftBound">
+<code class="sig-name descname">_leftBound</code><em class="property">: Union<span class="p">[</span>BaseExpression<span class="p">, </span>QualifiedExpression<span class="p">, </span>FunctionCall<span class="p">, </span>TypeConversion<span class="p">, </span>Constant<span class="p">, </span>ConstantSymbol<span class="p">, </span>Variable<span class="p">, </span>VariableSymbol<span class="p">, </span>Signal<span class="p">, </span>SignalSymbol<span class="p">, </span>Literal<span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._leftBound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._rightBound">
+<code class="sig-name descname">_rightBound</code><em class="property">: Union<span class="p">[</span>BaseExpression<span class="p">, </span>QualifiedExpression<span class="p">, </span>FunctionCall<span class="p">, </span>TypeConversion<span class="p">, </span>Constant<span class="p">, </span>ConstantSymbol<span class="p">, </span>Variable<span class="p">, </span>VariableSymbol<span class="p">, </span>Signal<span class="p">, </span>SignalSymbol<span class="p">, </span>Literal<span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._rightBound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._identifier">
+<code class="sig-name descname">_identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.IntegerType._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Type.IntegerType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.PhysicalType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">PhysicalType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">rng</span></em>, <em class="sig-param"><span class="n">primaryUnit</span></em>, <em class="sig-param"><span class="n">units</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#PhysicalType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-2c03253653965cca2116e0ad42fff2ff04c5e820.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of PhysicalType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#PhysicalType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.PhysicalType" title="pyGHDL.dom.Type.PhysicalType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.PrimaryUnit">
+<em class="property">property </em><code class="sig-name descname">PrimaryUnit</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.PrimaryUnit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.Range">
+<em class="property">property </em><code class="sig-name descname">Range</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.Range" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Range</span></code></a>, <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Name" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Name</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.PhysicalType.SecondaryUnits">
+<em class="property">property </em><code class="sig-name descname">SecondaryUnits</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType.SecondaryUnits" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Tuple" title="(in Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.PhysicalIntegerLiteral" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalIntegerLiteral</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._primaryUnit">
+<code class="sig-name descname">_primaryUnit</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._primaryUnit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._secondaryUnits">
+<code class="sig-name descname">_secondaryUnits</code><em class="property">: List<span class="p">[</span>Tuple<span class="p">[</span><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a><span class="p">, </span>PhysicalIntegerLiteral<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._secondaryUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._range">
+<code class="sig-name descname">_range</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._leftBound">
+<code class="sig-name descname">_leftBound</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._leftBound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._rightBound">
+<code class="sig-name descname">_rightBound</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._rightBound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._identifier">
+<code class="sig-name descname">_identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.PhysicalType._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Type.PhysicalType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.ArrayType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">ArrayType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">indices</span></em>, <em class="sig-param"><span class="n">elementSubtype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#ArrayType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-03f5eced26e2f2cfcc5a670a13589d0bc774ab18.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of ArrayType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ArrayType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#ArrayType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.ArrayType" title="pyGHDL.dom.Type.ArrayType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ArrayType.Dimensions">
+<em class="property">property </em><code class="sig-name descname">Dimensions</code><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType.Dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Range</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ArrayType.ElementType">
+<em class="property">property </em><code class="sig-name descname">ElementType</code><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType.ElementType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subtype</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ArrayType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ArrayType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ArrayType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ArrayType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ArrayType._dimensions">
+<code class="sig-name descname">_dimensions</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Range</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType._dimensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ArrayType._elementType">
+<code class="sig-name descname">_elementType</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Subtype</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType._elementType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ArrayType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ArrayType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ArrayType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.ArrayType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.RecordTypeElement">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">RecordTypeElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">subtype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#RecordTypeElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-dc9e40a047baa66ac517c8b39d9ecfb30f82282c.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of RecordTypeElement</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordTypeElement.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elementDeclarationNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#RecordTypeElement.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.RecordTypeElement" title="pyGHDL.dom.Type.RecordTypeElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordTypeElement</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordTypeElement.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordTypeElement.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordTypeElement.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordTypeElement.Subtype">
+<em class="property">property </em><code class="sig-name descname">Subtype</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement.Subtype" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference internal" href="#pyGHDL.dom.Type.Subtype" title="pyGHDL.dom.Type.Subtype"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subtype</span></code></a>, <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.SubtypeSymbol" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubtypeSymbol</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordTypeElement._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordTypeElement._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordTypeElement._subtype">
+<code class="sig-name descname">_subtype</code><em class="property">: Union<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Subtype</a><span class="p">, </span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.SubtypeSymbol" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.SubtypeSymbol</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement._subtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordTypeElement._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordTypeElement._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.RecordTypeElement._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.RecordType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">RecordType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">elements</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#RecordType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.RecordType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-6afc357e6db988ce32e46eaa2c69f095462dc937.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of RecordType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#RecordType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.RecordType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.RecordType" title="pyGHDL.dom.Type.RecordType"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordType.Elements">
+<em class="property">property </em><code class="sig-name descname">Elements</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordType.Elements" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.RecordTypeElement" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordTypeElement</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.RecordType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.RecordType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.RecordType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordType._elements">
+<code class="sig-name descname">_elements</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.RecordTypeElement" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.RecordTypeElement</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.RecordType._elements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.RecordType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.RecordType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.RecordType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.RecordType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.ProtectedType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">ProtectedType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">methods</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#ProtectedType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-ef3c05665113308733311bfa6147ca0c6ff5871e.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of ProtectedType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#ProtectedType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.ProtectedType" title="pyGHDL.dom.Type.ProtectedType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProtectedType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedType.Methods">
+<em class="property">property </em><code class="sig-name descname">Methods</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType.Methods" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Procedure" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Procedure</span></code></a>, <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Function" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedType._methods">
+<code class="sig-name descname">_methods</code><em class="property">: List<span class="p">[</span>Union<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Procedure" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Procedure</a><span class="p">, </span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Function" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Function</a><span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType._methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">ProtectedTypeBody</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">declaredItems</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#ProtectedTypeBody"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-9694b7acbcb8009b702aba7fe617d6d7634e3b14.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of ProtectedTypeBody</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">protectedBodyNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#ProtectedTypeBody.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.ProtectedTypeBody" title="pyGHDL.dom.Type.ProtectedTypeBody"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProtectedTypeBody</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody.Methods">
+<em class="property">property </em><code class="sig-name descname">Methods</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody.Methods" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Procedure" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Procedure</span></code></a>, <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Function" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody._methods">
+<code class="sig-name descname">_methods</code><em class="property">: List<span class="p">[</span>Union<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Procedure" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Procedure</a><span class="p">, </span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Function" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Function</a><span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody._methods" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.ProtectedTypeBody._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.ProtectedTypeBody._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.AccessType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">AccessType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">designatedSubtype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#AccessType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.AccessType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-a791fc5027af9035c0cd31acb2e35c8f81892cd7.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of AccessType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.AccessType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#AccessType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.AccessType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.AccessType" title="pyGHDL.dom.Type.AccessType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccessType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.AccessType.DesignatedSubtype">
+<em class="property">property </em><code class="sig-name descname">DesignatedSubtype</code><a class="headerlink" href="#pyGHDL.dom.Type.AccessType.DesignatedSubtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.AccessType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.AccessType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.AccessType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.AccessType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.AccessType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.AccessType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.AccessType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.AccessType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.AccessType._designatedSubtype">
+<code class="sig-name descname">_designatedSubtype</code><em class="property">: Union<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Subtype</a><span class="p">, </span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.SubtypeSymbol" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.SubtypeSymbol</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.AccessType._designatedSubtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.AccessType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.AccessType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.AccessType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.AccessType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.AccessType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.AccessType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.FileType">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">FileType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em>, <em class="sig-param"><span class="n">designatedSubtype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#FileType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.FileType" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-ffca0b96794124cce647f3bde1edb80c1132c341.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of FileType</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.FileType.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typeName</span></em>, <em class="sig-param"><span class="n">typeDefinitionNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#FileType.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.FileType.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyGHDL.dom.Type.FileType" title="pyGHDL.dom.Type.FileType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.FileType.DesignatedSubtype">
+<em class="property">property </em><code class="sig-name descname">DesignatedSubtype</code><a class="headerlink" href="#pyGHDL.dom.Type.FileType.DesignatedSubtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.FileType.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.FileType.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.FileType.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.FileType.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.FileType.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.FileType.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.FileType._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.FileType._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.FileType._designatedSubtype">
+<code class="sig-name descname">_designatedSubtype</code><em class="property">: Union<span class="p">[</span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Subtype</a><span class="p">, </span><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.SubtypeSymbol" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.SubtypeSymbol</a><span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Type.FileType._designatedSubtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.FileType._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.FileType._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.FileType._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.FileType._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.FileType._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.FileType._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Type.Subtype">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Type.</code><code class="sig-name descname">Subtype</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">subtypeName</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Type.html#Subtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Type.Subtype" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-dffe7aa9c48c9de34545892faaa8aa1a9eb793e3.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of Subtype</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.BaseType">
+<em class="property">property </em><code class="sig-name descname">BaseType</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.BaseType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.BaseType" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.Range">
+<em class="property">property </em><code class="sig-name descname">Range</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.Range" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Range</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.ResolutionFunction">
+<em class="property">property </em><code class="sig-name descname">ResolutionFunction</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.ResolutionFunction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Function" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Type.Subtype.Type">
+<em class="property">property </em><code class="sig-name descname">Type</code><a class="headerlink" href="#pyGHDL.dom.Type.Subtype.Type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subtype</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._type">
+<code class="sig-name descname">_type</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Subtype" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Subtype</a></em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._baseType">
+<code class="sig-name descname">_baseType</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.BaseType" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.BaseType</a></em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._baseType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._range">
+<code class="sig-name descname">_range</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Range</a></em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._resolutionFunction">
+<code class="sig-name descname">_resolutionFunction</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Function" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Function</a></em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._resolutionFunction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Type.Subtype._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.Type.Subtype._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyGHDL.dom._Translate.html" class="btn btn-neutral float-right" title="pyGHDL.dom._Translate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyGHDL.dom.Symbol.html" class="btn btn-neutral float-left" title="pyGHDL.dom.Symbol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

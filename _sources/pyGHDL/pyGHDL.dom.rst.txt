@@ -1,0 +1,94 @@
+pyGHDL.dom
+==============
+
+.. automodule:: pyGHDL.dom
+
+
+
+.. #-----------------------------------
+
+**Submodules**
+
+.. toctree::
+
+   pyGHDL.dom.Aggregates
+   pyGHDL.dom.Attribute
+   pyGHDL.dom.DesignUnit
+   pyGHDL.dom.Expression
+   pyGHDL.dom.InterfaceItem
+   pyGHDL.dom.Literal
+   pyGHDL.dom.Misc
+   pyGHDL.dom.Names
+   pyGHDL.dom.NonStandard
+   pyGHDL.dom.Object
+   pyGHDL.dom.PSL
+   pyGHDL.dom.Range
+   pyGHDL.dom.Subprogram
+   pyGHDL.dom.Symbol
+   pyGHDL.dom.Type
+   pyGHDL.dom._Translate
+   pyGHDL.dom._Utils
+   pyGHDL.dom.formatting
+
+.. currentmodule:: pyGHDL.dom
+
+
+.. #-----------------------------------
+
+
+**Exceptions**
+
+- :py:exc:`DOMException`:
+  Common base class for all non-exit exceptions.
+
+
+
+**Classes**
+
+- :py:class:`Position`:
+  Represents the source code position of a IIR node in a source file.
+
+- :py:class:`DOMMixin`:
+  Undocumented.
+
+
+
+.. #-----------------------------------
+
+
+.. autoexception:: DOMException
+   :members:
+   :private-members:
+   :inherited-members:
+   :undoc-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: DOMException
+
+   .. rubric:: Members
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: Position
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Position
+
+   .. rubric:: Members
+
+.. autoclass:: DOMMixin
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: DOMMixin
+
+   .. rubric:: Members

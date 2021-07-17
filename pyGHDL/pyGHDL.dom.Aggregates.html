@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom.Aggregates &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyGHDL.dom.Attribute" href="pyGHDL.dom.Attribute.html" />
+    <link rel="prev" title="pyGHDL.dom" href="pyGHDL.dom.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="pyGHDL.html">Python Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.cli.html">pyGHDL.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyGHDL.dom.html">pyGHDL.dom</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pyGHDL.dom.Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Attribute.html">pyGHDL.dom.Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.DesignUnit.html">pyGHDL.dom.DesignUnit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Expression.html">pyGHDL.dom.Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.InterfaceItem.html">pyGHDL.dom.InterfaceItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Literal.html">pyGHDL.dom.Literal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Misc.html">pyGHDL.dom.Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Names.html">pyGHDL.dom.Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.NonStandard.html">pyGHDL.dom.NonStandard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Object.html">pyGHDL.dom.Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.PSL.html">pyGHDL.dom.PSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Range.html">pyGHDL.dom.Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Subprogram.html">pyGHDL.dom.Subprogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Symbol.html">pyGHDL.dom.Symbol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Type.html">pyGHDL.dom.Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom._Translate.html">pyGHDL.dom._Translate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom._Utils.html">pyGHDL.dom._Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.formatting.html">pyGHDL.dom.formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.libghdl.html">pyGHDL.libghdl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.lsp.html">pyGHDL.lsp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="pyGHDL.dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom.Aggregates</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/ghdl/ghdl/blob/master/doc/pyGHDL/pyGHDL.dom.Aggregates.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyGHDL.dom.Aggregates">
+<span id="pyghdl-dom-aggregates"></span><h1>pyGHDL.dom.Aggregates<a class="headerlink" href="#module-pyGHDL.dom.Aggregates" title="Permalink to this headline">¶</a></h1>
+<p>This module contains all DOM classes for VHDL’s design units (<code class="xref py py-class docutils literal notranslate"><span class="pre">context</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">architecture</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">package</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">package</span> <span class="pre">body</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">context</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">configuration</span></code>.</p>
+<p><strong>Classes</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement" title="pyGHDL.dom.Aggregates.SimpleAggregateElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleAggregateElement</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">AggregateElement</span></code> is a base-class for all aggregate elements.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement" title="pyGHDL.dom.Aggregates.IndexedAggregateElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexedAggregateElement</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">AggregateElement</span></code> is a base-class for all aggregate elements.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Aggregates.RangedAggregateElement" title="pyGHDL.dom.Aggregates.RangedAggregateElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">RangedAggregateElement</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">AggregateElement</span></code> is a base-class for all aggregate elements.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Aggregates.NamedAggregateElement" title="pyGHDL.dom.Aggregates.NamedAggregateElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedAggregateElement</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">AggregateElement</span></code> is a base-class for all aggregate elements.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.Aggregates.OthersAggregateElement" title="pyGHDL.dom.Aggregates.OthersAggregateElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">OthersAggregateElement</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">AggregateElement</span></code> is a base-class for all aggregate elements.</p></li>
+</ul>
+<dl class="py class">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Aggregates.</code><code class="sig-name descname">SimpleAggregateElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">expression</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Aggregates.html#SimpleAggregateElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-f5fb88ce60e67802f41a144490bdce117fa5e0ef.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of SimpleAggregateElement</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement.Expression">
+<em class="property">property </em><code class="sig-name descname">Expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement.Expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement._expression">
+<code class="sig-name descname">_expression</code><em class="property">: Union<span class="p">[</span>BaseExpression<span class="p">, </span>QualifiedExpression<span class="p">, </span>FunctionCall<span class="p">, </span>TypeConversion<span class="p">, </span>Constant<span class="p">, </span>ConstantSymbol<span class="p">, </span>Variable<span class="p">, </span>VariableSymbol<span class="p">, </span>Signal<span class="p">, </span>SignalSymbol<span class="p">, </span>Literal<span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement._expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.SimpleAggregateElement._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.SimpleAggregateElement._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Aggregates.</code><code class="sig-name descname">IndexedAggregateElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">expression</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Aggregates.html#IndexedAggregateElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-56f9fbfb83e657652458ec62d6f6747b3b43c57b.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of IndexedAggregateElement</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement.Expression">
+<em class="property">property </em><code class="sig-name descname">Expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement.Expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement.Index">
+<em class="property">property </em><code class="sig-name descname">Index</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement.Index" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement._index">
+<code class="sig-name descname">_index</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)">int</a></em><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement._index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement._expression">
+<code class="sig-name descname">_expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement._expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.IndexedAggregateElement._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.IndexedAggregateElement._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Aggregates.</code><code class="sig-name descname">RangedAggregateElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">rng</span></em>, <em class="sig-param"><span class="n">expression</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Aggregates.html#RangedAggregateElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-537bf4e061987fa46bbdc908f3341311bc63984c.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of RangedAggregateElement</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement.Expression">
+<em class="property">property </em><code class="sig-name descname">Expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement.Expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement.Range">
+<em class="property">property </em><code class="sig-name descname">Range</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement.Range" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Range" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Range</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement._range">
+<code class="sig-name descname">_range</code><em class="property">: <a class="reference internal" href="#pyGHDL.dom.Aggregates.RangedAggregateElement.Range" title="pyGHDL.dom.Aggregates.RangedAggregateElement.Range">Range</a></em><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement._range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement._expression">
+<code class="sig-name descname">_expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement._expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.RangedAggregateElement._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.RangedAggregateElement._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Aggregates.</code><code class="sig-name descname">NamedAggregateElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">expression</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Aggregates.html#NamedAggregateElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-2797546603a8e77e9eeb8217bdfeeec56ca81c0c.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of NamedAggregateElement</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement.Expression">
+<em class="property">property </em><code class="sig-name descname">Expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement.Expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement.Name">
+<em class="property">property </em><code class="sig-name descname">Name</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement.Name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Symbol" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement._name">
+<code class="sig-name descname">_name</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.Symbol" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.Symbol</a></em><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement._name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement._expression">
+<code class="sig-name descname">_expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement._expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.NamedAggregateElement._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.NamedAggregateElement._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.Aggregates.</code><code class="sig-name descname">OthersAggregateElement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">expression</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/Aggregates.html#OthersAggregateElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-ef25dd7646c52bb61d0a1e1284693b82889e6654.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of OthersAggregateElement</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement.Expression">
+<em class="property">property </em><code class="sig-name descname">Expression</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement.Expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement._position">
+<code class="sig-name descname">_position</code><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement._expression">
+<code class="sig-name descname">_expression</code><em class="property">: Union<span class="p">[</span>BaseExpression<span class="p">, </span>QualifiedExpression<span class="p">, </span>FunctionCall<span class="p">, </span>TypeConversion<span class="p">, </span>Constant<span class="p">, </span>ConstantSymbol<span class="p">, </span>Variable<span class="p">, </span>VariableSymbol<span class="p">, </span>Signal<span class="p">, </span>SignalSymbol<span class="p">, </span>Literal<span class="p">]</span></em><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement._expression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement._parent">
+<code class="sig-name descname">_parent</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.Aggregates.OthersAggregateElement._iirNode">
+<code class="sig-name descname">_iirNode</code><a class="headerlink" href="#pyGHDL.dom.Aggregates.OthersAggregateElement._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyGHDL.dom.Attribute.html" class="btn btn-neutral float-right" title="pyGHDL.dom.Attribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyGHDL.dom.html" class="btn btn-neutral float-left" title="pyGHDL.dom" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

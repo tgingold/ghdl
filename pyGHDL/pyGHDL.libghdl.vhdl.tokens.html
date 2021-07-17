@@ -1,0 +1,1440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.libghdl.vhdl.tokens &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyGHDL.lsp" href="pyGHDL.lsp.html" />
+    <link rel="prev" title="pyGHDL.libghdl.vhdl.std_package" href="pyGHDL.libghdl.vhdl.std_package.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="pyGHDL.html">Python Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.cli.html">pyGHDL.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.dom.html">pyGHDL.dom</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyGHDL.libghdl.html">pyGHDL.libghdl</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl._decorator.html">pyGHDL.libghdl._decorator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl._types.html">pyGHDL.libghdl._types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.errorout.html">pyGHDL.libghdl.errorout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.errorout_console.html">pyGHDL.libghdl.errorout_console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.errorout_memory.html">pyGHDL.libghdl.errorout_memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.files_map.html">pyGHDL.libghdl.files_map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.files_map_editor.html">pyGHDL.libghdl.files_map_editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.flags.html">pyGHDL.libghdl.flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.libraries.html">pyGHDL.libghdl.libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.name_table.html">pyGHDL.libghdl.name_table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.std_names.html">pyGHDL.libghdl.std_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.utils.html">pyGHDL.libghdl.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.libghdl.version.html">pyGHDL.libghdl.version</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pyGHDL.libghdl.vhdl.html">pyGHDL.libghdl.vhdl</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.canon.html">pyGHDL.libghdl.vhdl.canon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.elocations.html">pyGHDL.libghdl.vhdl.elocations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.flists.html">pyGHDL.libghdl.vhdl.flists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.formatters.html">pyGHDL.libghdl.vhdl.formatters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.ieee.html">pyGHDL.libghdl.vhdl.ieee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.lists.html">pyGHDL.libghdl.vhdl.lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.nodes.html">pyGHDL.libghdl.vhdl.nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.nodes_meta.html">pyGHDL.libghdl.vhdl.nodes_meta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.nodes_utils.html">pyGHDL.libghdl.vhdl.nodes_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.parse.html">pyGHDL.libghdl.vhdl.parse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.sem.html">pyGHDL.libghdl.vhdl.sem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.sem_lib.html">pyGHDL.libghdl.vhdl.sem_lib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyGHDL.libghdl.vhdl.std_package.html">pyGHDL.libghdl.vhdl.std_package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pyGHDL.libghdl.vhdl.tokens</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.lsp.html">pyGHDL.lsp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="pyGHDL.libghdl.html">pyGHDL.libghdl</a> &raquo;</li>
+        
+          <li><a href="pyGHDL.libghdl.vhdl.html">pyGHDL.libghdl.vhdl</a> &raquo;</li>
+        
+      <li>pyGHDL.libghdl.vhdl.tokens</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/ghdl/ghdl/blob/master/doc/pyGHDL/pyGHDL.libghdl.vhdl.tokens.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyGHDL.libghdl.vhdl.tokens">
+<span id="pyghdl-libghdl-vhdl-tokens"></span><h1>pyGHDL.libghdl.vhdl.tokens<a class="headerlink" href="#module-pyGHDL.libghdl.vhdl.tokens" title="Permalink to this headline">¶</a></h1>
+<p><strong>Classes</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyGHDL.libghdl.vhdl.tokens.Tok" title="pyGHDL.libghdl.vhdl.tokens.Tok"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tok</span></code></a>:
+An enumeration.</p></li>
+</ul>
+<dl class="py class">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.libghdl.vhdl.tokens.</code><code class="sig-name descname">Tok</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/libghdl/vhdl/tokens.html#Tok"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+<p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-d907e87ce662435061a1289febad3c2f09a73e4d.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of Tok</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Invalid">
+<code class="sig-name descname">Invalid</code><em class="property"> = 0</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Invalid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Eof">
+<code class="sig-name descname">Eof</code><em class="property"> = 1</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Eof" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Newline">
+<code class="sig-name descname">Newline</code><em class="property"> = 2</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Newline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Block_Comment_Start">
+<code class="sig-name descname">Block_Comment_Start</code><em class="property"> = 3</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Block_Comment_Start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Block_Comment_End">
+<code class="sig-name descname">Block_Comment_End</code><em class="property"> = 4</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Block_Comment_End" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Block_Comment_Text">
+<code class="sig-name descname">Block_Comment_Text</code><em class="property"> = 5</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Block_Comment_Text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Line_Comment">
+<code class="sig-name descname">Line_Comment</code><em class="property"> = 6</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Line_Comment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Character">
+<code class="sig-name descname">Character</code><em class="property"> = 7</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Character" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Identifier">
+<code class="sig-name descname">Identifier</code><em class="property"> = 8</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Integer">
+<code class="sig-name descname">Integer</code><em class="property"> = 9</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Integer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Real">
+<code class="sig-name descname">Real</code><em class="property"> = 10</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Real" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.String">
+<code class="sig-name descname">String</code><em class="property"> = 11</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.String" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Bit_String">
+<code class="sig-name descname">Bit_String</code><em class="property"> = 12</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Bit_String" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Integer_Letter">
+<code class="sig-name descname">Integer_Letter</code><em class="property"> = 13</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Integer_Letter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Left_Paren">
+<code class="sig-name descname">Left_Paren</code><em class="property"> = 14</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Left_Paren" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Right_Paren">
+<code class="sig-name descname">Right_Paren</code><em class="property"> = 15</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Right_Paren" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Left_Bracket">
+<code class="sig-name descname">Left_Bracket</code><em class="property"> = 16</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Left_Bracket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Right_Bracket">
+<code class="sig-name descname">Right_Bracket</code><em class="property"> = 17</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Right_Bracket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Colon">
+<code class="sig-name descname">Colon</code><em class="property"> = 18</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Colon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Semi_Colon">
+<code class="sig-name descname">Semi_Colon</code><em class="property"> = 19</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Semi_Colon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Comma">
+<code class="sig-name descname">Comma</code><em class="property"> = 20</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Comma" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Double_Arrow">
+<code class="sig-name descname">Double_Arrow</code><em class="property"> = 21</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Double_Arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Tick">
+<code class="sig-name descname">Tick</code><em class="property"> = 22</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Tick" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Double_Star">
+<code class="sig-name descname">Double_Star</code><em class="property"> = 23</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Double_Star" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Assign">
+<code class="sig-name descname">Assign</code><em class="property"> = 24</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Assign" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Bar">
+<code class="sig-name descname">Bar</code><em class="property"> = 25</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Bar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Box">
+<code class="sig-name descname">Box</code><em class="property"> = 26</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Dot">
+<code class="sig-name descname">Dot</code><em class="property"> = 27</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Dot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Equal_Equal">
+<code class="sig-name descname">Equal_Equal</code><em class="property"> = 28</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Equal_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Equal">
+<code class="sig-name descname">Equal</code><em class="property"> = 29</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Not_Equal">
+<code class="sig-name descname">Not_Equal</code><em class="property"> = 30</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Not_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Less">
+<code class="sig-name descname">Less</code><em class="property"> = 31</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Less" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Less_Equal">
+<code class="sig-name descname">Less_Equal</code><em class="property"> = 32</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Less_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Greater">
+<code class="sig-name descname">Greater</code><em class="property"> = 33</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Greater" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Greater_Equal">
+<code class="sig-name descname">Greater_Equal</code><em class="property"> = 34</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Greater_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Match_Equal">
+<code class="sig-name descname">Match_Equal</code><em class="property"> = 35</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Match_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Match_Not_Equal">
+<code class="sig-name descname">Match_Not_Equal</code><em class="property"> = 36</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Match_Not_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Match_Less">
+<code class="sig-name descname">Match_Less</code><em class="property"> = 37</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Match_Less" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Match_Less_Equal">
+<code class="sig-name descname">Match_Less_Equal</code><em class="property"> = 38</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Match_Less_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Match_Greater">
+<code class="sig-name descname">Match_Greater</code><em class="property"> = 39</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Match_Greater" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Match_Greater_Equal">
+<code class="sig-name descname">Match_Greater_Equal</code><em class="property"> = 40</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Match_Greater_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Plus">
+<code class="sig-name descname">Plus</code><em class="property"> = 41</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Plus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Minus">
+<code class="sig-name descname">Minus</code><em class="property"> = 42</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Minus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Ampersand">
+<code class="sig-name descname">Ampersand</code><em class="property"> = 43</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Ampersand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Condition">
+<code class="sig-name descname">Condition</code><em class="property"> = 44</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Condition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Double_Less">
+<code class="sig-name descname">Double_Less</code><em class="property"> = 45</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Double_Less" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Double_Greater">
+<code class="sig-name descname">Double_Greater</code><em class="property"> = 46</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Double_Greater" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Caret">
+<code class="sig-name descname">Caret</code><em class="property"> = 47</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Caret" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.And_And">
+<code class="sig-name descname">And_And</code><em class="property"> = 48</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.And_And" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Bar_Bar">
+<code class="sig-name descname">Bar_Bar</code><em class="property"> = 49</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Bar_Bar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Left_Curly">
+<code class="sig-name descname">Left_Curly</code><em class="property"> = 50</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Left_Curly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Right_Curly">
+<code class="sig-name descname">Right_Curly</code><em class="property"> = 51</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Right_Curly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Exclam_Mark">
+<code class="sig-name descname">Exclam_Mark</code><em class="property"> = 52</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Exclam_Mark" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Star">
+<code class="sig-name descname">Brack_Star</code><em class="property"> = 53</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Star" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Plus_Brack">
+<code class="sig-name descname">Brack_Plus_Brack</code><em class="property"> = 54</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Plus_Brack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Arrow">
+<code class="sig-name descname">Brack_Arrow</code><em class="property"> = 55</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Equal">
+<code class="sig-name descname">Brack_Equal</code><em class="property"> = 56</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Brack_Equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Bar_Arrow">
+<code class="sig-name descname">Bar_Arrow</code><em class="property"> = 57</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Bar_Arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Bar_Double_Arrow">
+<code class="sig-name descname">Bar_Double_Arrow</code><em class="property"> = 58</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Bar_Double_Arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Minus_Greater">
+<code class="sig-name descname">Minus_Greater</code><em class="property"> = 59</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Minus_Greater" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Equiv_Arrow">
+<code class="sig-name descname">Equiv_Arrow</code><em class="property"> = 60</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Equiv_Arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Arobase">
+<code class="sig-name descname">Arobase</code><em class="property"> = 61</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Arobase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Star">
+<code class="sig-name descname">Star</code><em class="property"> = 62</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Star" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Slash">
+<code class="sig-name descname">Slash</code><em class="property"> = 63</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Slash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Mod">
+<code class="sig-name descname">Mod</code><em class="property"> = 64</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Mod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Rem">
+<code class="sig-name descname">Rem</code><em class="property"> = 65</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Rem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Abs">
+<code class="sig-name descname">Abs</code><em class="property"> = 66</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Abs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Not">
+<code class="sig-name descname">Not</code><em class="property"> = 67</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Not" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Access">
+<code class="sig-name descname">Access</code><em class="property"> = 68</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Access" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.After">
+<code class="sig-name descname">After</code><em class="property"> = 69</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.After" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Alias">
+<code class="sig-name descname">Alias</code><em class="property"> = 70</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.All">
+<code class="sig-name descname">All</code><em class="property"> = 71</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.All" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Architecture">
+<code class="sig-name descname">Architecture</code><em class="property"> = 72</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Architecture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Array">
+<code class="sig-name descname">Array</code><em class="property"> = 73</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Assert">
+<code class="sig-name descname">Assert</code><em class="property"> = 74</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Assert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Attribute">
+<code class="sig-name descname">Attribute</code><em class="property"> = 75</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Begin">
+<code class="sig-name descname">Begin</code><em class="property"> = 76</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Begin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Block">
+<code class="sig-name descname">Block</code><em class="property"> = 77</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Block" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Body">
+<code class="sig-name descname">Body</code><em class="property"> = 78</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Buffer">
+<code class="sig-name descname">Buffer</code><em class="property"> = 79</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Bus">
+<code class="sig-name descname">Bus</code><em class="property"> = 80</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Bus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Case">
+<code class="sig-name descname">Case</code><em class="property"> = 81</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Case" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Component">
+<code class="sig-name descname">Component</code><em class="property"> = 82</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Configuration">
+<code class="sig-name descname">Configuration</code><em class="property"> = 83</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Constant">
+<code class="sig-name descname">Constant</code><em class="property"> = 84</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Constant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Disconnect">
+<code class="sig-name descname">Disconnect</code><em class="property"> = 85</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Disconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Downto">
+<code class="sig-name descname">Downto</code><em class="property"> = 86</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Downto" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Else">
+<code class="sig-name descname">Else</code><em class="property"> = 87</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Else" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Elsif">
+<code class="sig-name descname">Elsif</code><em class="property"> = 88</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Elsif" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.End">
+<code class="sig-name descname">End</code><em class="property"> = 89</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.End" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Entity">
+<code class="sig-name descname">Entity</code><em class="property"> = 90</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Entity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Exit">
+<code class="sig-name descname">Exit</code><em class="property"> = 91</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Exit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.File">
+<code class="sig-name descname">File</code><em class="property"> = 92</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.File" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.For">
+<code class="sig-name descname">For</code><em class="property"> = 93</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.For" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Function">
+<code class="sig-name descname">Function</code><em class="property"> = 94</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Generate">
+<code class="sig-name descname">Generate</code><em class="property"> = 95</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Generate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Generic">
+<code class="sig-name descname">Generic</code><em class="property"> = 96</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Generic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Guarded">
+<code class="sig-name descname">Guarded</code><em class="property"> = 97</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Guarded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.If">
+<code class="sig-name descname">If</code><em class="property"> = 98</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.If" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.In">
+<code class="sig-name descname">In</code><em class="property"> = 99</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.In" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Inout">
+<code class="sig-name descname">Inout</code><em class="property"> = 100</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Inout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Is">
+<code class="sig-name descname">Is</code><em class="property"> = 101</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Is" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Label">
+<code class="sig-name descname">Label</code><em class="property"> = 102</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Library">
+<code class="sig-name descname">Library</code><em class="property"> = 103</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Library" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Linkage">
+<code class="sig-name descname">Linkage</code><em class="property"> = 104</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Linkage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Loop">
+<code class="sig-name descname">Loop</code><em class="property"> = 105</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Map">
+<code class="sig-name descname">Map</code><em class="property"> = 106</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.New">
+<code class="sig-name descname">New</code><em class="property"> = 107</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.New" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next">
+<code class="sig-name descname">Next</code><em class="property"> = 108</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Null">
+<code class="sig-name descname">Null</code><em class="property"> = 109</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Null" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Of">
+<code class="sig-name descname">Of</code><em class="property"> = 110</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Of" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.On">
+<code class="sig-name descname">On</code><em class="property"> = 111</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.On" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Open">
+<code class="sig-name descname">Open</code><em class="property"> = 112</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Others">
+<code class="sig-name descname">Others</code><em class="property"> = 113</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Others" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Out">
+<code class="sig-name descname">Out</code><em class="property"> = 114</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Out" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Package">
+<code class="sig-name descname">Package</code><em class="property"> = 115</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Package" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Port">
+<code class="sig-name descname">Port</code><em class="property"> = 116</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Procedure">
+<code class="sig-name descname">Procedure</code><em class="property"> = 117</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Procedure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Process">
+<code class="sig-name descname">Process</code><em class="property"> = 118</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Range">
+<code class="sig-name descname">Range</code><em class="property"> = 119</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Record">
+<code class="sig-name descname">Record</code><em class="property"> = 120</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Register">
+<code class="sig-name descname">Register</code><em class="property"> = 121</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Report">
+<code class="sig-name descname">Report</code><em class="property"> = 122</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Report" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Return">
+<code class="sig-name descname">Return</code><em class="property"> = 123</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Return" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Select">
+<code class="sig-name descname">Select</code><em class="property"> = 124</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Severity">
+<code class="sig-name descname">Severity</code><em class="property"> = 125</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Severity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Signal">
+<code class="sig-name descname">Signal</code><em class="property"> = 126</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Subtype">
+<code class="sig-name descname">Subtype</code><em class="property"> = 127</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Subtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Then">
+<code class="sig-name descname">Then</code><em class="property"> = 128</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Then" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.To">
+<code class="sig-name descname">To</code><em class="property"> = 129</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.To" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Transport">
+<code class="sig-name descname">Transport</code><em class="property"> = 130</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Transport" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Type">
+<code class="sig-name descname">Type</code><em class="property"> = 131</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Units">
+<code class="sig-name descname">Units</code><em class="property"> = 132</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Units" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Until">
+<code class="sig-name descname">Until</code><em class="property"> = 133</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Until" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Use">
+<code class="sig-name descname">Use</code><em class="property"> = 134</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Variable">
+<code class="sig-name descname">Variable</code><em class="property"> = 135</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Wait">
+<code class="sig-name descname">Wait</code><em class="property"> = 136</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.When">
+<code class="sig-name descname">When</code><em class="property"> = 137</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.When" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.While">
+<code class="sig-name descname">While</code><em class="property"> = 138</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.While" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.With">
+<code class="sig-name descname">With</code><em class="property"> = 139</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.With" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.And">
+<code class="sig-name descname">And</code><em class="property"> = 140</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.And" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Or">
+<code class="sig-name descname">Or</code><em class="property"> = 141</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Or" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Xor">
+<code class="sig-name descname">Xor</code><em class="property"> = 142</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Xor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Nand">
+<code class="sig-name descname">Nand</code><em class="property"> = 143</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Nand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Nor">
+<code class="sig-name descname">Nor</code><em class="property"> = 144</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Nor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Xnor">
+<code class="sig-name descname">Xnor</code><em class="property"> = 145</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Xnor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Group">
+<code class="sig-name descname">Group</code><em class="property"> = 146</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Impure">
+<code class="sig-name descname">Impure</code><em class="property"> = 147</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Impure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Inertial">
+<code class="sig-name descname">Inertial</code><em class="property"> = 148</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Inertial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Literal">
+<code class="sig-name descname">Literal</code><em class="property"> = 149</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Literal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Postponed">
+<code class="sig-name descname">Postponed</code><em class="property"> = 150</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Postponed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Pure">
+<code class="sig-name descname">Pure</code><em class="property"> = 151</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Pure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Reject">
+<code class="sig-name descname">Reject</code><em class="property"> = 152</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Reject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Shared">
+<code class="sig-name descname">Shared</code><em class="property"> = 153</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Shared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Unaffected">
+<code class="sig-name descname">Unaffected</code><em class="property"> = 154</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Unaffected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Sll">
+<code class="sig-name descname">Sll</code><em class="property"> = 155</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Sll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Sla">
+<code class="sig-name descname">Sla</code><em class="property"> = 156</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Sla" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Sra">
+<code class="sig-name descname">Sra</code><em class="property"> = 157</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Sra" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Srl">
+<code class="sig-name descname">Srl</code><em class="property"> = 158</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Srl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Rol">
+<code class="sig-name descname">Rol</code><em class="property"> = 159</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Rol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Ror">
+<code class="sig-name descname">Ror</code><em class="property"> = 160</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Ror" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Protected">
+<code class="sig-name descname">Protected</code><em class="property"> = 161</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Protected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Assume">
+<code class="sig-name descname">Assume</code><em class="property"> = 162</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Assume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Context">
+<code class="sig-name descname">Context</code><em class="property"> = 163</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Cover">
+<code class="sig-name descname">Cover</code><em class="property"> = 164</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Cover" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Default">
+<code class="sig-name descname">Default</code><em class="property"> = 165</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Force">
+<code class="sig-name descname">Force</code><em class="property"> = 166</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Force" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Parameter">
+<code class="sig-name descname">Parameter</code><em class="property"> = 167</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Property">
+<code class="sig-name descname">Property</code><em class="property"> = 168</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Release">
+<code class="sig-name descname">Release</code><em class="property"> = 169</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Restrict">
+<code class="sig-name descname">Restrict</code><em class="property"> = 170</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Restrict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Restrict_Guarantee">
+<code class="sig-name descname">Restrict_Guarantee</code><em class="property"> = 171</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Restrict_Guarantee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Sequence">
+<code class="sig-name descname">Sequence</code><em class="property"> = 172</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Vmode">
+<code class="sig-name descname">Vmode</code><em class="property"> = 173</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Vmode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Vprop">
+<code class="sig-name descname">Vprop</code><em class="property"> = 174</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Vprop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Vunit">
+<code class="sig-name descname">Vunit</code><em class="property"> = 175</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Vunit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Across">
+<code class="sig-name descname">Across</code><em class="property"> = 176</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Across" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Break">
+<code class="sig-name descname">Break</code><em class="property"> = 177</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Break" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Limit">
+<code class="sig-name descname">Limit</code><em class="property"> = 178</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Nature">
+<code class="sig-name descname">Nature</code><em class="property"> = 179</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Nature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Noise">
+<code class="sig-name descname">Noise</code><em class="property"> = 180</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Noise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Procedural">
+<code class="sig-name descname">Procedural</code><em class="property"> = 181</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Procedural" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Quantity">
+<code class="sig-name descname">Quantity</code><em class="property"> = 182</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Quantity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Reference">
+<code class="sig-name descname">Reference</code><em class="property"> = 183</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Spectrum">
+<code class="sig-name descname">Spectrum</code><em class="property"> = 184</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Spectrum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Subnature">
+<code class="sig-name descname">Subnature</code><em class="property"> = 185</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Subnature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Terminal">
+<code class="sig-name descname">Terminal</code><em class="property"> = 186</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Terminal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Through">
+<code class="sig-name descname">Through</code><em class="property"> = 187</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Through" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Tolerance">
+<code class="sig-name descname">Tolerance</code><em class="property"> = 188</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Tolerance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Clock">
+<code class="sig-name descname">Psl_Clock</code><em class="property"> = 189</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Clock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Endpoint">
+<code class="sig-name descname">Psl_Endpoint</code><em class="property"> = 190</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Const">
+<code class="sig-name descname">Psl_Const</code><em class="property"> = 191</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Const" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Boolean">
+<code class="sig-name descname">Psl_Boolean</code><em class="property"> = 192</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Psl_Boolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Inf">
+<code class="sig-name descname">Inf</code><em class="property"> = 193</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Inf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Within">
+<code class="sig-name descname">Within</code><em class="property"> = 194</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Within" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Abort">
+<code class="sig-name descname">Abort</code><em class="property"> = 195</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Abort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Before">
+<code class="sig-name descname">Before</code><em class="property"> = 196</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Before" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Before_Em">
+<code class="sig-name descname">Before_Em</code><em class="property"> = 197</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Before_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Before_Un">
+<code class="sig-name descname">Before_Un</code><em class="property"> = 198</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Before_Un" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Before_Em_Un">
+<code class="sig-name descname">Before_Em_Un</code><em class="property"> = 199</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Before_Em_Un" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Always">
+<code class="sig-name descname">Always</code><em class="property"> = 200</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Always" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Never">
+<code class="sig-name descname">Never</code><em class="property"> = 201</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Never" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Eventually_Em">
+<code class="sig-name descname">Eventually_Em</code><em class="property"> = 202</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Eventually_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Em">
+<code class="sig-name descname">Next_Em</code><em class="property"> = 203</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_A">
+<code class="sig-name descname">Next_A</code><em class="property"> = 204</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_A" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_A_Em">
+<code class="sig-name descname">Next_A_Em</code><em class="property"> = 205</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_A_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_E">
+<code class="sig-name descname">Next_E</code><em class="property"> = 206</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_E" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_E_Em">
+<code class="sig-name descname">Next_E_Em</code><em class="property"> = 207</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_E_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event">
+<code class="sig-name descname">Next_Event</code><em class="property"> = 208</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_Em">
+<code class="sig-name descname">Next_Event_Em</code><em class="property"> = 209</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_A">
+<code class="sig-name descname">Next_Event_A</code><em class="property"> = 210</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_A" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_A_Em">
+<code class="sig-name descname">Next_Event_A_Em</code><em class="property"> = 211</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_A_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_E">
+<code class="sig-name descname">Next_Event_E</code><em class="property"> = 212</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_E" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_E_Em">
+<code class="sig-name descname">Next_Event_E_Em</code><em class="property"> = 213</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Next_Event_E_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Until_Em">
+<code class="sig-name descname">Until_Em</code><em class="property"> = 214</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Until_Em" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Until_Un">
+<code class="sig-name descname">Until_Un</code><em class="property"> = 215</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Until_Un" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Until_Em_Un">
+<code class="sig-name descname">Until_Em_Un</code><em class="property"> = 216</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Until_Em_Un" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Prev">
+<code class="sig-name descname">Prev</code><em class="property"> = 217</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Prev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Stable">
+<code class="sig-name descname">Stable</code><em class="property"> = 218</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Stable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Fell">
+<code class="sig-name descname">Fell</code><em class="property"> = 219</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Fell" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Rose">
+<code class="sig-name descname">Rose</code><em class="property"> = 220</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Rose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Onehot">
+<code class="sig-name descname">Onehot</code><em class="property"> = 221</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Onehot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.libghdl.vhdl.tokens.Tok.Onehot0">
+<code class="sig-name descname">Onehot0</code><em class="property"> = 222</em><a class="headerlink" href="#pyGHDL.libghdl.vhdl.tokens.Tok.Onehot0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyGHDL.lsp.html" class="btn btn-neutral float-right" title="pyGHDL.lsp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyGHDL.libghdl.vhdl.std_package.html" class="btn btn-neutral float-left" title="pyGHDL.libghdl.vhdl.std_package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

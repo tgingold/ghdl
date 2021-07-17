@@ -1,0 +1,74 @@
+pyGHDL.dom.PSL
+==================
+
+.. automodule:: pyGHDL.dom.PSL
+
+
+.. currentmodule:: pyGHDL.dom.PSL
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`VerificationUnit`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`VerificationProperty`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`VerificationMode`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`DefaultClock`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: VerificationUnit
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: VerificationUnit
+
+   .. rubric:: Members
+
+.. autoclass:: VerificationProperty
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: VerificationProperty
+
+   .. rubric:: Members
+
+.. autoclass:: VerificationMode
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: VerificationMode
+
+   .. rubric:: Members
+
+.. autoclass:: DefaultClock
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: DefaultClock
+
+   .. rubric:: Members

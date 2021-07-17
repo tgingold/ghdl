@@ -1,0 +1,3878 @@
+pyGHDL.libghdl.vhdl.nodes
+=============================
+
+.. automodule:: pyGHDL.libghdl.vhdl.nodes
+
+
+.. currentmodule:: pyGHDL.libghdl.vhdl.nodes
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`Iir_Kind`:
+  An enumeration.
+
+- :py:class:`Iir_Kinds`:
+  Undocumented.
+
+- :py:class:`Iir_Mode`:
+  An enumeration.
+
+- :py:class:`ScalarSize`:
+  An enumeration.
+
+- :py:class:`Iir_Staticness`:
+  An enumeration.
+
+- :py:class:`Iir_Constraint`:
+  An enumeration.
+
+- :py:class:`Iir_Delay_Mechanism`:
+  An enumeration.
+
+- :py:class:`DateStateType`:
+  An enumeration.
+
+- :py:class:`NumberBaseType`:
+  An enumeration.
+
+- :py:class:`Iir_Predefined`:
+  An enumeration.
+
+
+
+**Functions**
+
+- :py:func:`Get_Kind`:
+  Get node kind.
+
+- :py:func:`Get_Location`:
+  
+
+- :py:func:`Get_First_Design_Unit`:
+  
+
+- :py:func:`Set_First_Design_Unit`:
+  
+
+- :py:func:`Get_Last_Design_Unit`:
+  
+
+- :py:func:`Set_Last_Design_Unit`:
+  
+
+- :py:func:`Get_Library_Declaration`:
+  
+
+- :py:func:`Set_Library_Declaration`:
+  
+
+- :py:func:`Get_File_Checksum`:
+  
+
+- :py:func:`Set_File_Checksum`:
+  
+
+- :py:func:`Get_Analysis_Time_Stamp`:
+  
+
+- :py:func:`Set_Analysis_Time_Stamp`:
+  
+
+- :py:func:`Get_Design_File_Source`:
+  
+
+- :py:func:`Set_Design_File_Source`:
+  
+
+- :py:func:`Get_Library`:
+  
+
+- :py:func:`Set_Library`:
+  
+
+- :py:func:`Get_File_Dependence_List`:
+  
+
+- :py:func:`Set_File_Dependence_List`:
+  
+
+- :py:func:`Get_Design_File_Filename`:
+  
+
+- :py:func:`Set_Design_File_Filename`:
+  
+
+- :py:func:`Get_Design_File_Directory`:
+  
+
+- :py:func:`Set_Design_File_Directory`:
+  
+
+- :py:func:`Get_Design_File`:
+  
+
+- :py:func:`Set_Design_File`:
+  
+
+- :py:func:`Get_Design_File_Chain`:
+  
+
+- :py:func:`Set_Design_File_Chain`:
+  
+
+- :py:func:`Get_Library_Directory`:
+  
+
+- :py:func:`Set_Library_Directory`:
+  
+
+- :py:func:`Get_Date`:
+  
+
+- :py:func:`Set_Date`:
+  
+
+- :py:func:`Get_Context_Items`:
+  
+
+- :py:func:`Set_Context_Items`:
+  
+
+- :py:func:`Get_Dependence_List`:
+  
+
+- :py:func:`Set_Dependence_List`:
+  
+
+- :py:func:`Get_Analysis_Checks_List`:
+  
+
+- :py:func:`Set_Analysis_Checks_List`:
+  
+
+- :py:func:`Get_Date_State`:
+  
+
+- :py:func:`Set_Date_State`:
+  
+
+- :py:func:`Get_Guarded_Target_State`:
+  
+
+- :py:func:`Set_Guarded_Target_State`:
+  
+
+- :py:func:`Get_Library_Unit`:
+  
+
+- :py:func:`Set_Library_Unit`:
+  
+
+- :py:func:`Get_Hash_Chain`:
+  
+
+- :py:func:`Set_Hash_Chain`:
+  
+
+- :py:func:`Get_Design_Unit_Source_Pos`:
+  
+
+- :py:func:`Set_Design_Unit_Source_Pos`:
+  
+
+- :py:func:`Get_Design_Unit_Source_Line`:
+  
+
+- :py:func:`Set_Design_Unit_Source_Line`:
+  
+
+- :py:func:`Get_Design_Unit_Source_Col`:
+  
+
+- :py:func:`Set_Design_Unit_Source_Col`:
+  
+
+- :py:func:`Get_Value`:
+  
+
+- :py:func:`Set_Value`:
+  
+
+- :py:func:`Get_Enum_Pos`:
+  
+
+- :py:func:`Set_Enum_Pos`:
+  
+
+- :py:func:`Get_Physical_Literal`:
+  
+
+- :py:func:`Set_Physical_Literal`:
+  
+
+- :py:func:`Get_Fp_Value`:
+  
+
+- :py:func:`Set_Fp_Value`:
+  
+
+- :py:func:`Get_Simple_Aggregate_List`:
+  
+
+- :py:func:`Set_Simple_Aggregate_List`:
+  
+
+- :py:func:`Get_String8_Id`:
+  
+
+- :py:func:`Set_String8_Id`:
+  
+
+- :py:func:`Get_String_Length`:
+  
+
+- :py:func:`Set_String_Length`:
+  
+
+- :py:func:`Get_Bit_String_Base`:
+  
+
+- :py:func:`Set_Bit_String_Base`:
+  
+
+- :py:func:`Get_Has_Signed`:
+  
+
+- :py:func:`Set_Has_Signed`:
+  
+
+- :py:func:`Get_Has_Sign`:
+  
+
+- :py:func:`Set_Has_Sign`:
+  
+
+- :py:func:`Get_Has_Length`:
+  
+
+- :py:func:`Set_Has_Length`:
+  
+
+- :py:func:`Get_Literal_Length`:
+  
+
+- :py:func:`Set_Literal_Length`:
+  
+
+- :py:func:`Get_Literal_Origin`:
+  
+
+- :py:func:`Set_Literal_Origin`:
+  
+
+- :py:func:`Get_Range_Origin`:
+  
+
+- :py:func:`Set_Range_Origin`:
+  
+
+- :py:func:`Get_Literal_Subtype`:
+  
+
+- :py:func:`Set_Literal_Subtype`:
+  
+
+- :py:func:`Get_Allocator_Subtype`:
+  
+
+- :py:func:`Set_Allocator_Subtype`:
+  
+
+- :py:func:`Get_Entity_Class`:
+  
+
+- :py:func:`Set_Entity_Class`:
+  
+
+- :py:func:`Get_Entity_Name_List`:
+  
+
+- :py:func:`Set_Entity_Name_List`:
+  
+
+- :py:func:`Get_Attribute_Designator`:
+  
+
+- :py:func:`Set_Attribute_Designator`:
+  
+
+- :py:func:`Get_Attribute_Specification_Chain`:
+  
+
+- :py:func:`Set_Attribute_Specification_Chain`:
+  
+
+- :py:func:`Get_Attribute_Specification`:
+  
+
+- :py:func:`Set_Attribute_Specification`:
+  
+
+- :py:func:`Get_Static_Attribute_Flag`:
+  
+
+- :py:func:`Set_Static_Attribute_Flag`:
+  
+
+- :py:func:`Get_Signal_List`:
+  
+
+- :py:func:`Set_Signal_List`:
+  
+
+- :py:func:`Get_Quantity_List`:
+  
+
+- :py:func:`Set_Quantity_List`:
+  
+
+- :py:func:`Get_Designated_Entity`:
+  
+
+- :py:func:`Set_Designated_Entity`:
+  
+
+- :py:func:`Get_Formal`:
+  
+
+- :py:func:`Set_Formal`:
+  
+
+- :py:func:`Get_Actual`:
+  
+
+- :py:func:`Set_Actual`:
+  
+
+- :py:func:`Get_Actual_Conversion`:
+  
+
+- :py:func:`Set_Actual_Conversion`:
+  
+
+- :py:func:`Get_Formal_Conversion`:
+  
+
+- :py:func:`Set_Formal_Conversion`:
+  
+
+- :py:func:`Get_Whole_Association_Flag`:
+  
+
+- :py:func:`Set_Whole_Association_Flag`:
+  
+
+- :py:func:`Get_Collapse_Signal_Flag`:
+  
+
+- :py:func:`Set_Collapse_Signal_Flag`:
+  
+
+- :py:func:`Get_Artificial_Flag`:
+  
+
+- :py:func:`Set_Artificial_Flag`:
+  
+
+- :py:func:`Get_Open_Flag`:
+  
+
+- :py:func:`Set_Open_Flag`:
+  
+
+- :py:func:`Get_After_Drivers_Flag`:
+  
+
+- :py:func:`Set_After_Drivers_Flag`:
+  
+
+- :py:func:`Get_We_Value`:
+  
+
+- :py:func:`Set_We_Value`:
+  
+
+- :py:func:`Get_Time`:
+  
+
+- :py:func:`Set_Time`:
+  
+
+- :py:func:`Get_Associated_Expr`:
+  
+
+- :py:func:`Set_Associated_Expr`:
+  
+
+- :py:func:`Get_Associated_Block`:
+  
+
+- :py:func:`Set_Associated_Block`:
+  
+
+- :py:func:`Get_Associated_Chain`:
+  
+
+- :py:func:`Set_Associated_Chain`:
+  
+
+- :py:func:`Get_Choice_Name`:
+  
+
+- :py:func:`Set_Choice_Name`:
+  
+
+- :py:func:`Get_Choice_Expression`:
+  
+
+- :py:func:`Set_Choice_Expression`:
+  
+
+- :py:func:`Get_Choice_Range`:
+  
+
+- :py:func:`Set_Choice_Range`:
+  
+
+- :py:func:`Get_Same_Alternative_Flag`:
+  
+
+- :py:func:`Set_Same_Alternative_Flag`:
+  
+
+- :py:func:`Get_Element_Type_Flag`:
+  
+
+- :py:func:`Set_Element_Type_Flag`:
+  
+
+- :py:func:`Get_Architecture`:
+  
+
+- :py:func:`Set_Architecture`:
+  
+
+- :py:func:`Get_Block_Specification`:
+  
+
+- :py:func:`Set_Block_Specification`:
+  
+
+- :py:func:`Get_Prev_Block_Configuration`:
+  
+
+- :py:func:`Set_Prev_Block_Configuration`:
+  
+
+- :py:func:`Get_Configuration_Item_Chain`:
+  
+
+- :py:func:`Set_Configuration_Item_Chain`:
+  
+
+- :py:func:`Get_Attribute_Value_Chain`:
+  
+
+- :py:func:`Set_Attribute_Value_Chain`:
+  
+
+- :py:func:`Get_Spec_Chain`:
+  
+
+- :py:func:`Set_Spec_Chain`:
+  
+
+- :py:func:`Get_Value_Chain`:
+  
+
+- :py:func:`Set_Value_Chain`:
+  
+
+- :py:func:`Get_Attribute_Value_Spec_Chain`:
+  
+
+- :py:func:`Set_Attribute_Value_Spec_Chain`:
+  
+
+- :py:func:`Get_Entity_Name`:
+  
+
+- :py:func:`Set_Entity_Name`:
+  
+
+- :py:func:`Get_Package`:
+  
+
+- :py:func:`Set_Package`:
+  
+
+- :py:func:`Get_Package_Body`:
+  
+
+- :py:func:`Set_Package_Body`:
+  
+
+- :py:func:`Get_Instance_Package_Body`:
+  
+
+- :py:func:`Set_Instance_Package_Body`:
+  
+
+- :py:func:`Get_Need_Body`:
+  
+
+- :py:func:`Set_Need_Body`:
+  
+
+- :py:func:`Get_Macro_Expanded_Flag`:
+  
+
+- :py:func:`Set_Macro_Expanded_Flag`:
+  
+
+- :py:func:`Get_Need_Instance_Bodies`:
+  
+
+- :py:func:`Set_Need_Instance_Bodies`:
+  
+
+- :py:func:`Get_Hierarchical_Name`:
+  
+
+- :py:func:`Set_Hierarchical_Name`:
+  
+
+- :py:func:`Get_Inherit_Spec_Chain`:
+  
+
+- :py:func:`Set_Inherit_Spec_Chain`:
+  
+
+- :py:func:`Get_Vunit_Item_Chain`:
+  
+
+- :py:func:`Set_Vunit_Item_Chain`:
+  
+
+- :py:func:`Get_Bound_Vunit_Chain`:
+  
+
+- :py:func:`Set_Bound_Vunit_Chain`:
+  
+
+- :py:func:`Get_Verification_Block_Configuration`:
+  
+
+- :py:func:`Set_Verification_Block_Configuration`:
+  
+
+- :py:func:`Get_Block_Configuration`:
+  
+
+- :py:func:`Set_Block_Configuration`:
+  
+
+- :py:func:`Get_Concurrent_Statement_Chain`:
+  
+
+- :py:func:`Set_Concurrent_Statement_Chain`:
+  
+
+- :py:func:`Get_Chain`:
+  
+
+- :py:func:`Set_Chain`:
+  
+
+- :py:func:`Get_Port_Chain`:
+  
+
+- :py:func:`Set_Port_Chain`:
+  
+
+- :py:func:`Get_Generic_Chain`:
+  
+
+- :py:func:`Set_Generic_Chain`:
+  
+
+- :py:func:`Get_Type`:
+  
+
+- :py:func:`Set_Type`:
+  
+
+- :py:func:`Get_Subtype_Indication`:
+  
+
+- :py:func:`Set_Subtype_Indication`:
+  
+
+- :py:func:`Get_Discrete_Range`:
+  
+
+- :py:func:`Set_Discrete_Range`:
+  
+
+- :py:func:`Get_Type_Definition`:
+  
+
+- :py:func:`Set_Type_Definition`:
+  
+
+- :py:func:`Get_Subtype_Definition`:
+  
+
+- :py:func:`Set_Subtype_Definition`:
+  
+
+- :py:func:`Get_Incomplete_Type_Declaration`:
+  
+
+- :py:func:`Set_Incomplete_Type_Declaration`:
+  
+
+- :py:func:`Get_Interface_Type_Subprograms`:
+  
+
+- :py:func:`Set_Interface_Type_Subprograms`:
+  
+
+- :py:func:`Get_Nature_Definition`:
+  
+
+- :py:func:`Set_Nature_Definition`:
+  
+
+- :py:func:`Get_Nature`:
+  
+
+- :py:func:`Set_Nature`:
+  
+
+- :py:func:`Get_Subnature_Indication`:
+  
+
+- :py:func:`Set_Subnature_Indication`:
+  
+
+- :py:func:`Get_Mode`:
+  
+
+- :py:func:`Set_Mode`:
+  
+
+- :py:func:`Get_Guarded_Signal_Flag`:
+  
+
+- :py:func:`Set_Guarded_Signal_Flag`:
+  
+
+- :py:func:`Get_Signal_Kind`:
+  
+
+- :py:func:`Set_Signal_Kind`:
+  
+
+- :py:func:`Get_Base_Name`:
+  
+
+- :py:func:`Set_Base_Name`:
+  
+
+- :py:func:`Get_Interface_Declaration_Chain`:
+  
+
+- :py:func:`Set_Interface_Declaration_Chain`:
+  
+
+- :py:func:`Get_Subprogram_Specification`:
+  
+
+- :py:func:`Set_Subprogram_Specification`:
+  
+
+- :py:func:`Get_Sequential_Statement_Chain`:
+  
+
+- :py:func:`Set_Sequential_Statement_Chain`:
+  
+
+- :py:func:`Get_Simultaneous_Statement_Chain`:
+  
+
+- :py:func:`Set_Simultaneous_Statement_Chain`:
+  
+
+- :py:func:`Get_Subprogram_Body`:
+  
+
+- :py:func:`Set_Subprogram_Body`:
+  
+
+- :py:func:`Get_Overload_Number`:
+  
+
+- :py:func:`Set_Overload_Number`:
+  
+
+- :py:func:`Get_Subprogram_Depth`:
+  
+
+- :py:func:`Set_Subprogram_Depth`:
+  
+
+- :py:func:`Get_Subprogram_Hash`:
+  
+
+- :py:func:`Set_Subprogram_Hash`:
+  
+
+- :py:func:`Get_Impure_Depth`:
+  
+
+- :py:func:`Set_Impure_Depth`:
+  
+
+- :py:func:`Get_Return_Type`:
+  
+
+- :py:func:`Set_Return_Type`:
+  
+
+- :py:func:`Get_Implicit_Definition`:
+  
+
+- :py:func:`Set_Implicit_Definition`:
+  
+
+- :py:func:`Get_Uninstantiated_Subprogram_Name`:
+  
+
+- :py:func:`Set_Uninstantiated_Subprogram_Name`:
+  
+
+- :py:func:`Get_Default_Value`:
+  
+
+- :py:func:`Set_Default_Value`:
+  
+
+- :py:func:`Get_Deferred_Declaration`:
+  
+
+- :py:func:`Set_Deferred_Declaration`:
+  
+
+- :py:func:`Get_Deferred_Declaration_Flag`:
+  
+
+- :py:func:`Set_Deferred_Declaration_Flag`:
+  
+
+- :py:func:`Get_Shared_Flag`:
+  
+
+- :py:func:`Set_Shared_Flag`:
+  
+
+- :py:func:`Get_Design_Unit`:
+  
+
+- :py:func:`Set_Design_Unit`:
+  
+
+- :py:func:`Get_Block_Statement`:
+  
+
+- :py:func:`Set_Block_Statement`:
+  
+
+- :py:func:`Get_Signal_Driver`:
+  
+
+- :py:func:`Set_Signal_Driver`:
+  
+
+- :py:func:`Get_Declaration_Chain`:
+  
+
+- :py:func:`Set_Declaration_Chain`:
+  
+
+- :py:func:`Get_File_Logical_Name`:
+  
+
+- :py:func:`Set_File_Logical_Name`:
+  
+
+- :py:func:`Get_File_Open_Kind`:
+  
+
+- :py:func:`Set_File_Open_Kind`:
+  
+
+- :py:func:`Get_Element_Position`:
+  
+
+- :py:func:`Set_Element_Position`:
+  
+
+- :py:func:`Get_Use_Clause_Chain`:
+  
+
+- :py:func:`Set_Use_Clause_Chain`:
+  
+
+- :py:func:`Get_Context_Reference_Chain`:
+  
+
+- :py:func:`Set_Context_Reference_Chain`:
+  
+
+- :py:func:`Get_Selected_Name`:
+  
+
+- :py:func:`Set_Selected_Name`:
+  
+
+- :py:func:`Get_Type_Declarator`:
+  
+
+- :py:func:`Set_Type_Declarator`:
+  
+
+- :py:func:`Get_Complete_Type_Definition`:
+  
+
+- :py:func:`Set_Complete_Type_Definition`:
+  
+
+- :py:func:`Get_Incomplete_Type_Ref_Chain`:
+  
+
+- :py:func:`Set_Incomplete_Type_Ref_Chain`:
+  
+
+- :py:func:`Get_Associated_Type`:
+  
+
+- :py:func:`Set_Associated_Type`:
+  
+
+- :py:func:`Get_Enumeration_Literal_List`:
+  
+
+- :py:func:`Set_Enumeration_Literal_List`:
+  
+
+- :py:func:`Get_Entity_Class_Entry_Chain`:
+  
+
+- :py:func:`Set_Entity_Class_Entry_Chain`:
+  
+
+- :py:func:`Get_Group_Constituent_List`:
+  
+
+- :py:func:`Set_Group_Constituent_List`:
+  
+
+- :py:func:`Get_Unit_Chain`:
+  
+
+- :py:func:`Set_Unit_Chain`:
+  
+
+- :py:func:`Get_Primary_Unit`:
+  
+
+- :py:func:`Set_Primary_Unit`:
+  
+
+- :py:func:`Get_Identifier`:
+  
+
+- :py:func:`Set_Identifier`:
+  
+
+- :py:func:`Get_Label`:
+  
+
+- :py:func:`Set_Label`:
+  
+
+- :py:func:`Get_Visible_Flag`:
+  
+
+- :py:func:`Set_Visible_Flag`:
+  
+
+- :py:func:`Get_Range_Constraint`:
+  
+
+- :py:func:`Set_Range_Constraint`:
+  
+
+- :py:func:`Get_Direction`:
+  
+
+- :py:func:`Set_Direction`:
+  
+
+- :py:func:`Get_Left_Limit`:
+  
+
+- :py:func:`Set_Left_Limit`:
+  
+
+- :py:func:`Get_Right_Limit`:
+  
+
+- :py:func:`Set_Right_Limit`:
+  
+
+- :py:func:`Get_Left_Limit_Expr`:
+  
+
+- :py:func:`Set_Left_Limit_Expr`:
+  
+
+- :py:func:`Get_Right_Limit_Expr`:
+  
+
+- :py:func:`Set_Right_Limit_Expr`:
+  
+
+- :py:func:`Get_Parent_Type`:
+  
+
+- :py:func:`Set_Parent_Type`:
+  
+
+- :py:func:`Get_Simple_Nature`:
+  
+
+- :py:func:`Set_Simple_Nature`:
+  
+
+- :py:func:`Get_Base_Nature`:
+  
+
+- :py:func:`Set_Base_Nature`:
+  
+
+- :py:func:`Get_Resolution_Indication`:
+  
+
+- :py:func:`Set_Resolution_Indication`:
+  
+
+- :py:func:`Get_Record_Element_Resolution_Chain`:
+  
+
+- :py:func:`Set_Record_Element_Resolution_Chain`:
+  
+
+- :py:func:`Get_Tolerance`:
+  
+
+- :py:func:`Set_Tolerance`:
+  
+
+- :py:func:`Get_Plus_Terminal_Name`:
+  
+
+- :py:func:`Set_Plus_Terminal_Name`:
+  
+
+- :py:func:`Get_Minus_Terminal_Name`:
+  
+
+- :py:func:`Set_Minus_Terminal_Name`:
+  
+
+- :py:func:`Get_Plus_Terminal`:
+  
+
+- :py:func:`Set_Plus_Terminal`:
+  
+
+- :py:func:`Get_Minus_Terminal`:
+  
+
+- :py:func:`Set_Minus_Terminal`:
+  
+
+- :py:func:`Get_Magnitude_Expression`:
+  
+
+- :py:func:`Set_Magnitude_Expression`:
+  
+
+- :py:func:`Get_Phase_Expression`:
+  
+
+- :py:func:`Set_Phase_Expression`:
+  
+
+- :py:func:`Get_Power_Expression`:
+  
+
+- :py:func:`Set_Power_Expression`:
+  
+
+- :py:func:`Get_Simultaneous_Left`:
+  
+
+- :py:func:`Set_Simultaneous_Left`:
+  
+
+- :py:func:`Get_Simultaneous_Right`:
+  
+
+- :py:func:`Set_Simultaneous_Right`:
+  
+
+- :py:func:`Get_Text_File_Flag`:
+  
+
+- :py:func:`Set_Text_File_Flag`:
+  
+
+- :py:func:`Get_Only_Characters_Flag`:
+  
+
+- :py:func:`Set_Only_Characters_Flag`:
+  
+
+- :py:func:`Get_Is_Character_Type`:
+  
+
+- :py:func:`Set_Is_Character_Type`:
+  
+
+- :py:func:`Get_Nature_Staticness`:
+  
+
+- :py:func:`Set_Nature_Staticness`:
+  
+
+- :py:func:`Get_Type_Staticness`:
+  
+
+- :py:func:`Set_Type_Staticness`:
+  
+
+- :py:func:`Get_Constraint_State`:
+  
+
+- :py:func:`Set_Constraint_State`:
+  
+
+- :py:func:`Get_Index_Subtype_List`:
+  
+
+- :py:func:`Set_Index_Subtype_List`:
+  
+
+- :py:func:`Get_Index_Subtype_Definition_List`:
+  
+
+- :py:func:`Set_Index_Subtype_Definition_List`:
+  
+
+- :py:func:`Get_Element_Subtype_Indication`:
+  
+
+- :py:func:`Set_Element_Subtype_Indication`:
+  
+
+- :py:func:`Get_Element_Subtype`:
+  
+
+- :py:func:`Set_Element_Subtype`:
+  
+
+- :py:func:`Get_Element_Subnature_Indication`:
+  
+
+- :py:func:`Set_Element_Subnature_Indication`:
+  
+
+- :py:func:`Get_Element_Subnature`:
+  
+
+- :py:func:`Set_Element_Subnature`:
+  
+
+- :py:func:`Get_Index_Constraint_List`:
+  
+
+- :py:func:`Set_Index_Constraint_List`:
+  
+
+- :py:func:`Get_Array_Element_Constraint`:
+  
+
+- :py:func:`Set_Array_Element_Constraint`:
+  
+
+- :py:func:`Get_Has_Array_Constraint_Flag`:
+  
+
+- :py:func:`Set_Has_Array_Constraint_Flag`:
+  
+
+- :py:func:`Get_Has_Element_Constraint_Flag`:
+  
+
+- :py:func:`Set_Has_Element_Constraint_Flag`:
+  
+
+- :py:func:`Get_Elements_Declaration_List`:
+  
+
+- :py:func:`Set_Elements_Declaration_List`:
+  
+
+- :py:func:`Get_Owned_Elements_Chain`:
+  
+
+- :py:func:`Set_Owned_Elements_Chain`:
+  
+
+- :py:func:`Get_Designated_Type`:
+  
+
+- :py:func:`Set_Designated_Type`:
+  
+
+- :py:func:`Get_Designated_Subtype_Indication`:
+  
+
+- :py:func:`Set_Designated_Subtype_Indication`:
+  
+
+- :py:func:`Get_Index_List`:
+  
+
+- :py:func:`Set_Index_List`:
+  
+
+- :py:func:`Get_Reference`:
+  
+
+- :py:func:`Set_Reference`:
+  
+
+- :py:func:`Get_Nature_Declarator`:
+  
+
+- :py:func:`Set_Nature_Declarator`:
+  
+
+- :py:func:`Get_Across_Type_Mark`:
+  
+
+- :py:func:`Set_Across_Type_Mark`:
+  
+
+- :py:func:`Get_Through_Type_Mark`:
+  
+
+- :py:func:`Set_Through_Type_Mark`:
+  
+
+- :py:func:`Get_Across_Type_Definition`:
+  
+
+- :py:func:`Set_Across_Type_Definition`:
+  
+
+- :py:func:`Get_Through_Type_Definition`:
+  
+
+- :py:func:`Set_Through_Type_Definition`:
+  
+
+- :py:func:`Get_Across_Type`:
+  
+
+- :py:func:`Set_Across_Type`:
+  
+
+- :py:func:`Get_Through_Type`:
+  
+
+- :py:func:`Set_Through_Type`:
+  
+
+- :py:func:`Get_Target`:
+  
+
+- :py:func:`Set_Target`:
+  
+
+- :py:func:`Get_Waveform_Chain`:
+  
+
+- :py:func:`Set_Waveform_Chain`:
+  
+
+- :py:func:`Get_Guard`:
+  
+
+- :py:func:`Set_Guard`:
+  
+
+- :py:func:`Get_Delay_Mechanism`:
+  
+
+- :py:func:`Set_Delay_Mechanism`:
+  
+
+- :py:func:`Get_Reject_Time_Expression`:
+  
+
+- :py:func:`Set_Reject_Time_Expression`:
+  
+
+- :py:func:`Get_Force_Mode`:
+  
+
+- :py:func:`Set_Force_Mode`:
+  
+
+- :py:func:`Get_Has_Force_Mode`:
+  
+
+- :py:func:`Set_Has_Force_Mode`:
+  
+
+- :py:func:`Get_Sensitivity_List`:
+  
+
+- :py:func:`Set_Sensitivity_List`:
+  
+
+- :py:func:`Get_Process_Origin`:
+  
+
+- :py:func:`Set_Process_Origin`:
+  
+
+- :py:func:`Get_Package_Origin`:
+  
+
+- :py:func:`Set_Package_Origin`:
+  
+
+- :py:func:`Get_Condition_Clause`:
+  
+
+- :py:func:`Set_Condition_Clause`:
+  
+
+- :py:func:`Get_Break_Element`:
+  
+
+- :py:func:`Set_Break_Element`:
+  
+
+- :py:func:`Get_Selector_Quantity`:
+  
+
+- :py:func:`Set_Selector_Quantity`:
+  
+
+- :py:func:`Get_Break_Quantity`:
+  
+
+- :py:func:`Set_Break_Quantity`:
+  
+
+- :py:func:`Get_Timeout_Clause`:
+  
+
+- :py:func:`Set_Timeout_Clause`:
+  
+
+- :py:func:`Get_Postponed_Flag`:
+  
+
+- :py:func:`Set_Postponed_Flag`:
+  
+
+- :py:func:`Get_Callees_List`:
+  
+
+- :py:func:`Set_Callees_List`:
+  
+
+- :py:func:`Get_Passive_Flag`:
+  
+
+- :py:func:`Set_Passive_Flag`:
+  
+
+- :py:func:`Get_Resolution_Function_Flag`:
+  
+
+- :py:func:`Set_Resolution_Function_Flag`:
+  
+
+- :py:func:`Get_Wait_State`:
+  
+
+- :py:func:`Set_Wait_State`:
+  
+
+- :py:func:`Get_All_Sensitized_State`:
+  
+
+- :py:func:`Set_All_Sensitized_State`:
+  
+
+- :py:func:`Get_Seen_Flag`:
+  
+
+- :py:func:`Set_Seen_Flag`:
+  
+
+- :py:func:`Get_Pure_Flag`:
+  
+
+- :py:func:`Set_Pure_Flag`:
+  
+
+- :py:func:`Get_Foreign_Flag`:
+  
+
+- :py:func:`Set_Foreign_Flag`:
+  
+
+- :py:func:`Get_Resolved_Flag`:
+  
+
+- :py:func:`Set_Resolved_Flag`:
+  
+
+- :py:func:`Get_Signal_Type_Flag`:
+  
+
+- :py:func:`Set_Signal_Type_Flag`:
+  
+
+- :py:func:`Get_Has_Signal_Flag`:
+  
+
+- :py:func:`Set_Has_Signal_Flag`:
+  
+
+- :py:func:`Get_Purity_State`:
+  
+
+- :py:func:`Set_Purity_State`:
+  
+
+- :py:func:`Get_Elab_Flag`:
+  
+
+- :py:func:`Set_Elab_Flag`:
+  
+
+- :py:func:`Get_Vendor_Library_Flag`:
+  
+
+- :py:func:`Set_Vendor_Library_Flag`:
+  
+
+- :py:func:`Get_Configuration_Mark_Flag`:
+  
+
+- :py:func:`Set_Configuration_Mark_Flag`:
+  
+
+- :py:func:`Get_Configuration_Done_Flag`:
+  
+
+- :py:func:`Set_Configuration_Done_Flag`:
+  
+
+- :py:func:`Get_Index_Constraint_Flag`:
+  
+
+- :py:func:`Set_Index_Constraint_Flag`:
+  
+
+- :py:func:`Get_Hide_Implicit_Flag`:
+  
+
+- :py:func:`Set_Hide_Implicit_Flag`:
+  
+
+- :py:func:`Get_Assertion_Condition`:
+  
+
+- :py:func:`Set_Assertion_Condition`:
+  
+
+- :py:func:`Get_Report_Expression`:
+  
+
+- :py:func:`Set_Report_Expression`:
+  
+
+- :py:func:`Get_Severity_Expression`:
+  
+
+- :py:func:`Set_Severity_Expression`:
+  
+
+- :py:func:`Get_Instantiated_Unit`:
+  
+
+- :py:func:`Set_Instantiated_Unit`:
+  
+
+- :py:func:`Get_Generic_Map_Aspect_Chain`:
+  
+
+- :py:func:`Set_Generic_Map_Aspect_Chain`:
+  
+
+- :py:func:`Get_Port_Map_Aspect_Chain`:
+  
+
+- :py:func:`Set_Port_Map_Aspect_Chain`:
+  
+
+- :py:func:`Get_Configuration_Name`:
+  
+
+- :py:func:`Set_Configuration_Name`:
+  
+
+- :py:func:`Get_Component_Configuration`:
+  
+
+- :py:func:`Set_Component_Configuration`:
+  
+
+- :py:func:`Get_Configuration_Specification`:
+  
+
+- :py:func:`Set_Configuration_Specification`:
+  
+
+- :py:func:`Get_Default_Binding_Indication`:
+  
+
+- :py:func:`Set_Default_Binding_Indication`:
+  
+
+- :py:func:`Get_Default_Configuration_Declaration`:
+  
+
+- :py:func:`Set_Default_Configuration_Declaration`:
+  
+
+- :py:func:`Get_Expression`:
+  
+
+- :py:func:`Set_Expression`:
+  
+
+- :py:func:`Get_Conditional_Expression_Chain`:
+  
+
+- :py:func:`Set_Conditional_Expression_Chain`:
+  
+
+- :py:func:`Get_Allocator_Designated_Type`:
+  
+
+- :py:func:`Set_Allocator_Designated_Type`:
+  
+
+- :py:func:`Get_Selected_Waveform_Chain`:
+  
+
+- :py:func:`Set_Selected_Waveform_Chain`:
+  
+
+- :py:func:`Get_Conditional_Waveform_Chain`:
+  
+
+- :py:func:`Set_Conditional_Waveform_Chain`:
+  
+
+- :py:func:`Get_Guard_Expression`:
+  
+
+- :py:func:`Set_Guard_Expression`:
+  
+
+- :py:func:`Get_Guard_Decl`:
+  
+
+- :py:func:`Set_Guard_Decl`:
+  
+
+- :py:func:`Get_Guard_Sensitivity_List`:
+  
+
+- :py:func:`Set_Guard_Sensitivity_List`:
+  
+
+- :py:func:`Get_Signal_Attribute_Chain`:
+  
+
+- :py:func:`Set_Signal_Attribute_Chain`:
+  
+
+- :py:func:`Get_Block_Block_Configuration`:
+  
+
+- :py:func:`Set_Block_Block_Configuration`:
+  
+
+- :py:func:`Get_Package_Header`:
+  
+
+- :py:func:`Set_Package_Header`:
+  
+
+- :py:func:`Get_Block_Header`:
+  
+
+- :py:func:`Set_Block_Header`:
+  
+
+- :py:func:`Get_Uninstantiated_Package_Name`:
+  
+
+- :py:func:`Set_Uninstantiated_Package_Name`:
+  
+
+- :py:func:`Get_Uninstantiated_Package_Decl`:
+  
+
+- :py:func:`Set_Uninstantiated_Package_Decl`:
+  
+
+- :py:func:`Get_Instance_Source_File`:
+  
+
+- :py:func:`Set_Instance_Source_File`:
+  
+
+- :py:func:`Get_Generate_Block_Configuration`:
+  
+
+- :py:func:`Set_Generate_Block_Configuration`:
+  
+
+- :py:func:`Get_Generate_Statement_Body`:
+  
+
+- :py:func:`Set_Generate_Statement_Body`:
+  
+
+- :py:func:`Get_Alternative_Label`:
+  
+
+- :py:func:`Set_Alternative_Label`:
+  
+
+- :py:func:`Get_Generate_Else_Clause`:
+  
+
+- :py:func:`Set_Generate_Else_Clause`:
+  
+
+- :py:func:`Get_Condition`:
+  
+
+- :py:func:`Set_Condition`:
+  
+
+- :py:func:`Get_Else_Clause`:
+  
+
+- :py:func:`Set_Else_Clause`:
+  
+
+- :py:func:`Get_Parameter_Specification`:
+  
+
+- :py:func:`Set_Parameter_Specification`:
+  
+
+- :py:func:`Get_Parent`:
+  
+
+- :py:func:`Set_Parent`:
+  
+
+- :py:func:`Get_Loop_Label`:
+  
+
+- :py:func:`Set_Loop_Label`:
+  
+
+- :py:func:`Get_Exit_Flag`:
+  
+
+- :py:func:`Set_Exit_Flag`:
+  
+
+- :py:func:`Get_Next_Flag`:
+  
+
+- :py:func:`Set_Next_Flag`:
+  
+
+- :py:func:`Get_Component_Name`:
+  
+
+- :py:func:`Set_Component_Name`:
+  
+
+- :py:func:`Get_Instantiation_List`:
+  
+
+- :py:func:`Set_Instantiation_List`:
+  
+
+- :py:func:`Get_Entity_Aspect`:
+  
+
+- :py:func:`Set_Entity_Aspect`:
+  
+
+- :py:func:`Get_Default_Entity_Aspect`:
+  
+
+- :py:func:`Set_Default_Entity_Aspect`:
+  
+
+- :py:func:`Get_Binding_Indication`:
+  
+
+- :py:func:`Set_Binding_Indication`:
+  
+
+- :py:func:`Get_Named_Entity`:
+  
+
+- :py:func:`Set_Named_Entity`:
+  
+
+- :py:func:`Get_Referenced_Name`:
+  
+
+- :py:func:`Set_Referenced_Name`:
+  
+
+- :py:func:`Get_Expr_Staticness`:
+  
+
+- :py:func:`Set_Expr_Staticness`:
+  
+
+- :py:func:`Get_Scalar_Size`:
+  
+
+- :py:func:`Set_Scalar_Size`:
+  
+
+- :py:func:`Get_Error_Origin`:
+  
+
+- :py:func:`Set_Error_Origin`:
+  
+
+- :py:func:`Get_Operand`:
+  
+
+- :py:func:`Set_Operand`:
+  
+
+- :py:func:`Get_Left`:
+  
+
+- :py:func:`Set_Left`:
+  
+
+- :py:func:`Get_Right`:
+  
+
+- :py:func:`Set_Right`:
+  
+
+- :py:func:`Get_Unit_Name`:
+  
+
+- :py:func:`Set_Unit_Name`:
+  
+
+- :py:func:`Get_Name`:
+  
+
+- :py:func:`Set_Name`:
+  
+
+- :py:func:`Get_Group_Template_Name`:
+  
+
+- :py:func:`Set_Group_Template_Name`:
+  
+
+- :py:func:`Get_Name_Staticness`:
+  
+
+- :py:func:`Set_Name_Staticness`:
+  
+
+- :py:func:`Get_Prefix`:
+  
+
+- :py:func:`Set_Prefix`:
+  
+
+- :py:func:`Get_Signature_Prefix`:
+  
+
+- :py:func:`Set_Signature_Prefix`:
+  
+
+- :py:func:`Get_External_Pathname`:
+  
+
+- :py:func:`Set_External_Pathname`:
+  
+
+- :py:func:`Get_Pathname_Suffix`:
+  
+
+- :py:func:`Set_Pathname_Suffix`:
+  
+
+- :py:func:`Get_Pathname_Expression`:
+  
+
+- :py:func:`Set_Pathname_Expression`:
+  
+
+- :py:func:`Get_In_Formal_Flag`:
+  
+
+- :py:func:`Set_In_Formal_Flag`:
+  
+
+- :py:func:`Get_Slice_Subtype`:
+  
+
+- :py:func:`Set_Slice_Subtype`:
+  
+
+- :py:func:`Get_Suffix`:
+  
+
+- :py:func:`Set_Suffix`:
+  
+
+- :py:func:`Get_Index_Subtype`:
+  
+
+- :py:func:`Set_Index_Subtype`:
+  
+
+- :py:func:`Get_Parameter`:
+  
+
+- :py:func:`Set_Parameter`:
+  
+
+- :py:func:`Get_Parameter_2`:
+  
+
+- :py:func:`Set_Parameter_2`:
+  
+
+- :py:func:`Get_Parameter_3`:
+  
+
+- :py:func:`Set_Parameter_3`:
+  
+
+- :py:func:`Get_Parameter_4`:
+  
+
+- :py:func:`Set_Parameter_4`:
+  
+
+- :py:func:`Get_Attr_Chain`:
+  
+
+- :py:func:`Set_Attr_Chain`:
+  
+
+- :py:func:`Get_Signal_Attribute_Declaration`:
+  
+
+- :py:func:`Set_Signal_Attribute_Declaration`:
+  
+
+- :py:func:`Get_Actual_Type`:
+  
+
+- :py:func:`Set_Actual_Type`:
+  
+
+- :py:func:`Get_Actual_Type_Definition`:
+  
+
+- :py:func:`Set_Actual_Type_Definition`:
+  
+
+- :py:func:`Get_Association_Chain`:
+  
+
+- :py:func:`Set_Association_Chain`:
+  
+
+- :py:func:`Get_Individual_Association_Chain`:
+  
+
+- :py:func:`Set_Individual_Association_Chain`:
+  
+
+- :py:func:`Get_Subprogram_Association_Chain`:
+  
+
+- :py:func:`Set_Subprogram_Association_Chain`:
+  
+
+- :py:func:`Get_Aggregate_Info`:
+  
+
+- :py:func:`Set_Aggregate_Info`:
+  
+
+- :py:func:`Get_Sub_Aggregate_Info`:
+  
+
+- :py:func:`Set_Sub_Aggregate_Info`:
+  
+
+- :py:func:`Get_Aggr_Dynamic_Flag`:
+  
+
+- :py:func:`Set_Aggr_Dynamic_Flag`:
+  
+
+- :py:func:`Get_Aggr_Min_Length`:
+  
+
+- :py:func:`Set_Aggr_Min_Length`:
+  
+
+- :py:func:`Get_Aggr_Low_Limit`:
+  
+
+- :py:func:`Set_Aggr_Low_Limit`:
+  
+
+- :py:func:`Get_Aggr_High_Limit`:
+  
+
+- :py:func:`Set_Aggr_High_Limit`:
+  
+
+- :py:func:`Get_Aggr_Others_Flag`:
+  
+
+- :py:func:`Set_Aggr_Others_Flag`:
+  
+
+- :py:func:`Get_Aggr_Named_Flag`:
+  
+
+- :py:func:`Set_Aggr_Named_Flag`:
+  
+
+- :py:func:`Get_Aggregate_Expand_Flag`:
+  
+
+- :py:func:`Set_Aggregate_Expand_Flag`:
+  
+
+- :py:func:`Get_Association_Choices_Chain`:
+  
+
+- :py:func:`Set_Association_Choices_Chain`:
+  
+
+- :py:func:`Get_Case_Statement_Alternative_Chain`:
+  
+
+- :py:func:`Set_Case_Statement_Alternative_Chain`:
+  
+
+- :py:func:`Get_Choice_Staticness`:
+  
+
+- :py:func:`Set_Choice_Staticness`:
+  
+
+- :py:func:`Get_Procedure_Call`:
+  
+
+- :py:func:`Set_Procedure_Call`:
+  
+
+- :py:func:`Get_Implementation`:
+  
+
+- :py:func:`Set_Implementation`:
+  
+
+- :py:func:`Get_Parameter_Association_Chain`:
+  
+
+- :py:func:`Set_Parameter_Association_Chain`:
+  
+
+- :py:func:`Get_Method_Object`:
+  
+
+- :py:func:`Set_Method_Object`:
+  
+
+- :py:func:`Get_Subtype_Type_Mark`:
+  
+
+- :py:func:`Set_Subtype_Type_Mark`:
+  
+
+- :py:func:`Get_Subnature_Nature_Mark`:
+  
+
+- :py:func:`Set_Subnature_Nature_Mark`:
+  
+
+- :py:func:`Get_Type_Conversion_Subtype`:
+  
+
+- :py:func:`Set_Type_Conversion_Subtype`:
+  
+
+- :py:func:`Get_Type_Mark`:
+  
+
+- :py:func:`Set_Type_Mark`:
+  
+
+- :py:func:`Get_File_Type_Mark`:
+  
+
+- :py:func:`Set_File_Type_Mark`:
+  
+
+- :py:func:`Get_Return_Type_Mark`:
+  
+
+- :py:func:`Set_Return_Type_Mark`:
+  
+
+- :py:func:`Get_Has_Disconnect_Flag`:
+  
+
+- :py:func:`Set_Has_Disconnect_Flag`:
+  
+
+- :py:func:`Get_Has_Active_Flag`:
+  
+
+- :py:func:`Set_Has_Active_Flag`:
+  
+
+- :py:func:`Get_Is_Within_Flag`:
+  
+
+- :py:func:`Set_Is_Within_Flag`:
+  
+
+- :py:func:`Get_Type_Marks_List`:
+  
+
+- :py:func:`Set_Type_Marks_List`:
+  
+
+- :py:func:`Get_Implicit_Alias_Flag`:
+  
+
+- :py:func:`Set_Implicit_Alias_Flag`:
+  
+
+- :py:func:`Get_Alias_Signature`:
+  
+
+- :py:func:`Set_Alias_Signature`:
+  
+
+- :py:func:`Get_Attribute_Signature`:
+  
+
+- :py:func:`Set_Attribute_Signature`:
+  
+
+- :py:func:`Get_Overload_List`:
+  
+
+- :py:func:`Set_Overload_List`:
+  
+
+- :py:func:`Get_Simple_Name_Identifier`:
+  
+
+- :py:func:`Set_Simple_Name_Identifier`:
+  
+
+- :py:func:`Get_Simple_Name_Subtype`:
+  
+
+- :py:func:`Set_Simple_Name_Subtype`:
+  
+
+- :py:func:`Get_Protected_Type_Body`:
+  
+
+- :py:func:`Set_Protected_Type_Body`:
+  
+
+- :py:func:`Get_Protected_Type_Declaration`:
+  
+
+- :py:func:`Set_Protected_Type_Declaration`:
+  
+
+- :py:func:`Get_Use_Flag`:
+  
+
+- :py:func:`Set_Use_Flag`:
+  
+
+- :py:func:`Get_End_Has_Reserved_Id`:
+  
+
+- :py:func:`Set_End_Has_Reserved_Id`:
+  
+
+- :py:func:`Get_End_Has_Identifier`:
+  
+
+- :py:func:`Set_End_Has_Identifier`:
+  
+
+- :py:func:`Get_End_Has_Postponed`:
+  
+
+- :py:func:`Set_End_Has_Postponed`:
+  
+
+- :py:func:`Get_Has_Label`:
+  
+
+- :py:func:`Set_Has_Label`:
+  
+
+- :py:func:`Get_Has_Begin`:
+  
+
+- :py:func:`Set_Has_Begin`:
+  
+
+- :py:func:`Get_Has_End`:
+  
+
+- :py:func:`Set_Has_End`:
+  
+
+- :py:func:`Get_Has_Is`:
+  
+
+- :py:func:`Set_Has_Is`:
+  
+
+- :py:func:`Get_Has_Pure`:
+  
+
+- :py:func:`Set_Has_Pure`:
+  
+
+- :py:func:`Get_Has_Body`:
+  
+
+- :py:func:`Set_Has_Body`:
+  
+
+- :py:func:`Get_Has_Parameter`:
+  
+
+- :py:func:`Set_Has_Parameter`:
+  
+
+- :py:func:`Get_Has_Component`:
+  
+
+- :py:func:`Set_Has_Component`:
+  
+
+- :py:func:`Get_Has_Identifier_List`:
+  
+
+- :py:func:`Set_Has_Identifier_List`:
+  
+
+- :py:func:`Get_Has_Mode`:
+  
+
+- :py:func:`Set_Has_Mode`:
+  
+
+- :py:func:`Get_Has_Class`:
+  
+
+- :py:func:`Set_Has_Class`:
+  
+
+- :py:func:`Get_Has_Delay_Mechanism`:
+  
+
+- :py:func:`Set_Has_Delay_Mechanism`:
+  
+
+- :py:func:`Get_Suspend_Flag`:
+  
+
+- :py:func:`Set_Suspend_Flag`:
+  
+
+- :py:func:`Get_Is_Ref`:
+  
+
+- :py:func:`Set_Is_Ref`:
+  
+
+- :py:func:`Get_Is_Forward_Ref`:
+  
+
+- :py:func:`Set_Is_Forward_Ref`:
+  
+
+- :py:func:`Get_Psl_Property`:
+  
+
+- :py:func:`Set_Psl_Property`:
+  
+
+- :py:func:`Get_Psl_Sequence`:
+  
+
+- :py:func:`Set_Psl_Sequence`:
+  
+
+- :py:func:`Get_Psl_Declaration`:
+  
+
+- :py:func:`Set_Psl_Declaration`:
+  
+
+- :py:func:`Get_Psl_Expression`:
+  
+
+- :py:func:`Set_Psl_Expression`:
+  
+
+- :py:func:`Get_Psl_Boolean`:
+  
+
+- :py:func:`Set_Psl_Boolean`:
+  
+
+- :py:func:`Get_PSL_Clock`:
+  
+
+- :py:func:`Set_PSL_Clock`:
+  
+
+- :py:func:`Get_PSL_NFA`:
+  
+
+- :py:func:`Set_PSL_NFA`:
+  
+
+- :py:func:`Get_PSL_Nbr_States`:
+  
+
+- :py:func:`Set_PSL_Nbr_States`:
+  
+
+- :py:func:`Get_PSL_Clock_Sensitivity`:
+  
+
+- :py:func:`Set_PSL_Clock_Sensitivity`:
+  
+
+- :py:func:`Get_PSL_EOS_Flag`:
+  
+
+- :py:func:`Set_PSL_EOS_Flag`:
+  
+
+- :py:func:`Get_Count_Expression`:
+  
+
+- :py:func:`Set_Count_Expression`:
+  
+
+- :py:func:`Get_Clock_Expression`:
+  
+
+- :py:func:`Set_Clock_Expression`:
+  
+
+- :py:func:`Get_Default_Clock`:
+  
+
+- :py:func:`Set_Default_Clock`:
+  
+
+- :py:func:`Get_Foreign_Node`:
+  
+
+- :py:func:`Set_Foreign_Node`:
+  
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: Iir_Kind
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Kind
+
+   .. rubric:: Members
+
+.. autoclass:: Iir_Kinds
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Kinds
+
+   .. rubric:: Members
+
+.. autoclass:: Iir_Mode
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Mode
+
+   .. rubric:: Members
+
+.. autoclass:: ScalarSize
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ScalarSize
+
+   .. rubric:: Members
+
+.. autoclass:: Iir_Staticness
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Staticness
+
+   .. rubric:: Members
+
+.. autoclass:: Iir_Constraint
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Constraint
+
+   .. rubric:: Members
+
+.. autoclass:: Iir_Delay_Mechanism
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Delay_Mechanism
+
+   .. rubric:: Members
+
+.. autoclass:: DateStateType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: DateStateType
+
+   .. rubric:: Members
+
+.. autoclass:: NumberBaseType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: NumberBaseType
+
+   .. rubric:: Members
+
+.. autoclass:: Iir_Predefined
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Iir_Predefined
+
+   .. rubric:: Members
+
+
+.. #-----------------------------------
+
+**Functions**
+
+
+.. autofunction:: Get_Kind
+
+.. autofunction:: Get_Location
+
+.. autofunction:: Get_First_Design_Unit
+
+.. autofunction:: Set_First_Design_Unit
+
+.. autofunction:: Get_Last_Design_Unit
+
+.. autofunction:: Set_Last_Design_Unit
+
+.. autofunction:: Get_Library_Declaration
+
+.. autofunction:: Set_Library_Declaration
+
+.. autofunction:: Get_File_Checksum
+
+.. autofunction:: Set_File_Checksum
+
+.. autofunction:: Get_Analysis_Time_Stamp
+
+.. autofunction:: Set_Analysis_Time_Stamp
+
+.. autofunction:: Get_Design_File_Source
+
+.. autofunction:: Set_Design_File_Source
+
+.. autofunction:: Get_Library
+
+.. autofunction:: Set_Library
+
+.. autofunction:: Get_File_Dependence_List
+
+.. autofunction:: Set_File_Dependence_List
+
+.. autofunction:: Get_Design_File_Filename
+
+.. autofunction:: Set_Design_File_Filename
+
+.. autofunction:: Get_Design_File_Directory
+
+.. autofunction:: Set_Design_File_Directory
+
+.. autofunction:: Get_Design_File
+
+.. autofunction:: Set_Design_File
+
+.. autofunction:: Get_Design_File_Chain
+
+.. autofunction:: Set_Design_File_Chain
+
+.. autofunction:: Get_Library_Directory
+
+.. autofunction:: Set_Library_Directory
+
+.. autofunction:: Get_Date
+
+.. autofunction:: Set_Date
+
+.. autofunction:: Get_Context_Items
+
+.. autofunction:: Set_Context_Items
+
+.. autofunction:: Get_Dependence_List
+
+.. autofunction:: Set_Dependence_List
+
+.. autofunction:: Get_Analysis_Checks_List
+
+.. autofunction:: Set_Analysis_Checks_List
+
+.. autofunction:: Get_Date_State
+
+.. autofunction:: Set_Date_State
+
+.. autofunction:: Get_Guarded_Target_State
+
+.. autofunction:: Set_Guarded_Target_State
+
+.. autofunction:: Get_Library_Unit
+
+.. autofunction:: Set_Library_Unit
+
+.. autofunction:: Get_Hash_Chain
+
+.. autofunction:: Set_Hash_Chain
+
+.. autofunction:: Get_Design_Unit_Source_Pos
+
+.. autofunction:: Set_Design_Unit_Source_Pos
+
+.. autofunction:: Get_Design_Unit_Source_Line
+
+.. autofunction:: Set_Design_Unit_Source_Line
+
+.. autofunction:: Get_Design_Unit_Source_Col
+
+.. autofunction:: Set_Design_Unit_Source_Col
+
+.. autofunction:: Get_Value
+
+.. autofunction:: Set_Value
+
+.. autofunction:: Get_Enum_Pos
+
+.. autofunction:: Set_Enum_Pos
+
+.. autofunction:: Get_Physical_Literal
+
+.. autofunction:: Set_Physical_Literal
+
+.. autofunction:: Get_Fp_Value
+
+.. autofunction:: Set_Fp_Value
+
+.. autofunction:: Get_Simple_Aggregate_List
+
+.. autofunction:: Set_Simple_Aggregate_List
+
+.. autofunction:: Get_String8_Id
+
+.. autofunction:: Set_String8_Id
+
+.. autofunction:: Get_String_Length
+
+.. autofunction:: Set_String_Length
+
+.. autofunction:: Get_Bit_String_Base
+
+.. autofunction:: Set_Bit_String_Base
+
+.. autofunction:: Get_Has_Signed
+
+.. autofunction:: Set_Has_Signed
+
+.. autofunction:: Get_Has_Sign
+
+.. autofunction:: Set_Has_Sign
+
+.. autofunction:: Get_Has_Length
+
+.. autofunction:: Set_Has_Length
+
+.. autofunction:: Get_Literal_Length
+
+.. autofunction:: Set_Literal_Length
+
+.. autofunction:: Get_Literal_Origin
+
+.. autofunction:: Set_Literal_Origin
+
+.. autofunction:: Get_Range_Origin
+
+.. autofunction:: Set_Range_Origin
+
+.. autofunction:: Get_Literal_Subtype
+
+.. autofunction:: Set_Literal_Subtype
+
+.. autofunction:: Get_Allocator_Subtype
+
+.. autofunction:: Set_Allocator_Subtype
+
+.. autofunction:: Get_Entity_Class
+
+.. autofunction:: Set_Entity_Class
+
+.. autofunction:: Get_Entity_Name_List
+
+.. autofunction:: Set_Entity_Name_List
+
+.. autofunction:: Get_Attribute_Designator
+
+.. autofunction:: Set_Attribute_Designator
+
+.. autofunction:: Get_Attribute_Specification_Chain
+
+.. autofunction:: Set_Attribute_Specification_Chain
+
+.. autofunction:: Get_Attribute_Specification
+
+.. autofunction:: Set_Attribute_Specification
+
+.. autofunction:: Get_Static_Attribute_Flag
+
+.. autofunction:: Set_Static_Attribute_Flag
+
+.. autofunction:: Get_Signal_List
+
+.. autofunction:: Set_Signal_List
+
+.. autofunction:: Get_Quantity_List
+
+.. autofunction:: Set_Quantity_List
+
+.. autofunction:: Get_Designated_Entity
+
+.. autofunction:: Set_Designated_Entity
+
+.. autofunction:: Get_Formal
+
+.. autofunction:: Set_Formal
+
+.. autofunction:: Get_Actual
+
+.. autofunction:: Set_Actual
+
+.. autofunction:: Get_Actual_Conversion
+
+.. autofunction:: Set_Actual_Conversion
+
+.. autofunction:: Get_Formal_Conversion
+
+.. autofunction:: Set_Formal_Conversion
+
+.. autofunction:: Get_Whole_Association_Flag
+
+.. autofunction:: Set_Whole_Association_Flag
+
+.. autofunction:: Get_Collapse_Signal_Flag
+
+.. autofunction:: Set_Collapse_Signal_Flag
+
+.. autofunction:: Get_Artificial_Flag
+
+.. autofunction:: Set_Artificial_Flag
+
+.. autofunction:: Get_Open_Flag
+
+.. autofunction:: Set_Open_Flag
+
+.. autofunction:: Get_After_Drivers_Flag
+
+.. autofunction:: Set_After_Drivers_Flag
+
+.. autofunction:: Get_We_Value
+
+.. autofunction:: Set_We_Value
+
+.. autofunction:: Get_Time
+
+.. autofunction:: Set_Time
+
+.. autofunction:: Get_Associated_Expr
+
+.. autofunction:: Set_Associated_Expr
+
+.. autofunction:: Get_Associated_Block
+
+.. autofunction:: Set_Associated_Block
+
+.. autofunction:: Get_Associated_Chain
+
+.. autofunction:: Set_Associated_Chain
+
+.. autofunction:: Get_Choice_Name
+
+.. autofunction:: Set_Choice_Name
+
+.. autofunction:: Get_Choice_Expression
+
+.. autofunction:: Set_Choice_Expression
+
+.. autofunction:: Get_Choice_Range
+
+.. autofunction:: Set_Choice_Range
+
+.. autofunction:: Get_Same_Alternative_Flag
+
+.. autofunction:: Set_Same_Alternative_Flag
+
+.. autofunction:: Get_Element_Type_Flag
+
+.. autofunction:: Set_Element_Type_Flag
+
+.. autofunction:: Get_Architecture
+
+.. autofunction:: Set_Architecture
+
+.. autofunction:: Get_Block_Specification
+
+.. autofunction:: Set_Block_Specification
+
+.. autofunction:: Get_Prev_Block_Configuration
+
+.. autofunction:: Set_Prev_Block_Configuration
+
+.. autofunction:: Get_Configuration_Item_Chain
+
+.. autofunction:: Set_Configuration_Item_Chain
+
+.. autofunction:: Get_Attribute_Value_Chain
+
+.. autofunction:: Set_Attribute_Value_Chain
+
+.. autofunction:: Get_Spec_Chain
+
+.. autofunction:: Set_Spec_Chain
+
+.. autofunction:: Get_Value_Chain
+
+.. autofunction:: Set_Value_Chain
+
+.. autofunction:: Get_Attribute_Value_Spec_Chain
+
+.. autofunction:: Set_Attribute_Value_Spec_Chain
+
+.. autofunction:: Get_Entity_Name
+
+.. autofunction:: Set_Entity_Name
+
+.. autofunction:: Get_Package
+
+.. autofunction:: Set_Package
+
+.. autofunction:: Get_Package_Body
+
+.. autofunction:: Set_Package_Body
+
+.. autofunction:: Get_Instance_Package_Body
+
+.. autofunction:: Set_Instance_Package_Body
+
+.. autofunction:: Get_Need_Body
+
+.. autofunction:: Set_Need_Body
+
+.. autofunction:: Get_Macro_Expanded_Flag
+
+.. autofunction:: Set_Macro_Expanded_Flag
+
+.. autofunction:: Get_Need_Instance_Bodies
+
+.. autofunction:: Set_Need_Instance_Bodies
+
+.. autofunction:: Get_Hierarchical_Name
+
+.. autofunction:: Set_Hierarchical_Name
+
+.. autofunction:: Get_Inherit_Spec_Chain
+
+.. autofunction:: Set_Inherit_Spec_Chain
+
+.. autofunction:: Get_Vunit_Item_Chain
+
+.. autofunction:: Set_Vunit_Item_Chain
+
+.. autofunction:: Get_Bound_Vunit_Chain
+
+.. autofunction:: Set_Bound_Vunit_Chain
+
+.. autofunction:: Get_Verification_Block_Configuration
+
+.. autofunction:: Set_Verification_Block_Configuration
+
+.. autofunction:: Get_Block_Configuration
+
+.. autofunction:: Set_Block_Configuration
+
+.. autofunction:: Get_Concurrent_Statement_Chain
+
+.. autofunction:: Set_Concurrent_Statement_Chain
+
+.. autofunction:: Get_Chain
+
+.. autofunction:: Set_Chain
+
+.. autofunction:: Get_Port_Chain
+
+.. autofunction:: Set_Port_Chain
+
+.. autofunction:: Get_Generic_Chain
+
+.. autofunction:: Set_Generic_Chain
+
+.. autofunction:: Get_Type
+
+.. autofunction:: Set_Type
+
+.. autofunction:: Get_Subtype_Indication
+
+.. autofunction:: Set_Subtype_Indication
+
+.. autofunction:: Get_Discrete_Range
+
+.. autofunction:: Set_Discrete_Range
+
+.. autofunction:: Get_Type_Definition
+
+.. autofunction:: Set_Type_Definition
+
+.. autofunction:: Get_Subtype_Definition
+
+.. autofunction:: Set_Subtype_Definition
+
+.. autofunction:: Get_Incomplete_Type_Declaration
+
+.. autofunction:: Set_Incomplete_Type_Declaration
+
+.. autofunction:: Get_Interface_Type_Subprograms
+
+.. autofunction:: Set_Interface_Type_Subprograms
+
+.. autofunction:: Get_Nature_Definition
+
+.. autofunction:: Set_Nature_Definition
+
+.. autofunction:: Get_Nature
+
+.. autofunction:: Set_Nature
+
+.. autofunction:: Get_Subnature_Indication
+
+.. autofunction:: Set_Subnature_Indication
+
+.. autofunction:: Get_Mode
+
+.. autofunction:: Set_Mode
+
+.. autofunction:: Get_Guarded_Signal_Flag
+
+.. autofunction:: Set_Guarded_Signal_Flag
+
+.. autofunction:: Get_Signal_Kind
+
+.. autofunction:: Set_Signal_Kind
+
+.. autofunction:: Get_Base_Name
+
+.. autofunction:: Set_Base_Name
+
+.. autofunction:: Get_Interface_Declaration_Chain
+
+.. autofunction:: Set_Interface_Declaration_Chain
+
+.. autofunction:: Get_Subprogram_Specification
+
+.. autofunction:: Set_Subprogram_Specification
+
+.. autofunction:: Get_Sequential_Statement_Chain
+
+.. autofunction:: Set_Sequential_Statement_Chain
+
+.. autofunction:: Get_Simultaneous_Statement_Chain
+
+.. autofunction:: Set_Simultaneous_Statement_Chain
+
+.. autofunction:: Get_Subprogram_Body
+
+.. autofunction:: Set_Subprogram_Body
+
+.. autofunction:: Get_Overload_Number
+
+.. autofunction:: Set_Overload_Number
+
+.. autofunction:: Get_Subprogram_Depth
+
+.. autofunction:: Set_Subprogram_Depth
+
+.. autofunction:: Get_Subprogram_Hash
+
+.. autofunction:: Set_Subprogram_Hash
+
+.. autofunction:: Get_Impure_Depth
+
+.. autofunction:: Set_Impure_Depth
+
+.. autofunction:: Get_Return_Type
+
+.. autofunction:: Set_Return_Type
+
+.. autofunction:: Get_Implicit_Definition
+
+.. autofunction:: Set_Implicit_Definition
+
+.. autofunction:: Get_Uninstantiated_Subprogram_Name
+
+.. autofunction:: Set_Uninstantiated_Subprogram_Name
+
+.. autofunction:: Get_Default_Value
+
+.. autofunction:: Set_Default_Value
+
+.. autofunction:: Get_Deferred_Declaration
+
+.. autofunction:: Set_Deferred_Declaration
+
+.. autofunction:: Get_Deferred_Declaration_Flag
+
+.. autofunction:: Set_Deferred_Declaration_Flag
+
+.. autofunction:: Get_Shared_Flag
+
+.. autofunction:: Set_Shared_Flag
+
+.. autofunction:: Get_Design_Unit
+
+.. autofunction:: Set_Design_Unit
+
+.. autofunction:: Get_Block_Statement
+
+.. autofunction:: Set_Block_Statement
+
+.. autofunction:: Get_Signal_Driver
+
+.. autofunction:: Set_Signal_Driver
+
+.. autofunction:: Get_Declaration_Chain
+
+.. autofunction:: Set_Declaration_Chain
+
+.. autofunction:: Get_File_Logical_Name
+
+.. autofunction:: Set_File_Logical_Name
+
+.. autofunction:: Get_File_Open_Kind
+
+.. autofunction:: Set_File_Open_Kind
+
+.. autofunction:: Get_Element_Position
+
+.. autofunction:: Set_Element_Position
+
+.. autofunction:: Get_Use_Clause_Chain
+
+.. autofunction:: Set_Use_Clause_Chain
+
+.. autofunction:: Get_Context_Reference_Chain
+
+.. autofunction:: Set_Context_Reference_Chain
+
+.. autofunction:: Get_Selected_Name
+
+.. autofunction:: Set_Selected_Name
+
+.. autofunction:: Get_Type_Declarator
+
+.. autofunction:: Set_Type_Declarator
+
+.. autofunction:: Get_Complete_Type_Definition
+
+.. autofunction:: Set_Complete_Type_Definition
+
+.. autofunction:: Get_Incomplete_Type_Ref_Chain
+
+.. autofunction:: Set_Incomplete_Type_Ref_Chain
+
+.. autofunction:: Get_Associated_Type
+
+.. autofunction:: Set_Associated_Type
+
+.. autofunction:: Get_Enumeration_Literal_List
+
+.. autofunction:: Set_Enumeration_Literal_List
+
+.. autofunction:: Get_Entity_Class_Entry_Chain
+
+.. autofunction:: Set_Entity_Class_Entry_Chain
+
+.. autofunction:: Get_Group_Constituent_List
+
+.. autofunction:: Set_Group_Constituent_List
+
+.. autofunction:: Get_Unit_Chain
+
+.. autofunction:: Set_Unit_Chain
+
+.. autofunction:: Get_Primary_Unit
+
+.. autofunction:: Set_Primary_Unit
+
+.. autofunction:: Get_Identifier
+
+.. autofunction:: Set_Identifier
+
+.. autofunction:: Get_Label
+
+.. autofunction:: Set_Label
+
+.. autofunction:: Get_Visible_Flag
+
+.. autofunction:: Set_Visible_Flag
+
+.. autofunction:: Get_Range_Constraint
+
+.. autofunction:: Set_Range_Constraint
+
+.. autofunction:: Get_Direction
+
+.. autofunction:: Set_Direction
+
+.. autofunction:: Get_Left_Limit
+
+.. autofunction:: Set_Left_Limit
+
+.. autofunction:: Get_Right_Limit
+
+.. autofunction:: Set_Right_Limit
+
+.. autofunction:: Get_Left_Limit_Expr
+
+.. autofunction:: Set_Left_Limit_Expr
+
+.. autofunction:: Get_Right_Limit_Expr
+
+.. autofunction:: Set_Right_Limit_Expr
+
+.. autofunction:: Get_Parent_Type
+
+.. autofunction:: Set_Parent_Type
+
+.. autofunction:: Get_Simple_Nature
+
+.. autofunction:: Set_Simple_Nature
+
+.. autofunction:: Get_Base_Nature
+
+.. autofunction:: Set_Base_Nature
+
+.. autofunction:: Get_Resolution_Indication
+
+.. autofunction:: Set_Resolution_Indication
+
+.. autofunction:: Get_Record_Element_Resolution_Chain
+
+.. autofunction:: Set_Record_Element_Resolution_Chain
+
+.. autofunction:: Get_Tolerance
+
+.. autofunction:: Set_Tolerance
+
+.. autofunction:: Get_Plus_Terminal_Name
+
+.. autofunction:: Set_Plus_Terminal_Name
+
+.. autofunction:: Get_Minus_Terminal_Name
+
+.. autofunction:: Set_Minus_Terminal_Name
+
+.. autofunction:: Get_Plus_Terminal
+
+.. autofunction:: Set_Plus_Terminal
+
+.. autofunction:: Get_Minus_Terminal
+
+.. autofunction:: Set_Minus_Terminal
+
+.. autofunction:: Get_Magnitude_Expression
+
+.. autofunction:: Set_Magnitude_Expression
+
+.. autofunction:: Get_Phase_Expression
+
+.. autofunction:: Set_Phase_Expression
+
+.. autofunction:: Get_Power_Expression
+
+.. autofunction:: Set_Power_Expression
+
+.. autofunction:: Get_Simultaneous_Left
+
+.. autofunction:: Set_Simultaneous_Left
+
+.. autofunction:: Get_Simultaneous_Right
+
+.. autofunction:: Set_Simultaneous_Right
+
+.. autofunction:: Get_Text_File_Flag
+
+.. autofunction:: Set_Text_File_Flag
+
+.. autofunction:: Get_Only_Characters_Flag
+
+.. autofunction:: Set_Only_Characters_Flag
+
+.. autofunction:: Get_Is_Character_Type
+
+.. autofunction:: Set_Is_Character_Type
+
+.. autofunction:: Get_Nature_Staticness
+
+.. autofunction:: Set_Nature_Staticness
+
+.. autofunction:: Get_Type_Staticness
+
+.. autofunction:: Set_Type_Staticness
+
+.. autofunction:: Get_Constraint_State
+
+.. autofunction:: Set_Constraint_State
+
+.. autofunction:: Get_Index_Subtype_List
+
+.. autofunction:: Set_Index_Subtype_List
+
+.. autofunction:: Get_Index_Subtype_Definition_List
+
+.. autofunction:: Set_Index_Subtype_Definition_List
+
+.. autofunction:: Get_Element_Subtype_Indication
+
+.. autofunction:: Set_Element_Subtype_Indication
+
+.. autofunction:: Get_Element_Subtype
+
+.. autofunction:: Set_Element_Subtype
+
+.. autofunction:: Get_Element_Subnature_Indication
+
+.. autofunction:: Set_Element_Subnature_Indication
+
+.. autofunction:: Get_Element_Subnature
+
+.. autofunction:: Set_Element_Subnature
+
+.. autofunction:: Get_Index_Constraint_List
+
+.. autofunction:: Set_Index_Constraint_List
+
+.. autofunction:: Get_Array_Element_Constraint
+
+.. autofunction:: Set_Array_Element_Constraint
+
+.. autofunction:: Get_Has_Array_Constraint_Flag
+
+.. autofunction:: Set_Has_Array_Constraint_Flag
+
+.. autofunction:: Get_Has_Element_Constraint_Flag
+
+.. autofunction:: Set_Has_Element_Constraint_Flag
+
+.. autofunction:: Get_Elements_Declaration_List
+
+.. autofunction:: Set_Elements_Declaration_List
+
+.. autofunction:: Get_Owned_Elements_Chain
+
+.. autofunction:: Set_Owned_Elements_Chain
+
+.. autofunction:: Get_Designated_Type
+
+.. autofunction:: Set_Designated_Type
+
+.. autofunction:: Get_Designated_Subtype_Indication
+
+.. autofunction:: Set_Designated_Subtype_Indication
+
+.. autofunction:: Get_Index_List
+
+.. autofunction:: Set_Index_List
+
+.. autofunction:: Get_Reference
+
+.. autofunction:: Set_Reference
+
+.. autofunction:: Get_Nature_Declarator
+
+.. autofunction:: Set_Nature_Declarator
+
+.. autofunction:: Get_Across_Type_Mark
+
+.. autofunction:: Set_Across_Type_Mark
+
+.. autofunction:: Get_Through_Type_Mark
+
+.. autofunction:: Set_Through_Type_Mark
+
+.. autofunction:: Get_Across_Type_Definition
+
+.. autofunction:: Set_Across_Type_Definition
+
+.. autofunction:: Get_Through_Type_Definition
+
+.. autofunction:: Set_Through_Type_Definition
+
+.. autofunction:: Get_Across_Type
+
+.. autofunction:: Set_Across_Type
+
+.. autofunction:: Get_Through_Type
+
+.. autofunction:: Set_Through_Type
+
+.. autofunction:: Get_Target
+
+.. autofunction:: Set_Target
+
+.. autofunction:: Get_Waveform_Chain
+
+.. autofunction:: Set_Waveform_Chain
+
+.. autofunction:: Get_Guard
+
+.. autofunction:: Set_Guard
+
+.. autofunction:: Get_Delay_Mechanism
+
+.. autofunction:: Set_Delay_Mechanism
+
+.. autofunction:: Get_Reject_Time_Expression
+
+.. autofunction:: Set_Reject_Time_Expression
+
+.. autofunction:: Get_Force_Mode
+
+.. autofunction:: Set_Force_Mode
+
+.. autofunction:: Get_Has_Force_Mode
+
+.. autofunction:: Set_Has_Force_Mode
+
+.. autofunction:: Get_Sensitivity_List
+
+.. autofunction:: Set_Sensitivity_List
+
+.. autofunction:: Get_Process_Origin
+
+.. autofunction:: Set_Process_Origin
+
+.. autofunction:: Get_Package_Origin
+
+.. autofunction:: Set_Package_Origin
+
+.. autofunction:: Get_Condition_Clause
+
+.. autofunction:: Set_Condition_Clause
+
+.. autofunction:: Get_Break_Element
+
+.. autofunction:: Set_Break_Element
+
+.. autofunction:: Get_Selector_Quantity
+
+.. autofunction:: Set_Selector_Quantity
+
+.. autofunction:: Get_Break_Quantity
+
+.. autofunction:: Set_Break_Quantity
+
+.. autofunction:: Get_Timeout_Clause
+
+.. autofunction:: Set_Timeout_Clause
+
+.. autofunction:: Get_Postponed_Flag
+
+.. autofunction:: Set_Postponed_Flag
+
+.. autofunction:: Get_Callees_List
+
+.. autofunction:: Set_Callees_List
+
+.. autofunction:: Get_Passive_Flag
+
+.. autofunction:: Set_Passive_Flag
+
+.. autofunction:: Get_Resolution_Function_Flag
+
+.. autofunction:: Set_Resolution_Function_Flag
+
+.. autofunction:: Get_Wait_State
+
+.. autofunction:: Set_Wait_State
+
+.. autofunction:: Get_All_Sensitized_State
+
+.. autofunction:: Set_All_Sensitized_State
+
+.. autofunction:: Get_Seen_Flag
+
+.. autofunction:: Set_Seen_Flag
+
+.. autofunction:: Get_Pure_Flag
+
+.. autofunction:: Set_Pure_Flag
+
+.. autofunction:: Get_Foreign_Flag
+
+.. autofunction:: Set_Foreign_Flag
+
+.. autofunction:: Get_Resolved_Flag
+
+.. autofunction:: Set_Resolved_Flag
+
+.. autofunction:: Get_Signal_Type_Flag
+
+.. autofunction:: Set_Signal_Type_Flag
+
+.. autofunction:: Get_Has_Signal_Flag
+
+.. autofunction:: Set_Has_Signal_Flag
+
+.. autofunction:: Get_Purity_State
+
+.. autofunction:: Set_Purity_State
+
+.. autofunction:: Get_Elab_Flag
+
+.. autofunction:: Set_Elab_Flag
+
+.. autofunction:: Get_Vendor_Library_Flag
+
+.. autofunction:: Set_Vendor_Library_Flag
+
+.. autofunction:: Get_Configuration_Mark_Flag
+
+.. autofunction:: Set_Configuration_Mark_Flag
+
+.. autofunction:: Get_Configuration_Done_Flag
+
+.. autofunction:: Set_Configuration_Done_Flag
+
+.. autofunction:: Get_Index_Constraint_Flag
+
+.. autofunction:: Set_Index_Constraint_Flag
+
+.. autofunction:: Get_Hide_Implicit_Flag
+
+.. autofunction:: Set_Hide_Implicit_Flag
+
+.. autofunction:: Get_Assertion_Condition
+
+.. autofunction:: Set_Assertion_Condition
+
+.. autofunction:: Get_Report_Expression
+
+.. autofunction:: Set_Report_Expression
+
+.. autofunction:: Get_Severity_Expression
+
+.. autofunction:: Set_Severity_Expression
+
+.. autofunction:: Get_Instantiated_Unit
+
+.. autofunction:: Set_Instantiated_Unit
+
+.. autofunction:: Get_Generic_Map_Aspect_Chain
+
+.. autofunction:: Set_Generic_Map_Aspect_Chain
+
+.. autofunction:: Get_Port_Map_Aspect_Chain
+
+.. autofunction:: Set_Port_Map_Aspect_Chain
+
+.. autofunction:: Get_Configuration_Name
+
+.. autofunction:: Set_Configuration_Name
+
+.. autofunction:: Get_Component_Configuration
+
+.. autofunction:: Set_Component_Configuration
+
+.. autofunction:: Get_Configuration_Specification
+
+.. autofunction:: Set_Configuration_Specification
+
+.. autofunction:: Get_Default_Binding_Indication
+
+.. autofunction:: Set_Default_Binding_Indication
+
+.. autofunction:: Get_Default_Configuration_Declaration
+
+.. autofunction:: Set_Default_Configuration_Declaration
+
+.. autofunction:: Get_Expression
+
+.. autofunction:: Set_Expression
+
+.. autofunction:: Get_Conditional_Expression_Chain
+
+.. autofunction:: Set_Conditional_Expression_Chain
+
+.. autofunction:: Get_Allocator_Designated_Type
+
+.. autofunction:: Set_Allocator_Designated_Type
+
+.. autofunction:: Get_Selected_Waveform_Chain
+
+.. autofunction:: Set_Selected_Waveform_Chain
+
+.. autofunction:: Get_Conditional_Waveform_Chain
+
+.. autofunction:: Set_Conditional_Waveform_Chain
+
+.. autofunction:: Get_Guard_Expression
+
+.. autofunction:: Set_Guard_Expression
+
+.. autofunction:: Get_Guard_Decl
+
+.. autofunction:: Set_Guard_Decl
+
+.. autofunction:: Get_Guard_Sensitivity_List
+
+.. autofunction:: Set_Guard_Sensitivity_List
+
+.. autofunction:: Get_Signal_Attribute_Chain
+
+.. autofunction:: Set_Signal_Attribute_Chain
+
+.. autofunction:: Get_Block_Block_Configuration
+
+.. autofunction:: Set_Block_Block_Configuration
+
+.. autofunction:: Get_Package_Header
+
+.. autofunction:: Set_Package_Header
+
+.. autofunction:: Get_Block_Header
+
+.. autofunction:: Set_Block_Header
+
+.. autofunction:: Get_Uninstantiated_Package_Name
+
+.. autofunction:: Set_Uninstantiated_Package_Name
+
+.. autofunction:: Get_Uninstantiated_Package_Decl
+
+.. autofunction:: Set_Uninstantiated_Package_Decl
+
+.. autofunction:: Get_Instance_Source_File
+
+.. autofunction:: Set_Instance_Source_File
+
+.. autofunction:: Get_Generate_Block_Configuration
+
+.. autofunction:: Set_Generate_Block_Configuration
+
+.. autofunction:: Get_Generate_Statement_Body
+
+.. autofunction:: Set_Generate_Statement_Body
+
+.. autofunction:: Get_Alternative_Label
+
+.. autofunction:: Set_Alternative_Label
+
+.. autofunction:: Get_Generate_Else_Clause
+
+.. autofunction:: Set_Generate_Else_Clause
+
+.. autofunction:: Get_Condition
+
+.. autofunction:: Set_Condition
+
+.. autofunction:: Get_Else_Clause
+
+.. autofunction:: Set_Else_Clause
+
+.. autofunction:: Get_Parameter_Specification
+
+.. autofunction:: Set_Parameter_Specification
+
+.. autofunction:: Get_Parent
+
+.. autofunction:: Set_Parent
+
+.. autofunction:: Get_Loop_Label
+
+.. autofunction:: Set_Loop_Label
+
+.. autofunction:: Get_Exit_Flag
+
+.. autofunction:: Set_Exit_Flag
+
+.. autofunction:: Get_Next_Flag
+
+.. autofunction:: Set_Next_Flag
+
+.. autofunction:: Get_Component_Name
+
+.. autofunction:: Set_Component_Name
+
+.. autofunction:: Get_Instantiation_List
+
+.. autofunction:: Set_Instantiation_List
+
+.. autofunction:: Get_Entity_Aspect
+
+.. autofunction:: Set_Entity_Aspect
+
+.. autofunction:: Get_Default_Entity_Aspect
+
+.. autofunction:: Set_Default_Entity_Aspect
+
+.. autofunction:: Get_Binding_Indication
+
+.. autofunction:: Set_Binding_Indication
+
+.. autofunction:: Get_Named_Entity
+
+.. autofunction:: Set_Named_Entity
+
+.. autofunction:: Get_Referenced_Name
+
+.. autofunction:: Set_Referenced_Name
+
+.. autofunction:: Get_Expr_Staticness
+
+.. autofunction:: Set_Expr_Staticness
+
+.. autofunction:: Get_Scalar_Size
+
+.. autofunction:: Set_Scalar_Size
+
+.. autofunction:: Get_Error_Origin
+
+.. autofunction:: Set_Error_Origin
+
+.. autofunction:: Get_Operand
+
+.. autofunction:: Set_Operand
+
+.. autofunction:: Get_Left
+
+.. autofunction:: Set_Left
+
+.. autofunction:: Get_Right
+
+.. autofunction:: Set_Right
+
+.. autofunction:: Get_Unit_Name
+
+.. autofunction:: Set_Unit_Name
+
+.. autofunction:: Get_Name
+
+.. autofunction:: Set_Name
+
+.. autofunction:: Get_Group_Template_Name
+
+.. autofunction:: Set_Group_Template_Name
+
+.. autofunction:: Get_Name_Staticness
+
+.. autofunction:: Set_Name_Staticness
+
+.. autofunction:: Get_Prefix
+
+.. autofunction:: Set_Prefix
+
+.. autofunction:: Get_Signature_Prefix
+
+.. autofunction:: Set_Signature_Prefix
+
+.. autofunction:: Get_External_Pathname
+
+.. autofunction:: Set_External_Pathname
+
+.. autofunction:: Get_Pathname_Suffix
+
+.. autofunction:: Set_Pathname_Suffix
+
+.. autofunction:: Get_Pathname_Expression
+
+.. autofunction:: Set_Pathname_Expression
+
+.. autofunction:: Get_In_Formal_Flag
+
+.. autofunction:: Set_In_Formal_Flag
+
+.. autofunction:: Get_Slice_Subtype
+
+.. autofunction:: Set_Slice_Subtype
+
+.. autofunction:: Get_Suffix
+
+.. autofunction:: Set_Suffix
+
+.. autofunction:: Get_Index_Subtype
+
+.. autofunction:: Set_Index_Subtype
+
+.. autofunction:: Get_Parameter
+
+.. autofunction:: Set_Parameter
+
+.. autofunction:: Get_Parameter_2
+
+.. autofunction:: Set_Parameter_2
+
+.. autofunction:: Get_Parameter_3
+
+.. autofunction:: Set_Parameter_3
+
+.. autofunction:: Get_Parameter_4
+
+.. autofunction:: Set_Parameter_4
+
+.. autofunction:: Get_Attr_Chain
+
+.. autofunction:: Set_Attr_Chain
+
+.. autofunction:: Get_Signal_Attribute_Declaration
+
+.. autofunction:: Set_Signal_Attribute_Declaration
+
+.. autofunction:: Get_Actual_Type
+
+.. autofunction:: Set_Actual_Type
+
+.. autofunction:: Get_Actual_Type_Definition
+
+.. autofunction:: Set_Actual_Type_Definition
+
+.. autofunction:: Get_Association_Chain
+
+.. autofunction:: Set_Association_Chain
+
+.. autofunction:: Get_Individual_Association_Chain
+
+.. autofunction:: Set_Individual_Association_Chain
+
+.. autofunction:: Get_Subprogram_Association_Chain
+
+.. autofunction:: Set_Subprogram_Association_Chain
+
+.. autofunction:: Get_Aggregate_Info
+
+.. autofunction:: Set_Aggregate_Info
+
+.. autofunction:: Get_Sub_Aggregate_Info
+
+.. autofunction:: Set_Sub_Aggregate_Info
+
+.. autofunction:: Get_Aggr_Dynamic_Flag
+
+.. autofunction:: Set_Aggr_Dynamic_Flag
+
+.. autofunction:: Get_Aggr_Min_Length
+
+.. autofunction:: Set_Aggr_Min_Length
+
+.. autofunction:: Get_Aggr_Low_Limit
+
+.. autofunction:: Set_Aggr_Low_Limit
+
+.. autofunction:: Get_Aggr_High_Limit
+
+.. autofunction:: Set_Aggr_High_Limit
+
+.. autofunction:: Get_Aggr_Others_Flag
+
+.. autofunction:: Set_Aggr_Others_Flag
+
+.. autofunction:: Get_Aggr_Named_Flag
+
+.. autofunction:: Set_Aggr_Named_Flag
+
+.. autofunction:: Get_Aggregate_Expand_Flag
+
+.. autofunction:: Set_Aggregate_Expand_Flag
+
+.. autofunction:: Get_Association_Choices_Chain
+
+.. autofunction:: Set_Association_Choices_Chain
+
+.. autofunction:: Get_Case_Statement_Alternative_Chain
+
+.. autofunction:: Set_Case_Statement_Alternative_Chain
+
+.. autofunction:: Get_Choice_Staticness
+
+.. autofunction:: Set_Choice_Staticness
+
+.. autofunction:: Get_Procedure_Call
+
+.. autofunction:: Set_Procedure_Call
+
+.. autofunction:: Get_Implementation
+
+.. autofunction:: Set_Implementation
+
+.. autofunction:: Get_Parameter_Association_Chain
+
+.. autofunction:: Set_Parameter_Association_Chain
+
+.. autofunction:: Get_Method_Object
+
+.. autofunction:: Set_Method_Object
+
+.. autofunction:: Get_Subtype_Type_Mark
+
+.. autofunction:: Set_Subtype_Type_Mark
+
+.. autofunction:: Get_Subnature_Nature_Mark
+
+.. autofunction:: Set_Subnature_Nature_Mark
+
+.. autofunction:: Get_Type_Conversion_Subtype
+
+.. autofunction:: Set_Type_Conversion_Subtype
+
+.. autofunction:: Get_Type_Mark
+
+.. autofunction:: Set_Type_Mark
+
+.. autofunction:: Get_File_Type_Mark
+
+.. autofunction:: Set_File_Type_Mark
+
+.. autofunction:: Get_Return_Type_Mark
+
+.. autofunction:: Set_Return_Type_Mark
+
+.. autofunction:: Get_Has_Disconnect_Flag
+
+.. autofunction:: Set_Has_Disconnect_Flag
+
+.. autofunction:: Get_Has_Active_Flag
+
+.. autofunction:: Set_Has_Active_Flag
+
+.. autofunction:: Get_Is_Within_Flag
+
+.. autofunction:: Set_Is_Within_Flag
+
+.. autofunction:: Get_Type_Marks_List
+
+.. autofunction:: Set_Type_Marks_List
+
+.. autofunction:: Get_Implicit_Alias_Flag
+
+.. autofunction:: Set_Implicit_Alias_Flag
+
+.. autofunction:: Get_Alias_Signature
+
+.. autofunction:: Set_Alias_Signature
+
+.. autofunction:: Get_Attribute_Signature
+
+.. autofunction:: Set_Attribute_Signature
+
+.. autofunction:: Get_Overload_List
+
+.. autofunction:: Set_Overload_List
+
+.. autofunction:: Get_Simple_Name_Identifier
+
+.. autofunction:: Set_Simple_Name_Identifier
+
+.. autofunction:: Get_Simple_Name_Subtype
+
+.. autofunction:: Set_Simple_Name_Subtype
+
+.. autofunction:: Get_Protected_Type_Body
+
+.. autofunction:: Set_Protected_Type_Body
+
+.. autofunction:: Get_Protected_Type_Declaration
+
+.. autofunction:: Set_Protected_Type_Declaration
+
+.. autofunction:: Get_Use_Flag
+
+.. autofunction:: Set_Use_Flag
+
+.. autofunction:: Get_End_Has_Reserved_Id
+
+.. autofunction:: Set_End_Has_Reserved_Id
+
+.. autofunction:: Get_End_Has_Identifier
+
+.. autofunction:: Set_End_Has_Identifier
+
+.. autofunction:: Get_End_Has_Postponed
+
+.. autofunction:: Set_End_Has_Postponed
+
+.. autofunction:: Get_Has_Label
+
+.. autofunction:: Set_Has_Label
+
+.. autofunction:: Get_Has_Begin
+
+.. autofunction:: Set_Has_Begin
+
+.. autofunction:: Get_Has_End
+
+.. autofunction:: Set_Has_End
+
+.. autofunction:: Get_Has_Is
+
+.. autofunction:: Set_Has_Is
+
+.. autofunction:: Get_Has_Pure
+
+.. autofunction:: Set_Has_Pure
+
+.. autofunction:: Get_Has_Body
+
+.. autofunction:: Set_Has_Body
+
+.. autofunction:: Get_Has_Parameter
+
+.. autofunction:: Set_Has_Parameter
+
+.. autofunction:: Get_Has_Component
+
+.. autofunction:: Set_Has_Component
+
+.. autofunction:: Get_Has_Identifier_List
+
+.. autofunction:: Set_Has_Identifier_List
+
+.. autofunction:: Get_Has_Mode
+
+.. autofunction:: Set_Has_Mode
+
+.. autofunction:: Get_Has_Class
+
+.. autofunction:: Set_Has_Class
+
+.. autofunction:: Get_Has_Delay_Mechanism
+
+.. autofunction:: Set_Has_Delay_Mechanism
+
+.. autofunction:: Get_Suspend_Flag
+
+.. autofunction:: Set_Suspend_Flag
+
+.. autofunction:: Get_Is_Ref
+
+.. autofunction:: Set_Is_Ref
+
+.. autofunction:: Get_Is_Forward_Ref
+
+.. autofunction:: Set_Is_Forward_Ref
+
+.. autofunction:: Get_Psl_Property
+
+.. autofunction:: Set_Psl_Property
+
+.. autofunction:: Get_Psl_Sequence
+
+.. autofunction:: Set_Psl_Sequence
+
+.. autofunction:: Get_Psl_Declaration
+
+.. autofunction:: Set_Psl_Declaration
+
+.. autofunction:: Get_Psl_Expression
+
+.. autofunction:: Set_Psl_Expression
+
+.. autofunction:: Get_Psl_Boolean
+
+.. autofunction:: Set_Psl_Boolean
+
+.. autofunction:: Get_PSL_Clock
+
+.. autofunction:: Set_PSL_Clock
+
+.. autofunction:: Get_PSL_NFA
+
+.. autofunction:: Set_PSL_NFA
+
+.. autofunction:: Get_PSL_Nbr_States
+
+.. autofunction:: Set_PSL_Nbr_States
+
+.. autofunction:: Get_PSL_Clock_Sensitivity
+
+.. autofunction:: Set_PSL_Clock_Sensitivity
+
+.. autofunction:: Get_PSL_EOS_Flag
+
+.. autofunction:: Set_PSL_EOS_Flag
+
+.. autofunction:: Get_Count_Expression
+
+.. autofunction:: Set_Count_Expression
+
+.. autofunction:: Get_Clock_Expression
+
+.. autofunction:: Set_Clock_Expression
+
+.. autofunction:: Get_Default_Clock
+
+.. autofunction:: Set_Default_Clock
+
+.. autofunction:: Get_Foreign_Node
+
+.. autofunction:: Set_Foreign_Node

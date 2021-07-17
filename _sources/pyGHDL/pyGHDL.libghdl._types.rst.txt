@@ -1,0 +1,98 @@
+pyGHDL.libghdl._types
+=========================
+
+.. automodule:: pyGHDL.libghdl._types
+
+
+.. currentmodule:: pyGHDL.libghdl._types
+
+
+.. #-----------------------------------
+
+**Variables**
+
+- :py:data:`ErrorIndex`
+- :py:data:`MessageIdWarnings`
+- :py:data:`NameId`
+- :py:data:`SourceFileEntry`
+- :py:data:`Iir`
+- :py:data:`IirKind`
+
+
+**Classes**
+
+- :py:class:`TriStateType`:
+  An enumeration.
+
+- :py:class:`DirectionType`:
+  An enumeration.
+
+
+
+.. autodata:: ErrorIndex
+   :annotation:
+
+   .. code-block:: guess
+
+      ~ErrorIndex
+
+.. autodata:: MessageIdWarnings
+   :annotation:
+
+   .. code-block:: guess
+
+      ~MessageIdWarnings
+
+.. autodata:: NameId
+   :annotation:
+
+   .. code-block:: guess
+
+      ~NameId
+
+.. autodata:: SourceFileEntry
+   :annotation:
+
+   .. code-block:: guess
+
+      ~SourceFileEntry
+
+.. autodata:: Iir
+   :annotation:
+
+   .. code-block:: guess
+
+      ~Iir
+
+.. autodata:: IirKind
+   :annotation:
+
+   .. code-block:: guess
+
+      ~IirKind
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: TriStateType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: TriStateType
+
+   .. rubric:: Members
+
+.. autoclass:: DirectionType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: DirectionType
+
+   .. rubric:: Members

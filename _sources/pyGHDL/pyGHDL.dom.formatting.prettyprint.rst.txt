@@ -1,0 +1,54 @@
+pyGHDL.dom.formatting.prettyprint
+=====================================
+
+.. automodule:: pyGHDL.dom.formatting.prettyprint
+
+
+.. currentmodule:: pyGHDL.dom.formatting.prettyprint
+
+
+.. #-----------------------------------
+
+
+**Exceptions**
+
+- :py:exc:`PrettyPrintException`:
+  Common base class for all non-exit exceptions.
+
+
+
+**Classes**
+
+- :py:class:`PrettyPrint`:
+  Undocumented.
+
+
+
+.. #-----------------------------------
+
+
+.. autoexception:: PrettyPrintException
+   :members:
+   :private-members:
+   :inherited-members:
+   :undoc-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PrettyPrintException
+
+   .. rubric:: Members
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: PrettyPrint
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PrettyPrint
+
+   .. rubric:: Members

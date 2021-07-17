@@ -1,0 +1,40 @@
+pyGHDL.dom._Utils
+=====================
+
+.. automodule:: pyGHDL.dom._Utils
+
+
+.. currentmodule:: pyGHDL.dom._Utils
+
+
+.. #-----------------------------------
+
+
+**Functions**
+
+- :py:func:`CheckForErrors`:
+  Undocumented.
+
+- :py:func:`GetIirKindOfNode`:
+  Return the kind of a node in the IIR tree.
+
+- :py:func:`GetNameOfNode`:
+  Return the python string from node :obj:`node` identifier.
+
+- :py:func:`GetModeOfNode`:
+  Return the mode of a :obj:`node`.
+
+
+
+.. #-----------------------------------
+
+**Functions**
+
+
+.. autofunction:: CheckForErrors
+
+.. autofunction:: GetIirKindOfNode
+
+.. autofunction:: GetNameOfNode
+
+.. autofunction:: GetModeOfNode

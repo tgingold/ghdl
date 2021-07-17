@@ -1,0 +1,130 @@
+pyGHDL.dom.Literal
+======================
+
+.. automodule:: pyGHDL.dom.Literal
+
+
+.. currentmodule:: pyGHDL.dom.Literal
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`NullLiteral`:
+  A ``Literal`` is a base-class for all literals.
+
+- :py:class:`EnumerationLiteral`:
+  A ``Literal`` is a base-class for all literals.
+
+- :py:class:`IntegerLiteral`:
+  A ``NumericLiteral`` is a base-class for all numeric literals.
+
+- :py:class:`FloatingPointLiteral`:
+  A ``NumericLiteral`` is a base-class for all numeric literals.
+
+- :py:class:`PhysicalIntegerLiteral`:
+  A ``NumericLiteral`` is a base-class for all numeric literals.
+
+- :py:class:`PhysicalFloatingLiteral`:
+  A ``NumericLiteral`` is a base-class for all numeric literals.
+
+- :py:class:`CharacterLiteral`:
+  A ``Literal`` is a base-class for all literals.
+
+- :py:class:`StringLiteral`:
+  A ``Literal`` is a base-class for all literals.
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: NullLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: NullLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: EnumerationLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: EnumerationLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: IntegerLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IntegerLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: FloatingPointLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: FloatingPointLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: PhysicalIntegerLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PhysicalIntegerLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: PhysicalFloatingLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PhysicalFloatingLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: CharacterLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: CharacterLiteral
+
+   .. rubric:: Members
+
+.. autoclass:: StringLiteral
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: StringLiteral
+
+   .. rubric:: Members

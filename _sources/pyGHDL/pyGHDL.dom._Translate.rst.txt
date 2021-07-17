@@ -1,0 +1,95 @@
+pyGHDL.dom._Translate
+=========================
+
+.. automodule:: pyGHDL.dom._Translate
+
+
+.. currentmodule:: pyGHDL.dom._Translate
+
+
+.. #-----------------------------------
+
+
+**Functions**
+
+- :py:func:`GetNameFromNode`:
+  Undocumented.
+
+- :py:func:`GetArrayConstraintsFromSubtypeIndication`:
+  Undocumented.
+
+- :py:func:`GetTypeFromNode`:
+  Undocumented.
+
+- :py:func:`GetAnonymousTypeFromNode`:
+  Undocumented.
+
+- :py:func:`GetSubtypeIndicationFromNode`:
+  Undocumented.
+
+- :py:func:`GetSubtypeIndicationFromIndicationNode`:
+  Undocumented.
+
+- :py:func:`GetSimpleTypeFromNode`:
+  Undocumented.
+
+- :py:func:`GetScalarConstrainedSubtypeFromNode`:
+  Undocumented.
+
+- :py:func:`GetCompositeConstrainedSubtypeFromNode`:
+  Undocumented.
+
+- :py:func:`GetSubtypeFromNode`:
+  Undocumented.
+
+- :py:func:`GetRangeFromNode`:
+  Undocumented.
+
+- :py:func:`GetExpressionFromNode`:
+  Undocumented.
+
+- :py:func:`GetGenericsFromChainedNodes`:
+  Undocumented.
+
+- :py:func:`GetPortsFromChainedNodes`:
+  Undocumented.
+
+- :py:func:`GetParameterFromChainedNodes`:
+  Undocumented.
+
+
+
+.. #-----------------------------------
+
+**Functions**
+
+
+.. autofunction:: GetNameFromNode
+
+.. autofunction:: GetArrayConstraintsFromSubtypeIndication
+
+.. autofunction:: GetTypeFromNode
+
+.. autofunction:: GetAnonymousTypeFromNode
+
+.. autofunction:: GetSubtypeIndicationFromNode
+
+.. autofunction:: GetSubtypeIndicationFromIndicationNode
+
+.. autofunction:: GetSimpleTypeFromNode
+
+.. autofunction:: GetScalarConstrainedSubtypeFromNode
+
+.. autofunction:: GetCompositeConstrainedSubtypeFromNode
+
+.. autofunction:: GetSubtypeFromNode
+
+.. autofunction:: GetRangeFromNode
+
+.. autofunction:: GetExpressionFromNode
+
+.. autofunction:: GetGenericsFromChainedNodes
+
+.. autofunction:: GetPortsFromChainedNodes
+
+.. autofunction:: GetParameterFromChainedNodes

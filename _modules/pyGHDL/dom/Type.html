@@ -1,0 +1,553 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom.Type &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyGHDL/pyGHDL.html">Python Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="../dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom.Type</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyGHDL.dom.Type</h1><div class="highlight"><pre>
+<span></span><span class="c1"># =============================================================================</span>
+<span class="c1">#               ____ _   _ ____  _          _</span>
+<span class="c1">#  _ __  _   _ / ___| | | |  _ \| |      __| | ___  _ __ ___</span>
+<span class="c1"># | &#39;_ \| | | | |  _| |_| | | | | |     / _` |/ _ \| &#39;_ ` _ \</span>
+<span class="c1"># | |_) | |_| | |_| |  _  | |_| | |___ | (_| | (_) | | | | | |</span>
+<span class="c1"># | .__/ \__, |\____|_| |_|____/|_____(_)__,_|\___/|_| |_| |_|</span>
+<span class="c1"># |_|    |___/</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Authors:</span>
+<span class="c1">#   Patrick Lehmann</span>
+<span class="c1">#</span>
+<span class="c1"># Package module:   DOM: Interface items (e.g. generic or port)</span>
+<span class="c1">#</span>
+<span class="c1"># License:</span>
+<span class="c1"># ============================================================================</span>
+<span class="c1">#  Copyright (C) 2019-2021 Tristan Gingold</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation, either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License</span>
+<span class="c1">#  along with this program.  If not, see &lt;gnu.org/licenses&gt;.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: GPL-2.0-or-later</span>
+<span class="c1"># ============================================================================</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span> <span class="nn">pydecor</span> <span class="kn">import</span> <span class="n">export</span>
+
+<span class="kn">from</span> <span class="nn">pyVHDLModel.VHDLModel</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AnonymousType</span> <span class="k">as</span> <span class="n">VHDLModel_AnonymousType</span><span class="p">,</span>
+    <span class="n">PhysicalType</span> <span class="k">as</span> <span class="n">VHDLModel_PhysicalType</span><span class="p">,</span>
+    <span class="n">IntegerType</span> <span class="k">as</span> <span class="n">VHDLModel_IntegerType</span><span class="p">,</span>
+    <span class="n">EnumeratedType</span> <span class="k">as</span> <span class="n">VHDLModel_EnumeratedType</span><span class="p">,</span>
+    <span class="n">ArrayType</span> <span class="k">as</span> <span class="n">VHDLModel_ArrayType</span><span class="p">,</span>
+    <span class="n">RecordTypeElement</span> <span class="k">as</span> <span class="n">VHDLModel_RecordTypeElement</span><span class="p">,</span>
+    <span class="n">RecordType</span> <span class="k">as</span> <span class="n">VHDLModel_RecordType</span><span class="p">,</span>
+    <span class="n">AccessType</span> <span class="k">as</span> <span class="n">VHDLModel_AccessType</span><span class="p">,</span>
+    <span class="n">FileType</span> <span class="k">as</span> <span class="n">VHDLModel_FileType</span><span class="p">,</span>
+    <span class="n">ProtectedType</span> <span class="k">as</span> <span class="n">VHDLModel_ProtectedType</span><span class="p">,</span>
+    <span class="n">ProtectedTypeBody</span> <span class="k">as</span> <span class="n">VHDLModel_ProtectedTypeBody</span><span class="p">,</span>
+    <span class="n">Subtype</span> <span class="k">as</span> <span class="n">VHDLModel_Subtype</span><span class="p">,</span>
+    <span class="n">SubtypeOrSymbol</span><span class="p">,</span>
+    <span class="n">Name</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl._types</span> <span class="kn">import</span> <span class="n">Iir</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl.vhdl</span> <span class="kn">import</span> <span class="n">nodes</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom</span> <span class="kn">import</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">DOMException</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom._Utils</span> <span class="kn">import</span> <span class="n">GetNameOfNode</span><span class="p">,</span> <span class="n">GetIirKindOfNode</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Symbol</span> <span class="kn">import</span> <span class="n">SimpleSubtypeSymbol</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Literal</span> <span class="kn">import</span> <span class="n">EnumerationLiteral</span><span class="p">,</span> <span class="n">PhysicalIntegerLiteral</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Range</span> <span class="kn">import</span> <span class="n">Range</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Subprogram</span> <span class="kn">import</span> <span class="n">Function</span><span class="p">,</span> <span class="n">Procedure</span>
+
+
+<div class="viewcode-block" id="IncompleteType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.IncompleteType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">IncompleteType</span><span class="p">(</span><span class="n">VHDLModel_AnonymousType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="IncompleteType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.IncompleteType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;IncompleteType&quot;</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="EnumeratedType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.EnumeratedType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">EnumeratedType</span><span class="p">(</span><span class="n">VHDLModel_EnumeratedType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">literals</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EnumerationLiteral</span><span class="p">]):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">literals</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="EnumeratedType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.EnumeratedType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;EnumeratedType&quot;</span><span class="p">:</span>
+        <span class="n">literals</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">enumerationLiterals</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Enumeration_Literal_List</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">enumerationLiteral</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">flist_iter</span><span class="p">(</span><span class="n">enumerationLiterals</span><span class="p">):</span>
+            <span class="n">literal</span> <span class="o">=</span> <span class="n">EnumerationLiteral</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">enumerationLiteral</span><span class="p">)</span>
+            <span class="n">literals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">literal</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">literals</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="IntegerType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.IntegerType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">IntegerType</span><span class="p">(</span><span class="n">VHDLModel_IntegerType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rng</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Range</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">]):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PhysicalType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.PhysicalType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">PhysicalType</span><span class="p">(</span><span class="n">VHDLModel_PhysicalType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+        <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">rng</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Range</span><span class="p">,</span> <span class="n">Name</span><span class="p">],</span>
+        <span class="n">primaryUnit</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">units</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PhysicalIntegerLiteral</span><span class="p">]],</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">primaryUnit</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PhysicalType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.PhysicalType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PhysicalType&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetRangeFromNode</span>
+
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">GetRangeFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Range_Constraint</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">))</span>
+
+        <span class="n">primaryUnit</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Primary_Unit</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)</span>
+        <span class="n">primaryUnitName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">primaryUnit</span><span class="p">)</span>
+
+        <span class="n">units</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">secondaryUnit</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Unit_Chain</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)):</span>
+            <span class="n">secondaryUnitName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">secondaryUnit</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">secondaryUnit</span> <span class="o">==</span> <span class="n">primaryUnit</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">physicalLiteral</span> <span class="o">=</span> <span class="n">PhysicalIntegerLiteral</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Physical_Literal</span><span class="p">(</span><span class="n">secondaryUnit</span><span class="p">)</span>
+            <span class="p">)</span>
+
+            <span class="n">units</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">secondaryUnitName</span><span class="p">,</span> <span class="n">physicalLiteral</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">primaryUnitName</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ArrayType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.ArrayType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ArrayType</span><span class="p">(</span><span class="n">VHDLModel_ArrayType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">elementSubtype</span><span class="p">:</span> <span class="n">SubtypeOrSymbol</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">elementSubtype</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ArrayType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.ArrayType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ArrayType&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">GetSimpleTypeFromNode</span><span class="p">,</span>
+            <span class="n">GetSubtypeIndicationFromIndicationNode</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">indexDefinitions</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Index_Subtype_Definition_List</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">flist_iter</span><span class="p">(</span><span class="n">indexDefinitions</span><span class="p">):</span>
+            <span class="n">indexKind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">indexKind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Simple_Name</span><span class="p">:</span>
+                <span class="n">indexSubtype</span> <span class="o">=</span> <span class="n">GetSimpleTypeFromNode</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indexSubtype</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                    <span class="s2">&quot;Unknown kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; for an index in the array definition of `</span><span class="si">{typeName}</span><span class="s2">`.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">kind</span><span class="o">=</span><span class="n">indexKind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">typeName</span><span class="o">=</span><span class="n">typeName</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="n">elementSubtypeIndication</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Element_Subtype_Indication</span><span class="p">(</span>
+            <span class="n">typeDefinitionNode</span>
+        <span class="p">)</span>
+        <span class="n">elementSubtype</span> <span class="o">=</span> <span class="n">GetSubtypeIndicationFromIndicationNode</span><span class="p">(</span>
+            <span class="n">elementSubtypeIndication</span><span class="p">,</span> <span class="s2">&quot;array declaration&quot;</span><span class="p">,</span> <span class="n">typeName</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">elementSubtype</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="RecordTypeElement"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.RecordTypeElement">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">RecordTypeElement</span><span class="p">(</span><span class="n">VHDLModel_RecordTypeElement</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subtype</span><span class="p">:</span> <span class="n">SubtypeOrSymbol</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RecordTypeElement.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.RecordTypeElement.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">elementDeclarationNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RecordTypeElement&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetSubtypeIndicationFromNode</span>
+
+        <span class="n">elementName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">elementDeclarationNode</span><span class="p">)</span>
+        <span class="n">elementType</span> <span class="o">=</span> <span class="n">GetSubtypeIndicationFromNode</span><span class="p">(</span>
+            <span class="n">elementDeclarationNode</span><span class="p">,</span> <span class="s2">&quot;record element&quot;</span><span class="p">,</span> <span class="n">elementName</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">elementDeclarationNode</span><span class="p">,</span> <span class="n">elementName</span><span class="p">,</span> <span class="n">elementType</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="RecordType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.RecordType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">RecordType</span><span class="p">(</span><span class="n">VHDLModel_RecordType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">RecordTypeElement</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RecordType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.RecordType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RecordType&quot;</span><span class="p">:</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">elementDeclarations</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Elements_Declaration_List</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">elementDeclaration</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">flist_iter</span><span class="p">(</span><span class="n">elementDeclarations</span><span class="p">):</span>
+            <span class="n">element</span> <span class="o">=</span> <span class="n">RecordTypeElement</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">elementDeclaration</span><span class="p">)</span>
+            <span class="n">elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ProtectedType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.ProtectedType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ProtectedType</span><span class="p">(</span><span class="n">VHDLModel_ProtectedType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">methods</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">methods</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ProtectedType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.ProtectedType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProtectedType&quot;</span><span class="p">:</span>
+        <span class="c1"># FIXME: change this to a generator</span>
+        <span class="n">methods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Declaration_Chain</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)):</span>
+            <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Function_Declaration</span><span class="p">:</span>
+                <span class="n">methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Function</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Procedure_Declaration</span><span class="p">:</span>
+                <span class="n">methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Procedure</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">methods</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ProtectedTypeBody"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.ProtectedTypeBody">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ProtectedTypeBody</span><span class="p">(</span><span class="n">VHDLModel_ProtectedTypeBody</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">declaredItems</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">declaredItems</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ProtectedTypeBody.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.ProtectedTypeBody.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">protectedBodyNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProtectedTypeBody&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetDeclaredItemsFromChainedNodes</span>
+
+        <span class="n">typeName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">protectedBodyNode</span><span class="p">)</span>
+        <span class="n">declaredItems</span> <span class="o">=</span> <span class="n">GetDeclaredItemsFromChainedNodes</span><span class="p">(</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Declaration_Chain</span><span class="p">(</span><span class="n">protectedBodyNode</span><span class="p">),</span>
+            <span class="s2">&quot;protected type body&quot;</span><span class="p">,</span>
+            <span class="n">typeName</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">protectedBodyNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">declaredItems</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AccessType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.AccessType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">AccessType</span><span class="p">(</span><span class="n">VHDLModel_AccessType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">designatedSubtype</span><span class="p">:</span> <span class="n">SubtypeOrSymbol</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">designatedSubtype</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AccessType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.AccessType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;AccessType&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetSubtypeIndicationFromIndicationNode</span>
+
+        <span class="n">designatedSubtypeIndication</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Designated_Subtype_Indication</span><span class="p">(</span>
+            <span class="n">typeDefinitionNode</span>
+        <span class="p">)</span>
+        <span class="n">designatedSubtype</span> <span class="o">=</span> <span class="n">GetSubtypeIndicationFromIndicationNode</span><span class="p">(</span>
+            <span class="n">designatedSubtypeIndication</span><span class="p">,</span> <span class="s2">&quot;access type&quot;</span><span class="p">,</span> <span class="n">typeName</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">designatedSubtype</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="FileType"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.FileType">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">FileType</span><span class="p">(</span><span class="n">VHDLModel_FileType</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">designatedSubtype</span><span class="p">:</span> <span class="n">SubtypeOrSymbol</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">designatedSubtype</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FileType.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.FileType.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">typeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">typeDefinitionNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileType&quot;</span><span class="p">:</span>
+
+        <span class="n">designatedSubtypeMark</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_File_Type_Mark</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">)</span>
+        <span class="n">designatedSubtypeName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">designatedSubtypeMark</span><span class="p">)</span>
+        <span class="n">designatedSubtype</span> <span class="o">=</span> <span class="n">SimpleSubtypeSymbol</span><span class="p">(</span>
+            <span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">designatedSubtypeName</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">typeDefinitionNode</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">designatedSubtype</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Subtype"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Type.html#pyGHDL.dom.Type.Subtype">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Subtype</span><span class="p">(</span><span class="n">VHDLModel_Subtype</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">subtypeName</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subtypeName</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

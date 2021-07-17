@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom.formatting.prettyprint &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pyGHDL/pyGHDL.html">Python Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="../../dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom.formatting.prettyprint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyGHDL.dom.formatting.prettyprint</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pydecor</span> <span class="kn">import</span> <span class="n">export</span>
+
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Attribute</span> <span class="kn">import</span> <span class="n">Attribute</span><span class="p">,</span> <span class="n">AttributeSpecification</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Misc</span> <span class="kn">import</span> <span class="n">Alias</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.PSL</span> <span class="kn">import</span> <span class="n">DefaultClock</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Subprogram</span> <span class="kn">import</span> <span class="n">Procedure</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Type</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IntegerType</span><span class="p">,</span>
+    <span class="n">Subtype</span><span class="p">,</span>
+    <span class="n">ArrayType</span><span class="p">,</span>
+    <span class="n">RecordType</span><span class="p">,</span>
+    <span class="n">AccessType</span><span class="p">,</span>
+    <span class="n">EnumeratedType</span><span class="p">,</span>
+    <span class="n">FileType</span><span class="p">,</span>
+    <span class="n">ProtectedType</span><span class="p">,</span>
+    <span class="n">ProtectedTypeBody</span><span class="p">,</span>
+    <span class="n">PhysicalType</span><span class="p">,</span>
+    <span class="n">IncompleteType</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyVHDLModel.VHDLModel</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GenericInterfaceItem</span><span class="p">,</span>
+    <span class="n">NamedEntity</span><span class="p">,</span>
+    <span class="n">PortInterfaceItem</span><span class="p">,</span>
+    <span class="n">WithDefaultExpressionMixin</span><span class="p">,</span>
+    <span class="n">Function</span><span class="p">,</span>
+    <span class="n">BaseType</span><span class="p">,</span>
+    <span class="n">FullType</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyGHDL</span> <span class="kn">import</span> <span class="n">GHDLBaseException</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.NonStandard</span> <span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">Design</span><span class="p">,</span> <span class="n">Library</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.DesignUnit</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Entity</span><span class="p">,</span>
+    <span class="n">Architecture</span><span class="p">,</span>
+    <span class="n">Package</span><span class="p">,</span>
+    <span class="n">PackageBody</span><span class="p">,</span>
+    <span class="n">Configuration</span><span class="p">,</span>
+    <span class="n">Context</span><span class="p">,</span>
+    <span class="n">Component</span><span class="p">,</span>
+    <span class="n">UseClause</span><span class="p">,</span>
+    <span class="n">PackageInstantiation</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Object</span> <span class="kn">import</span> <span class="n">Constant</span><span class="p">,</span> <span class="n">Signal</span><span class="p">,</span> <span class="n">SharedVariable</span><span class="p">,</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GenericConstantInterfaceItem</span><span class="p">,</span>
+    <span class="n">PortSignalInterfaceItem</span><span class="p">,</span>
+    <span class="n">GenericTypeInterfaceItem</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Symbol</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SimpleSubtypeSymbol</span><span class="p">,</span>
+    <span class="n">ConstrainedCompositeSubtypeSymbol</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">StringBuffer</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="PrettyPrintException"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrintException">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">PrettyPrintException</span><span class="p">(</span><span class="n">GHDLBaseException</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="PrettyPrint"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">PrettyPrint</span><span class="p">:</span>
+    <span class="c1"># _buffer: StringBuffer</span>
+    <span class="c1">#</span>
+    <span class="c1"># def __init__(self):</span>
+    <span class="c1">#     self._buffer = []</span>
+
+<div class="viewcode-block" id="PrettyPrint.formatDesign"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatDesign">[docs]</a>    <span class="k">def</span> <span class="nf">formatDesign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">design</span><span class="p">:</span> <span class="n">Design</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Libraries:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">library</span> <span class="ow">in</span> <span class="n">design</span><span class="o">.</span><span class="n">Libraries</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatLibrary</span><span class="p">(</span><span class="n">library</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Documents:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">design</span><span class="o">.</span><span class="n">Documents</span><span class="p">:</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Path: &#39;</span><span class="si">{doc!s}</span><span class="s2">&#39;:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc</span><span class="o">=</span><span class="n">document</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatDocument</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatLibrary"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatLibrary">[docs]</a>    <span class="k">def</span> <span class="nf">formatLibrary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">library</span><span class="p">:</span> <span class="n">Library</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Entities:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">library</span><span class="o">.</span><span class="n">Entities</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatEntity</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="c1"># buffer.append(&quot;{prefix}Architectures:&quot;.format(prefix=prefix))</span>
+        <span class="c1"># for architecture in library.Architectures:</span>
+        <span class="c1">#     for line in self.formatArchitecture(architecture, level + 1):</span>
+        <span class="c1">#         buffer.append(line)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Packages:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">library</span><span class="o">.</span><span class="n">Packages</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">Package</span><span class="p">):</span>
+                <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPackage</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPackageInstance</span>
+
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="c1"># buffer.append(&quot;{prefix}PackageBodies:&quot;.format(prefix=prefix))</span>
+        <span class="c1"># for packageBodies in library.PackageBodies:</span>
+        <span class="c1">#     for line in self.formatPackageBody(packageBodies, level + 1):</span>
+        <span class="c1">#         buffer.append(line)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Configurations:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">configuration</span> <span class="ow">in</span> <span class="n">library</span><span class="o">.</span><span class="n">Configurations</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatConfiguration</span><span class="p">(</span><span class="n">configuration</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Contexts:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="n">library</span><span class="o">.</span><span class="n">Contexts</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatDocument"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatDocument">[docs]</a>    <span class="k">def</span> <span class="nf">formatDocument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">:</span> <span class="n">Document</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Entities:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">Entities</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatEntity</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Architectures:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">architecture</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">Architectures</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatArchitecture</span><span class="p">(</span><span class="n">architecture</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Packages:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">Packages</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">Package</span><span class="p">):</span>
+                <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPackage</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPackageInstance</span>
+
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">PackageBodies:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">packageBodies</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">PackageBodies</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPackageBody</span><span class="p">(</span><span class="n">packageBodies</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Configurations:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">configuration</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">Configurations</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatConfiguration</span><span class="p">(</span><span class="n">configuration</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">Contexts:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">Contexts</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatEntity"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatEntity">[docs]</a>    <span class="k">def</span> <span class="nf">formatEntity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2"> at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                <span class="n">file</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Filename</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">line</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                <span class="n">column</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Generics:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">generic</span> <span class="ow">in</span> <span class="n">entity</span><span class="o">.</span><span class="n">GenericItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatGeneric</span><span class="p">(</span><span class="n">generic</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Ports:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">entity</span><span class="o">.</span><span class="n">PortItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPort</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Declared:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">entity</span><span class="o">.</span><span class="n">DeclaredItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatDeclaredItems</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatArchitecture"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatArchitecture">[docs]</a>    <span class="k">def</span> <span class="nf">formatArchitecture</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">architecture</span><span class="p">:</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2"> at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">architecture</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                <span class="n">file</span><span class="o">=</span><span class="n">architecture</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Filename</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">line</span><span class="o">=</span><span class="n">architecture</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                <span class="n">column</span><span class="o">=</span><span class="n">architecture</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Entity: </span><span class="si">{entity}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">entity</span><span class="o">=</span><span class="n">architecture</span><span class="o">.</span><span class="n">Entity</span><span class="o">.</span><span class="n">SymbolName</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Declared:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">architecture</span><span class="o">.</span><span class="n">DeclaredItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatDeclaredItems</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatComponent"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatComponent">[docs]</a>    <span class="k">def</span> <span class="nf">formatComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">Component</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Component: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">component</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Generics:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">generic</span> <span class="ow">in</span> <span class="n">component</span><span class="o">.</span><span class="n">GenericItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatGeneric</span><span class="p">(</span><span class="n">generic</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Ports:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">component</span><span class="o">.</span><span class="n">PortItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPort</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatPackage"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatPackage">[docs]</a>    <span class="k">def</span> <span class="nf">formatPackage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package</span><span class="p">:</span> <span class="n">Package</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">package</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Declared:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">package</span><span class="o">.</span><span class="n">DeclaredItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatDeclaredItems</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatPackageInstance"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatPackageInstance">[docs]</a>    <span class="k">def</span> <span class="nf">formatPackageInstance</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">package</span><span class="p">:</span> <span class="n">PackageInstantiation</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">package</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Package: </span><span class="si">{name!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">package</span><span class="o">.</span><span class="n">PackageReference</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Generic Map: ...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="c1">#        for item in package.GenericItems:</span>
+        <span class="c1">#            for line in self.formatGeneric(item, level + 1):</span>
+        <span class="c1">#                buffer.append(line)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatPackageBody"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatPackageBody">[docs]</a>    <span class="k">def</span> <span class="nf">formatPackageBody</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">packageBody</span><span class="p">:</span> <span class="n">PackageBody</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">packageBody</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  Declared:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">packageBody</span><span class="o">.</span><span class="n">DeclaredItems</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatDeclaredItems</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatConfiguration"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatConfiguration">[docs]</a>    <span class="k">def</span> <span class="nf">formatConfiguration</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">configuration</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatContext"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatContext">[docs]</a>    <span class="k">def</span> <span class="nf">formatContext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">context</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatGeneric"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatGeneric">[docs]</a>    <span class="k">def</span> <span class="nf">formatGeneric</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">generic</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">NamedEntity</span><span class="p">,</span> <span class="n">GenericInterfaceItem</span><span class="p">],</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">generic</span><span class="p">,</span> <span class="n">GenericConstantInterfaceItem</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatGenericConstant</span><span class="p">(</span><span class="n">generic</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">generic</span><span class="p">,</span> <span class="n">GenericTypeInterfaceItem</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatGenericType</span><span class="p">(</span><span class="n">generic</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrettyPrintException</span><span class="p">(</span>
+                <span class="s2">&quot;Unhandled generic kind for generic &#39;</span><span class="si">{name}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">generic</span><span class="o">.</span><span class="n">Identifier</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatPort"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatPort">[docs]</a>    <span class="k">def</span> <span class="nf">formatPort</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">NamedEntity</span><span class="p">,</span> <span class="n">PortInterfaceItem</span><span class="p">],</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">PortSignalInterfaceItem</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatPortSignal</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrettyPrintException</span><span class="p">(</span>
+                <span class="s2">&quot;Unhandled port kind for port &#39;</span><span class="si">{name}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">port</span><span class="o">.</span><span class="n">Identifier</span><span class="p">)</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatGenericConstant"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatGenericConstant">[docs]</a>    <span class="k">def</span> <span class="nf">formatGenericConstant</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">generic</span><span class="p">:</span> <span class="n">GenericConstantInterfaceItem</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  - </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{mode!s}</span><span class="s2"> </span><span class="si">{subtypeindication}{initialValue}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">generic</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="n">generic</span><span class="o">.</span><span class="n">Mode</span><span class="p">,</span>
+                <span class="n">subtypeindication</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatSubtypeIndication</span><span class="p">(</span>
+                    <span class="n">generic</span><span class="o">.</span><span class="n">Subtype</span><span class="p">,</span> <span class="s2">&quot;generic&quot;</span><span class="p">,</span> <span class="n">generic</span><span class="o">.</span><span class="n">Identifier</span>
+                <span class="p">),</span>
+                <span class="n">initialValue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatInitialValue</span><span class="p">(</span><span class="n">generic</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatGenericType"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatGenericType">[docs]</a>    <span class="k">def</span> <span class="nf">formatGenericType</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">generic</span><span class="p">:</span> <span class="n">GenericConstantInterfaceItem</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  - type </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">generic</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatPortSignal"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatPortSignal">[docs]</a>    <span class="k">def</span> <span class="nf">formatPortSignal</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="n">PortSignalInterfaceItem</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">  - </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{mode!s}</span><span class="s2"> </span><span class="si">{subtypeindication}{initialValue}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">port</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="n">port</span><span class="o">.</span><span class="n">Mode</span><span class="p">,</span>
+                <span class="n">subtypeindication</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatSubtypeIndication</span><span class="p">(</span>
+                    <span class="n">port</span><span class="o">.</span><span class="n">Subtype</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">.</span><span class="n">Identifier</span>
+                <span class="p">),</span>
+                <span class="n">initialValue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatInitialValue</span><span class="p">(</span><span class="n">port</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatDeclaredItems"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatDeclaredItems">[docs]</a>    <span class="k">def</span> <span class="nf">formatDeclaredItems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StringBuffer</span><span class="p">:</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="n">level</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Constant</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- constant </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{subtype}</span><span class="s2"> := </span><span class="si">{expr}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                    <span class="n">subtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatSubtypeIndication</span><span class="p">(</span>
+                        <span class="n">item</span><span class="o">.</span><span class="n">Subtype</span><span class="p">,</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Identifier</span>
+                    <span class="p">),</span>
+                    <span class="n">expr</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">DefaultExpression</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">SharedVariable</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- shared variable </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{subtype}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                    <span class="n">subtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatSubtypeIndication</span><span class="p">(</span>
+                        <span class="n">item</span><span class="o">.</span><span class="n">Subtype</span><span class="p">,</span> <span class="s2">&quot;shared variable&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Identifier</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Signal</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- signal </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{subtype}{initValue}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                    <span class="n">subtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatSubtypeIndication</span><span class="p">(</span>
+                        <span class="n">item</span><span class="o">.</span><span class="n">Subtype</span><span class="p">,</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Identifier</span>
+                    <span class="p">),</span>
+                    <span class="n">initValue</span><span class="o">=</span><span class="s2">&quot; := </span><span class="si">{expr}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">DefaultExpression</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">DefaultExpression</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                    <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">File</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- File </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{subtype}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                    <span class="n">subtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatSubtypeIndication</span><span class="p">(</span>
+                        <span class="n">item</span><span class="o">.</span><span class="n">Subtype</span><span class="p">,</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Identifier</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="n">FullType</span><span class="p">,</span> <span class="n">IncompleteType</span><span class="p">)):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- </span><span class="si">{type}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">formatType</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Subtype</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- subtype </span><span class="si">{name}</span><span class="s2"> is ?????&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Alias</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- alias </span><span class="si">{name}</span><span class="s2"> is ?????&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Function</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- function </span><span class="si">{name}</span><span class="s2"> return </span><span class="si">{returnType!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">returnType</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">ReturnType</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Procedure</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- procedure </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Component</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatComponent</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+                <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Attribute</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- attribute </span><span class="si">{name}</span><span class="s2"> : </span><span class="si">{type!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Subtype</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">AttributeSpecification</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- attribute </span><span class="si">{name!s}</span><span class="s2"> of </span><span class="si">{entity}</span><span class="s2"> : </span><span class="si">{entityClass}</span><span class="s2"> is </span><span class="si">{value}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Attribute</span><span class="p">,</span>
+                    <span class="n">entity</span><span class="o">=</span><span class="s2">&quot;????&quot;</span><span class="p">,</span>
+                    <span class="n">entityClass</span><span class="o">=</span><span class="s2">&quot;????&quot;</span><span class="p">,</span>
+                    <span class="n">value</span><span class="o">=</span><span class="s2">&quot;????&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">UseClause</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- use </span><span class="si">{name!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Item</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Package</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- package </span><span class="si">{name}</span><span class="s2"> is ..... end package&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">PackageInstantiation</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- package </span><span class="si">{name}</span><span class="s2"> is new </span><span class="si">{name2!s}</span><span class="s2"> generic map (.....)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">name2</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">PackageReference</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">DefaultClock</span><span class="p">):</span>
+            <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">- default </span><span class="si">{name}</span><span class="s2"> is </span><span class="si">{expr}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">expr</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrettyPrintException</span><span class="p">(</span>
+                <span class="s2">&quot;Unhandled declared item kind &#39;</span><span class="si">{name}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">buffer</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatType"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatType">[docs]</a>    <span class="k">def</span> <span class="nf">formatType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">BaseType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;type </span><span class="si">{name}</span><span class="s2"> is &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Identifier</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">IncompleteType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;range </span><span class="si">{range!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">Range</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">EnumeratedType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;(........)&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">PhysicalType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot; is range ....... units ..... end units&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">ArrayType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;array(........) of .....&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">RecordType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;record ..... end record&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">AccessType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;access .....&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">FileType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;file .....&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">ProtectedType</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;protected ..... end protected&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">ProtectedTypeBody</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;protected body ..... end protected body&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrettyPrintException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown type &#39;</span><span class="si">{name}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatSubtypeIndication"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatSubtypeIndication">[docs]</a>    <span class="k">def</span> <span class="nf">formatSubtypeIndication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subtypeIndication</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subtypeIndication</span><span class="p">,</span> <span class="n">SimpleSubtypeSymbol</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{type}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">subtypeIndication</span><span class="o">.</span><span class="n">SymbolName</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subtypeIndication</span><span class="p">,</span> <span class="n">ConstrainedCompositeSubtypeSymbol</span><span class="p">):</span>
+            <span class="n">constraints</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">subtypeIndication</span><span class="o">.</span><span class="n">Constraints</span><span class="p">:</span>
+                <span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">constraint</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{type}</span><span class="s2">(</span><span class="si">{constraints}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">type</span><span class="o">=</span><span class="n">subtypeIndication</span><span class="o">.</span><span class="n">SymbolName</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrettyPrintException</span><span class="p">(</span>
+                <span class="s2">&quot;Unhandled subtype kind &#39;</span><span class="si">{type}</span><span class="s2">&#39; for </span><span class="si">{entity}</span><span class="s2"> &#39;</span><span class="si">{name}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="nb">type</span><span class="o">=</span><span class="n">subtypeIndication</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">entity</span><span class="o">=</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="PrettyPrint.formatInitialValue"><a class="viewcode-back" href="../../../../pyGHDL/pyGHDL.dom.formatting.prettyprint.html#pyGHDL.dom.formatting.prettyprint.PrettyPrint.formatInitialValue">[docs]</a>    <span class="k">def</span> <span class="nf">formatInitialValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">WithDefaultExpressionMixin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">DefaultExpression</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="s2">&quot; := </span><span class="si">{expr!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">DefaultExpression</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ctypes &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyGHDL/pyGHDL.html">Python Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>ctypes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ctypes</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;create and manipulate C data types in Python&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span> <span class="k">as</span> <span class="nn">_os</span><span class="o">,</span> <span class="nn">sys</span> <span class="k">as</span> <span class="nn">_sys</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.1.0&quot;</span>
+
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">Array</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">_Pointer</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">CFuncPtr</span> <span class="k">as</span> <span class="n">_CFuncPtr</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">_ctypes_version</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">RTLD_LOCAL</span><span class="p">,</span> <span class="n">RTLD_GLOBAL</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">ArgumentError</span>
+
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">calcsize</span> <span class="k">as</span> <span class="n">_calcsize</span>
+
+<span class="k">if</span> <span class="n">__version__</span> <span class="o">!=</span> <span class="n">_ctypes_version</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Version number mismatch&quot;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">,</span> <span class="n">_ctypes_version</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">FormatError</span>
+
+<span class="n">DEFAULT_MODE</span> <span class="o">=</span> <span class="n">RTLD_LOCAL</span>
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;posix&quot;</span> <span class="ow">and</span> <span class="n">_sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
+    <span class="c1"># On OS X 10.3, we use RTLD_GLOBAL as default mode</span>
+    <span class="c1"># because RTLD_LOCAL does not work at least on some</span>
+    <span class="c1"># libraries.  OS X 10.3 is Darwin 7, so we check for</span>
+    <span class="c1"># that.</span>
+
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">_os</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">release</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">DEFAULT_MODE</span> <span class="o">=</span> <span class="n">RTLD_GLOBAL</span>
+
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">FUNCFLAG_CDECL</span> <span class="k">as</span> <span class="n">_FUNCFLAG_CDECL</span><span class="p">,</span> \
+     <span class="n">FUNCFLAG_PYTHONAPI</span> <span class="k">as</span> <span class="n">_FUNCFLAG_PYTHONAPI</span><span class="p">,</span> \
+     <span class="n">FUNCFLAG_USE_ERRNO</span> <span class="k">as</span> <span class="n">_FUNCFLAG_USE_ERRNO</span><span class="p">,</span> \
+     <span class="n">FUNCFLAG_USE_LASTERROR</span> <span class="k">as</span> <span class="n">_FUNCFLAG_USE_LASTERROR</span>
+
+<span class="c1"># WINOLEAPI -&gt; HRESULT</span>
+<span class="c1"># WINOLEAPI_(type)</span>
+<span class="c1">#</span>
+<span class="c1"># STDMETHODCALLTYPE</span>
+<span class="c1">#</span>
+<span class="c1"># STDMETHOD(name)</span>
+<span class="c1"># STDMETHOD_(type, name)</span>
+<span class="c1">#</span>
+<span class="c1"># STDAPICALLTYPE</span>
+
+<span class="k">def</span> <span class="nf">create_string_buffer</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;create_string_buffer(aBytes) -&gt; character array</span>
+<span class="sd">    create_string_buffer(anInteger) -&gt; character array</span>
+<span class="sd">    create_string_buffer(aBytes, anInteger) -&gt; character array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">init</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">buftype</span> <span class="o">=</span> <span class="n">c_char</span> <span class="o">*</span> <span class="n">size</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">buftype</span><span class="p">()</span>
+        <span class="n">buf</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">init</span>
+        <span class="k">return</span> <span class="n">buf</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">buftype</span> <span class="o">=</span> <span class="n">c_char</span> <span class="o">*</span> <span class="n">init</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">buftype</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">buf</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">c_buffer</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="c1">##    &quot;deprecated, use create_string_buffer instead&quot;</span>
+<span class="c1">##    import warnings</span>
+<span class="c1">##    warnings.warn(&quot;c_buffer is deprecated, use create_string_buffer instead&quot;,</span>
+<span class="c1">##                  DeprecationWarning, stacklevel=2)</span>
+    <span class="k">return</span> <span class="n">create_string_buffer</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="n">_c_functype_cache</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">def</span> <span class="nf">CFUNCTYPE</span><span class="p">(</span><span class="n">restype</span><span class="p">,</span> <span class="o">*</span><span class="n">argtypes</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CFUNCTYPE(restype, *argtypes,</span>
+<span class="sd">                 use_errno=False, use_last_error=False) -&gt; function prototype.</span>
+
+<span class="sd">    restype: the result type</span>
+<span class="sd">    argtypes: a sequence specifying the argument types</span>
+
+<span class="sd">    The function prototype can be called in different ways to create a</span>
+<span class="sd">    callable object:</span>
+
+<span class="sd">    prototype(integer address) -&gt; foreign function</span>
+<span class="sd">    prototype(callable) -&gt; create and return a C callable function from callable</span>
+<span class="sd">    prototype(integer index, method name[, paramflags]) -&gt; foreign function calling a COM method</span>
+<span class="sd">    prototype((ordinal number, dll object)[, paramflags]) -&gt; foreign function exported by ordinal</span>
+<span class="sd">    prototype((function name, dll object)[, paramflags]) -&gt; foreign function exported by name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flags</span> <span class="o">=</span> <span class="n">_FUNCFLAG_CDECL</span>
+    <span class="k">if</span> <span class="n">kw</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;use_errno&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">flags</span> <span class="o">|=</span> <span class="n">_FUNCFLAG_USE_ERRNO</span>
+    <span class="k">if</span> <span class="n">kw</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;use_last_error&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">flags</span> <span class="o">|=</span> <span class="n">_FUNCFLAG_USE_LASTERROR</span>
+    <span class="k">if</span> <span class="n">kw</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unexpected keyword argument(s) </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">kw</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_c_functype_cache</span><span class="p">[(</span><span class="n">restype</span><span class="p">,</span> <span class="n">argtypes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">class</span> <span class="nc">CFunctionType</span><span class="p">(</span><span class="n">_CFuncPtr</span><span class="p">):</span>
+            <span class="n">_argtypes_</span> <span class="o">=</span> <span class="n">argtypes</span>
+            <span class="n">_restype_</span> <span class="o">=</span> <span class="n">restype</span>
+            <span class="n">_flags_</span> <span class="o">=</span> <span class="n">flags</span>
+        <span class="n">_c_functype_cache</span><span class="p">[(</span><span class="n">restype</span><span class="p">,</span> <span class="n">argtypes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)]</span> <span class="o">=</span> <span class="n">CFunctionType</span>
+        <span class="k">return</span> <span class="n">CFunctionType</span>
+
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">LoadLibrary</span> <span class="k">as</span> <span class="n">_dlopen</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">FUNCFLAG_STDCALL</span> <span class="k">as</span> <span class="n">_FUNCFLAG_STDCALL</span>
+
+    <span class="n">_win_functype_cache</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span> <span class="nf">WINFUNCTYPE</span><span class="p">(</span><span class="n">restype</span><span class="p">,</span> <span class="o">*</span><span class="n">argtypes</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="c1"># docstring set later (very similar to CFUNCTYPE.__doc__)</span>
+        <span class="n">flags</span> <span class="o">=</span> <span class="n">_FUNCFLAG_STDCALL</span>
+        <span class="k">if</span> <span class="n">kw</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;use_errno&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">flags</span> <span class="o">|=</span> <span class="n">_FUNCFLAG_USE_ERRNO</span>
+        <span class="k">if</span> <span class="n">kw</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;use_last_error&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">flags</span> <span class="o">|=</span> <span class="n">_FUNCFLAG_USE_LASTERROR</span>
+        <span class="k">if</span> <span class="n">kw</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unexpected keyword argument(s) </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">kw</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_win_functype_cache</span><span class="p">[(</span><span class="n">restype</span><span class="p">,</span> <span class="n">argtypes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">class</span> <span class="nc">WinFunctionType</span><span class="p">(</span><span class="n">_CFuncPtr</span><span class="p">):</span>
+                <span class="n">_argtypes_</span> <span class="o">=</span> <span class="n">argtypes</span>
+                <span class="n">_restype_</span> <span class="o">=</span> <span class="n">restype</span>
+                <span class="n">_flags_</span> <span class="o">=</span> <span class="n">flags</span>
+            <span class="n">_win_functype_cache</span><span class="p">[(</span><span class="n">restype</span><span class="p">,</span> <span class="n">argtypes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)]</span> <span class="o">=</span> <span class="n">WinFunctionType</span>
+            <span class="k">return</span> <span class="n">WinFunctionType</span>
+    <span class="k">if</span> <span class="n">WINFUNCTYPE</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">:</span>
+        <span class="n">WINFUNCTYPE</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;CFUNCTYPE&quot;</span><span class="p">,</span> <span class="s2">&quot;WINFUNCTYPE&quot;</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;posix&quot;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">dlopen</span> <span class="k">as</span> <span class="n">_dlopen</span>
+
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">sizeof</span><span class="p">,</span> <span class="n">byref</span><span class="p">,</span> <span class="n">addressof</span><span class="p">,</span> <span class="n">alignment</span><span class="p">,</span> <span class="n">resize</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">get_errno</span><span class="p">,</span> <span class="n">set_errno</span>
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">_SimpleCData</span>
+
+<span class="k">def</span> <span class="nf">_check_size</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="n">typecode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Check if sizeof(ctypes_type) against struct.calcsize.  This</span>
+    <span class="c1"># should protect somewhat against a misconfigured libffi.</span>
+    <span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">calcsize</span>
+    <span class="k">if</span> <span class="n">typecode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Most _type_ codes are the same as used in struct</span>
+        <span class="n">typecode</span> <span class="o">=</span> <span class="n">typ</span><span class="o">.</span><span class="n">_type_</span>
+    <span class="n">actual</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">typ</span><span class="p">),</span> <span class="n">calcsize</span><span class="p">(</span><span class="n">typecode</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">actual</span> <span class="o">!=</span> <span class="n">required</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="s2">&quot;sizeof(</span><span class="si">%s</span><span class="s2">) wrong: </span><span class="si">%d</span><span class="s2"> instead of </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> \
+                          <span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">required</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">py_object</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;O&quot;</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(&lt;NULL&gt;)&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">py_object</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_short</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;h&quot;</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_short</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_ushort</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;H&quot;</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_ushort</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_long</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_long</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_ulong</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_ulong</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">_calcsize</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">_calcsize</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">):</span>
+    <span class="c1"># if int and long have the same size, make c_int an alias for c_long</span>
+    <span class="n">c_int</span> <span class="o">=</span> <span class="n">c_long</span>
+    <span class="n">c_uint</span> <span class="o">=</span> <span class="n">c_ulong</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">class</span> <span class="nc">c_int</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+        <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;i&quot;</span>
+    <span class="n">_check_size</span><span class="p">(</span><span class="n">c_int</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">c_uint</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+        <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;I&quot;</span>
+    <span class="n">_check_size</span><span class="p">(</span><span class="n">c_uint</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_float</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_float</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_double</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;d&quot;</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_double</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_longdouble</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span>
+<span class="k">if</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_longdouble</span><span class="p">)</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_double</span><span class="p">):</span>
+    <span class="n">c_longdouble</span> <span class="o">=</span> <span class="n">c_double</span>
+
+<span class="k">if</span> <span class="n">_calcsize</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">_calcsize</span><span class="p">(</span><span class="s2">&quot;q&quot;</span><span class="p">):</span>
+    <span class="c1"># if long and long long have the same size, make c_longlong an alias for c_long</span>
+    <span class="n">c_longlong</span> <span class="o">=</span> <span class="n">c_long</span>
+    <span class="n">c_ulonglong</span> <span class="o">=</span> <span class="n">c_ulong</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">class</span> <span class="nc">c_longlong</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+        <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;q&quot;</span>
+    <span class="n">_check_size</span><span class="p">(</span><span class="n">c_longlong</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">c_ulonglong</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+        <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;Q&quot;</span>
+    <span class="c1">##    def from_param(cls, val):</span>
+    <span class="c1">##        return (&#39;d&#39;, float(val), val)</span>
+    <span class="c1">##    from_param = classmethod(from_param)</span>
+    <span class="n">_check_size</span><span class="p">(</span><span class="n">c_ulonglong</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_ubyte</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>
+<span class="n">c_ubyte</span><span class="o">.</span><span class="n">__ctype_le__</span> <span class="o">=</span> <span class="n">c_ubyte</span><span class="o">.</span><span class="n">__ctype_be__</span> <span class="o">=</span> <span class="n">c_ubyte</span>
+<span class="c1"># backward compatibility:</span>
+<span class="c1">##c_uchar = c_ubyte</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_ubyte</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_byte</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span>
+<span class="n">c_byte</span><span class="o">.</span><span class="n">__ctype_le__</span> <span class="o">=</span> <span class="n">c_byte</span><span class="o">.</span><span class="n">__ctype_be__</span> <span class="o">=</span> <span class="n">c_byte</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_byte</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_char</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;c&quot;</span>
+<span class="n">c_char</span><span class="o">.</span><span class="n">__ctype_le__</span> <span class="o">=</span> <span class="n">c_char</span><span class="o">.</span><span class="n">__ctype_be__</span> <span class="o">=</span> <span class="n">c_char</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_char</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_char_p</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;z&quot;</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">c_void_p</span><span class="o">.</span><span class="n">from_buffer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_char_p</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_void_p</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;P&quot;</span>
+<span class="n">c_voidp</span> <span class="o">=</span> <span class="n">c_void_p</span> <span class="c1"># backwards compatibility (to a bug)</span>
+<span class="n">_check_size</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_bool</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span>
+
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">POINTER</span><span class="p">,</span> <span class="n">pointer</span><span class="p">,</span> <span class="n">_pointer_type_cache</span>
+
+<span class="k">class</span> <span class="nc">c_wchar_p</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;Z&quot;</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">c_void_p</span><span class="o">.</span><span class="n">from_buffer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">c_wchar</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+    <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;u&quot;</span>
+
+<span class="k">def</span> <span class="nf">_reset_cache</span><span class="p">():</span>
+    <span class="n">_pointer_type_cache</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">_c_functype_cache</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+        <span class="n">_win_functype_cache</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="c1"># _SimpleCData.c_wchar_p_from_param</span>
+    <span class="n">POINTER</span><span class="p">(</span><span class="n">c_wchar</span><span class="p">)</span><span class="o">.</span><span class="n">from_param</span> <span class="o">=</span> <span class="n">c_wchar_p</span><span class="o">.</span><span class="n">from_param</span>
+    <span class="c1"># _SimpleCData.c_char_p_from_param</span>
+    <span class="n">POINTER</span><span class="p">(</span><span class="n">c_char</span><span class="p">)</span><span class="o">.</span><span class="n">from_param</span> <span class="o">=</span> <span class="n">c_char_p</span><span class="o">.</span><span class="n">from_param</span>
+    <span class="n">_pointer_type_cache</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">c_void_p</span>
+    <span class="c1"># XXX for whatever reasons, creating the first instance of a callback</span>
+    <span class="c1"># function is needed for the unittests on Win64 to succeed.  This MAY</span>
+    <span class="c1"># be a compiler bug, since the problem occurs only when _ctypes is</span>
+    <span class="c1"># compiled with the MS SDK compiler.  Or an uninitialized variable?</span>
+    <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="n">c_int</span><span class="p">)(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_unicode_buffer</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;create_unicode_buffer(aString) -&gt; character array</span>
+<span class="sd">    create_unicode_buffer(anInteger) -&gt; character array</span>
+<span class="sd">    create_unicode_buffer(aString, anInteger) -&gt; character array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">init</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">buftype</span> <span class="o">=</span> <span class="n">c_wchar</span> <span class="o">*</span> <span class="n">size</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">buftype</span><span class="p">()</span>
+        <span class="n">buf</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">init</span>
+        <span class="k">return</span> <span class="n">buf</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">init</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">buftype</span> <span class="o">=</span> <span class="n">c_wchar</span> <span class="o">*</span> <span class="n">init</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">buftype</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">buf</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+
+
+<span class="c1"># XXX Deprecated</span>
+<span class="k">def</span> <span class="nf">SetPointerType</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">_pointer_type_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;This type already exists in the cache&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_pointer_type_cache</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;What&#39;s this???&quot;</span><span class="p">)</span>
+    <span class="n">pointer</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+    <span class="n">_pointer_type_cache</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">=</span> <span class="n">pointer</span>
+    <span class="k">del</span> <span class="n">_pointer_type_cache</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">pointer</span><span class="p">)]</span>
+
+<span class="c1"># XXX Deprecated</span>
+<span class="k">def</span> <span class="nf">ARRAY</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="nb">len</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">typ</span> <span class="o">*</span> <span class="nb">len</span>
+
+<span class="c1">################################################################</span>
+
+
+<span class="k">class</span> <span class="nc">CDLL</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An instance of this class represents a loaded dll/shared</span>
+<span class="sd">    library, exporting functions using the standard C calling</span>
+<span class="sd">    convention (named &#39;cdecl&#39; on Windows).</span>
+
+<span class="sd">    The exported functions can be accessed as attributes, or by</span>
+<span class="sd">    indexing with the function name.  Examples:</span>
+
+<span class="sd">    &lt;obj&gt;.qsort -&gt; callable object</span>
+<span class="sd">    &lt;obj&gt;[&#39;qsort&#39;] -&gt; callable object</span>
+
+<span class="sd">    Calling the functions releases the Python GIL during the call and</span>
+<span class="sd">    reacquires it afterwards.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_func_flags_</span> <span class="o">=</span> <span class="n">_FUNCFLAG_CDECL</span>
+    <span class="n">_func_restype_</span> <span class="o">=</span> <span class="n">c_int</span>
+    <span class="c1"># default values for repr</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;&lt;uninitialized&gt;&#39;</span>
+    <span class="n">_handle</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">_FuncPtr</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">DEFAULT_MODE</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">use_errno</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">use_last_error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">flags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func_flags_</span>
+        <span class="k">if</span> <span class="n">use_errno</span><span class="p">:</span>
+            <span class="n">flags</span> <span class="o">|=</span> <span class="n">_FUNCFLAG_USE_ERRNO</span>
+        <span class="k">if</span> <span class="n">use_last_error</span><span class="p">:</span>
+            <span class="n">flags</span> <span class="o">|=</span> <span class="n">_FUNCFLAG_USE_LASTERROR</span>
+        <span class="k">if</span> <span class="n">_sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;aix&quot;</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;When the name contains &quot;.a(&quot; and ends with &quot;)&quot;,</span>
+<span class="sd">               e.g., &quot;libFOO.a(libFOO.so)&quot; - this is taken to be an</span>
+<span class="sd">               archive(member) syntax for dlopen(), and the mode is adjusted.</span>
+<span class="sd">               Otherwise, name is presented to dlopen() as a file argument.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;.a(&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">mode</span> <span class="o">|=</span> <span class="p">(</span> <span class="n">_os</span><span class="o">.</span><span class="n">RTLD_MEMBER</span> <span class="o">|</span> <span class="n">_os</span><span class="o">.</span><span class="n">RTLD_NOW</span> <span class="p">)</span>
+
+        <span class="k">class</span> <span class="nc">_FuncPtr</span><span class="p">(</span><span class="n">_CFuncPtr</span><span class="p">):</span>
+            <span class="n">_flags_</span> <span class="o">=</span> <span class="n">flags</span>
+            <span class="n">_restype_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_func_restype_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_FuncPtr</span> <span class="o">=</span> <span class="n">_FuncPtr</span>
+
+        <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">_dlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">handle</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">%s</span><span class="s2"> &#39;</span><span class="si">%s</span><span class="s2">&#39;, handle </span><span class="si">%x</span><span class="s2"> at </span><span class="si">%#x</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> \
+               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">_sys</span><span class="o">.</span><span class="n">maxsize</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+                <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">_sys</span><span class="o">.</span><span class="n">maxsize</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_ordinal</span><span class="p">):</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FuncPtr</span><span class="p">((</span><span class="n">name_or_ordinal</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_or_ordinal</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name_or_ordinal</span>
+        <span class="k">return</span> <span class="n">func</span>
+
+<span class="k">class</span> <span class="nc">PyDLL</span><span class="p">(</span><span class="n">CDLL</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class represents the Python library itself.  It allows</span>
+<span class="sd">    accessing Python API functions.  The GIL is not released, and</span>
+<span class="sd">    Python exceptions are handled correctly.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_func_flags_</span> <span class="o">=</span> <span class="n">_FUNCFLAG_CDECL</span> <span class="o">|</span> <span class="n">_FUNCFLAG_PYTHONAPI</span>
+
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+
+    <span class="k">class</span> <span class="nc">WinDLL</span><span class="p">(</span><span class="n">CDLL</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This class represents a dll exporting functions using the</span>
+<span class="sd">        Windows stdcall calling convention.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_func_flags_</span> <span class="o">=</span> <span class="n">_FUNCFLAG_STDCALL</span>
+
+    <span class="c1"># XXX Hm, what about HRESULT as normal parameter?</span>
+    <span class="c1"># Mustn&#39;t it derive from c_long then?</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">_check_HRESULT</span><span class="p">,</span> <span class="n">_SimpleCData</span>
+    <span class="k">class</span> <span class="nc">HRESULT</span><span class="p">(</span><span class="n">_SimpleCData</span><span class="p">):</span>
+        <span class="n">_type_</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+        <span class="c1"># _check_retval_ is called with the function&#39;s result when it</span>
+        <span class="c1"># is used as restype.  It checks for the FAILED bit, and</span>
+        <span class="c1"># raises an OSError if it is set.</span>
+        <span class="c1">#</span>
+        <span class="c1"># The _check_retval_ method is implemented in C, so that the</span>
+        <span class="c1"># method definition itself is not included in the traceback</span>
+        <span class="c1"># when it raises an error - that is what we want (and Python</span>
+        <span class="c1"># doesn&#39;t have a way to raise an exception in the caller&#39;s</span>
+        <span class="c1"># frame).</span>
+        <span class="n">_check_retval_</span> <span class="o">=</span> <span class="n">_check_HRESULT</span>
+
+    <span class="k">class</span> <span class="nc">OleDLL</span><span class="p">(</span><span class="n">CDLL</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This class represents a dll exporting functions using the</span>
+<span class="sd">        Windows stdcall calling convention, and returning HRESULT.</span>
+<span class="sd">        HRESULT error values are automatically raised as OSError</span>
+<span class="sd">        exceptions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_func_flags_</span> <span class="o">=</span> <span class="n">_FUNCFLAG_STDCALL</span>
+        <span class="n">_func_restype_</span> <span class="o">=</span> <span class="n">HRESULT</span>
+
+<span class="k">class</span> <span class="nc">LibraryLoader</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dlltype</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dlltype</span> <span class="o">=</span> <span class="n">dlltype</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">dll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dlltype</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dll</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dll</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">LoadLibrary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dlltype</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">cdll</span> <span class="o">=</span> <span class="n">LibraryLoader</span><span class="p">(</span><span class="n">CDLL</span><span class="p">)</span>
+<span class="n">pydll</span> <span class="o">=</span> <span class="n">LibraryLoader</span><span class="p">(</span><span class="n">PyDLL</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+    <span class="n">pythonapi</span> <span class="o">=</span> <span class="n">PyDLL</span><span class="p">(</span><span class="s2">&quot;python dll&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_sys</span><span class="o">.</span><span class="n">dllhandle</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">_sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;cygwin&quot;</span><span class="p">:</span>
+    <span class="n">pythonapi</span> <span class="o">=</span> <span class="n">PyDLL</span><span class="p">(</span><span class="s2">&quot;libpython</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">.dll&quot;</span> <span class="o">%</span> <span class="n">_sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">pythonapi</span> <span class="o">=</span> <span class="n">PyDLL</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+    <span class="n">windll</span> <span class="o">=</span> <span class="n">LibraryLoader</span><span class="p">(</span><span class="n">WinDLL</span><span class="p">)</span>
+    <span class="n">oledll</span> <span class="o">=</span> <span class="n">LibraryLoader</span><span class="p">(</span><span class="n">OleDLL</span><span class="p">)</span>
+
+    <span class="n">GetLastError</span> <span class="o">=</span> <span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">GetLastError</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">get_last_error</span><span class="p">,</span> <span class="n">set_last_error</span>
+
+    <span class="k">def</span> <span class="nf">WinError</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">descr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">code</span> <span class="o">=</span> <span class="n">GetLastError</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">descr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">descr</span> <span class="o">=</span> <span class="n">FormatError</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="ne">OSError</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">descr</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_uint</span><span class="p">)</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">):</span>
+    <span class="n">c_size_t</span> <span class="o">=</span> <span class="n">c_uint</span>
+    <span class="n">c_ssize_t</span> <span class="o">=</span> <span class="n">c_int</span>
+<span class="k">elif</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_ulong</span><span class="p">)</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">):</span>
+    <span class="n">c_size_t</span> <span class="o">=</span> <span class="n">c_ulong</span>
+    <span class="n">c_ssize_t</span> <span class="o">=</span> <span class="n">c_long</span>
+<span class="k">elif</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_ulonglong</span><span class="p">)</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">):</span>
+    <span class="n">c_size_t</span> <span class="o">=</span> <span class="n">c_ulonglong</span>
+    <span class="n">c_ssize_t</span> <span class="o">=</span> <span class="n">c_longlong</span>
+
+<span class="c1"># functions</span>
+
+<span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">_memmove_addr</span><span class="p">,</span> <span class="n">_memset_addr</span><span class="p">,</span> <span class="n">_string_at_addr</span><span class="p">,</span> <span class="n">_cast_addr</span>
+
+<span class="c1">## void *memmove(void *, const void *, size_t);</span>
+<span class="n">memmove</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_size_t</span><span class="p">)(</span><span class="n">_memmove_addr</span><span class="p">)</span>
+
+<span class="c1">## void *memset(void *, int, size_t)</span>
+<span class="n">memset</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_size_t</span><span class="p">)(</span><span class="n">_memset_addr</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">PYFUNCTYPE</span><span class="p">(</span><span class="n">restype</span><span class="p">,</span> <span class="o">*</span><span class="n">argtypes</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">CFunctionType</span><span class="p">(</span><span class="n">_CFuncPtr</span><span class="p">):</span>
+        <span class="n">_argtypes_</span> <span class="o">=</span> <span class="n">argtypes</span>
+        <span class="n">_restype_</span> <span class="o">=</span> <span class="n">restype</span>
+        <span class="n">_flags_</span> <span class="o">=</span> <span class="n">_FUNCFLAG_CDECL</span> <span class="o">|</span> <span class="n">_FUNCFLAG_PYTHONAPI</span>
+    <span class="k">return</span> <span class="n">CFunctionType</span>
+
+<span class="n">_cast</span> <span class="o">=</span> <span class="n">PYFUNCTYPE</span><span class="p">(</span><span class="n">py_object</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">py_object</span><span class="p">,</span> <span class="n">py_object</span><span class="p">)(</span><span class="n">_cast_addr</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">typ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_cast</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">typ</span><span class="p">)</span>
+
+<span class="n">_string_at</span> <span class="o">=</span> <span class="n">PYFUNCTYPE</span><span class="p">(</span><span class="n">py_object</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)(</span><span class="n">_string_at_addr</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">string_at</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">size</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;string_at(addr[, size]) -&gt; string</span>
+
+<span class="sd">    Return the string at addr.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_string_at</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">_ctypes</span> <span class="kn">import</span> <span class="n">_wstring_at_addr</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">_wstring_at</span> <span class="o">=</span> <span class="n">PYFUNCTYPE</span><span class="p">(</span><span class="n">py_object</span><span class="p">,</span> <span class="n">c_void_p</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)(</span><span class="n">_wstring_at_addr</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wstring_at</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">size</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;wstring_at(addr[, size]) -&gt; string</span>
+
+<span class="sd">        Return the string at addr.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_wstring_at</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">_os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="c1"># COM stuff</span>
+    <span class="k">def</span> <span class="nf">DllGetClassObject</span><span class="p">(</span><span class="n">rclsid</span><span class="p">,</span> <span class="n">riid</span><span class="p">,</span> <span class="n">ppv</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ccom</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;comtypes.server.inprocserver&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">2147221231</span> <span class="c1"># CLASS_E_CLASSNOTAVAILABLE</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ccom</span><span class="o">.</span><span class="n">DllGetClassObject</span><span class="p">(</span><span class="n">rclsid</span><span class="p">,</span> <span class="n">riid</span><span class="p">,</span> <span class="n">ppv</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">DllCanUnloadNow</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ccom</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;comtypes.server.inprocserver&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span> <span class="c1"># S_OK</span>
+        <span class="k">return</span> <span class="n">ccom</span><span class="o">.</span><span class="n">DllCanUnloadNow</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">ctypes._endian</span> <span class="kn">import</span> <span class="n">BigEndianStructure</span><span class="p">,</span> <span class="n">LittleEndianStructure</span>
+
+<span class="c1"># Fill in specifically-sized types</span>
+<span class="n">c_int8</span> <span class="o">=</span> <span class="n">c_byte</span>
+<span class="n">c_uint8</span> <span class="o">=</span> <span class="n">c_ubyte</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c_short</span><span class="p">,</span> <span class="n">c_int</span><span class="p">,</span> <span class="n">c_long</span><span class="p">,</span> <span class="n">c_longlong</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="n">c_int16</span> <span class="o">=</span> <span class="n">kind</span>
+    <span class="k">elif</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="n">c_int32</span> <span class="o">=</span> <span class="n">kind</span>
+    <span class="k">elif</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> <span class="n">c_int64</span> <span class="o">=</span> <span class="n">kind</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c_ushort</span><span class="p">,</span> <span class="n">c_uint</span><span class="p">,</span> <span class="n">c_ulong</span><span class="p">,</span> <span class="n">c_ulonglong</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="n">c_uint16</span> <span class="o">=</span> <span class="n">kind</span>
+    <span class="k">elif</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="n">c_uint32</span> <span class="o">=</span> <span class="n">kind</span>
+    <span class="k">elif</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> <span class="n">c_uint64</span> <span class="o">=</span> <span class="n">kind</span>
+<span class="k">del</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+
+<span class="n">_reset_cache</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

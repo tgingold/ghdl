@@ -1,0 +1,186 @@
+pyGHDL.dom.Type
+===================
+
+.. automodule:: pyGHDL.dom.Type
+
+
+.. currentmodule:: pyGHDL.dom.Type
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`IncompleteType`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+- :py:class:`EnumeratedType`:
+  A ``ScalarType`` is a base-class for all scalar types.
+
+- :py:class:`IntegerType`:
+  A ``RangedScalarType`` is a base-class for all scalar types with a range.
+
+- :py:class:`PhysicalType`:
+  A ``RangedScalarType`` is a base-class for all scalar types with a range.
+
+- :py:class:`ArrayType`:
+  A ``CompositeType`` is a base-class for all composite types.
+
+- :py:class:`RecordTypeElement`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`RecordType`:
+  A ``CompositeType`` is a base-class for all composite types.
+
+- :py:class:`ProtectedType`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+- :py:class:`ProtectedTypeBody`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+- :py:class:`AccessType`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+- :py:class:`FileType`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+- :py:class:`Subtype`:
+  ``BaseType`` is the base class of all type entities in this model.
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: IncompleteType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IncompleteType
+
+   .. rubric:: Members
+
+.. autoclass:: EnumeratedType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: EnumeratedType
+
+   .. rubric:: Members
+
+.. autoclass:: IntegerType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IntegerType
+
+   .. rubric:: Members
+
+.. autoclass:: PhysicalType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PhysicalType
+
+   .. rubric:: Members
+
+.. autoclass:: ArrayType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ArrayType
+
+   .. rubric:: Members
+
+.. autoclass:: RecordTypeElement
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: RecordTypeElement
+
+   .. rubric:: Members
+
+.. autoclass:: RecordType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: RecordType
+
+   .. rubric:: Members
+
+.. autoclass:: ProtectedType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ProtectedType
+
+   .. rubric:: Members
+
+.. autoclass:: ProtectedTypeBody
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ProtectedTypeBody
+
+   .. rubric:: Members
+
+.. autoclass:: AccessType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: AccessType
+
+   .. rubric:: Members
+
+.. autoclass:: FileType
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: FileType
+
+   .. rubric:: Members
+
+.. autoclass:: Subtype
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Subtype
+
+   .. rubric:: Members

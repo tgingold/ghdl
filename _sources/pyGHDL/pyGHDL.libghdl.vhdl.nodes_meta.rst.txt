@@ -1,0 +1,1945 @@
+pyGHDL.libghdl.vhdl.nodes_meta
+==================================
+
+.. automodule:: pyGHDL.libghdl.vhdl.nodes_meta
+
+
+.. currentmodule:: pyGHDL.libghdl.vhdl.nodes_meta
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`types`:
+  An enumeration.
+
+- :py:class:`Attr`:
+  An enumeration.
+
+- :py:class:`fields`:
+  An enumeration.
+
+
+
+**Functions**
+
+- :py:func:`get_fields_first`:
+  Return the list of fields for node :obj:`K`.
+
+- :py:func:`get_fields_last`:
+  Return the list of fields for node :obj:`K`.
+
+- :py:func:`get_field_by_index`:
+  
+
+- :py:func:`get_field_type`:
+  Undocumented.
+
+- :py:func:`get_field_attribute`:
+  Undocumented.
+
+- :py:func:`Has_First_Design_Unit`:
+  
+
+- :py:func:`Has_Last_Design_Unit`:
+  
+
+- :py:func:`Has_Library_Declaration`:
+  
+
+- :py:func:`Has_File_Checksum`:
+  
+
+- :py:func:`Has_Analysis_Time_Stamp`:
+  
+
+- :py:func:`Has_Design_File_Source`:
+  
+
+- :py:func:`Has_Library`:
+  
+
+- :py:func:`Has_File_Dependence_List`:
+  
+
+- :py:func:`Has_Design_File_Filename`:
+  
+
+- :py:func:`Has_Design_File_Directory`:
+  
+
+- :py:func:`Has_Design_File`:
+  
+
+- :py:func:`Has_Design_File_Chain`:
+  
+
+- :py:func:`Has_Library_Directory`:
+  
+
+- :py:func:`Has_Date`:
+  
+
+- :py:func:`Has_Context_Items`:
+  
+
+- :py:func:`Has_Dependence_List`:
+  
+
+- :py:func:`Has_Analysis_Checks_List`:
+  
+
+- :py:func:`Has_Date_State`:
+  
+
+- :py:func:`Has_Guarded_Target_State`:
+  
+
+- :py:func:`Has_Library_Unit`:
+  
+
+- :py:func:`Has_Hash_Chain`:
+  
+
+- :py:func:`Has_Design_Unit_Source_Pos`:
+  
+
+- :py:func:`Has_Design_Unit_Source_Line`:
+  
+
+- :py:func:`Has_Design_Unit_Source_Col`:
+  
+
+- :py:func:`Has_Value`:
+  
+
+- :py:func:`Has_Enum_Pos`:
+  
+
+- :py:func:`Has_Physical_Literal`:
+  
+
+- :py:func:`Has_Fp_Value`:
+  
+
+- :py:func:`Has_Simple_Aggregate_List`:
+  
+
+- :py:func:`Has_String8_Id`:
+  
+
+- :py:func:`Has_String_Length`:
+  
+
+- :py:func:`Has_Bit_String_Base`:
+  
+
+- :py:func:`Has_Has_Signed`:
+  
+
+- :py:func:`Has_Has_Sign`:
+  
+
+- :py:func:`Has_Has_Length`:
+  
+
+- :py:func:`Has_Literal_Length`:
+  
+
+- :py:func:`Has_Literal_Origin`:
+  
+
+- :py:func:`Has_Range_Origin`:
+  
+
+- :py:func:`Has_Literal_Subtype`:
+  
+
+- :py:func:`Has_Allocator_Subtype`:
+  
+
+- :py:func:`Has_Entity_Class`:
+  
+
+- :py:func:`Has_Entity_Name_List`:
+  
+
+- :py:func:`Has_Attribute_Designator`:
+  
+
+- :py:func:`Has_Attribute_Specification_Chain`:
+  
+
+- :py:func:`Has_Attribute_Specification`:
+  
+
+- :py:func:`Has_Static_Attribute_Flag`:
+  
+
+- :py:func:`Has_Signal_List`:
+  
+
+- :py:func:`Has_Quantity_List`:
+  
+
+- :py:func:`Has_Designated_Entity`:
+  
+
+- :py:func:`Has_Formal`:
+  
+
+- :py:func:`Has_Actual`:
+  
+
+- :py:func:`Has_Actual_Conversion`:
+  
+
+- :py:func:`Has_Formal_Conversion`:
+  
+
+- :py:func:`Has_Whole_Association_Flag`:
+  
+
+- :py:func:`Has_Collapse_Signal_Flag`:
+  
+
+- :py:func:`Has_Artificial_Flag`:
+  
+
+- :py:func:`Has_Open_Flag`:
+  
+
+- :py:func:`Has_After_Drivers_Flag`:
+  
+
+- :py:func:`Has_We_Value`:
+  
+
+- :py:func:`Has_Time`:
+  
+
+- :py:func:`Has_Associated_Expr`:
+  
+
+- :py:func:`Has_Associated_Block`:
+  
+
+- :py:func:`Has_Associated_Chain`:
+  
+
+- :py:func:`Has_Choice_Name`:
+  
+
+- :py:func:`Has_Choice_Expression`:
+  
+
+- :py:func:`Has_Choice_Range`:
+  
+
+- :py:func:`Has_Same_Alternative_Flag`:
+  
+
+- :py:func:`Has_Element_Type_Flag`:
+  
+
+- :py:func:`Has_Architecture`:
+  
+
+- :py:func:`Has_Block_Specification`:
+  
+
+- :py:func:`Has_Prev_Block_Configuration`:
+  
+
+- :py:func:`Has_Configuration_Item_Chain`:
+  
+
+- :py:func:`Has_Attribute_Value_Chain`:
+  
+
+- :py:func:`Has_Spec_Chain`:
+  
+
+- :py:func:`Has_Value_Chain`:
+  
+
+- :py:func:`Has_Attribute_Value_Spec_Chain`:
+  
+
+- :py:func:`Has_Entity_Name`:
+  
+
+- :py:func:`Has_Package`:
+  
+
+- :py:func:`Has_Package_Body`:
+  
+
+- :py:func:`Has_Instance_Package_Body`:
+  
+
+- :py:func:`Has_Need_Body`:
+  
+
+- :py:func:`Has_Macro_Expanded_Flag`:
+  
+
+- :py:func:`Has_Need_Instance_Bodies`:
+  
+
+- :py:func:`Has_Hierarchical_Name`:
+  
+
+- :py:func:`Has_Inherit_Spec_Chain`:
+  
+
+- :py:func:`Has_Vunit_Item_Chain`:
+  
+
+- :py:func:`Has_Bound_Vunit_Chain`:
+  
+
+- :py:func:`Has_Verification_Block_Configuration`:
+  
+
+- :py:func:`Has_Block_Configuration`:
+  
+
+- :py:func:`Has_Concurrent_Statement_Chain`:
+  
+
+- :py:func:`Has_Chain`:
+  
+
+- :py:func:`Has_Port_Chain`:
+  
+
+- :py:func:`Has_Generic_Chain`:
+  
+
+- :py:func:`Has_Type`:
+  
+
+- :py:func:`Has_Subtype_Indication`:
+  
+
+- :py:func:`Has_Discrete_Range`:
+  
+
+- :py:func:`Has_Type_Definition`:
+  
+
+- :py:func:`Has_Subtype_Definition`:
+  
+
+- :py:func:`Has_Incomplete_Type_Declaration`:
+  
+
+- :py:func:`Has_Interface_Type_Subprograms`:
+  
+
+- :py:func:`Has_Nature_Definition`:
+  
+
+- :py:func:`Has_Nature`:
+  
+
+- :py:func:`Has_Subnature_Indication`:
+  
+
+- :py:func:`Has_Mode`:
+  
+
+- :py:func:`Has_Guarded_Signal_Flag`:
+  
+
+- :py:func:`Has_Signal_Kind`:
+  
+
+- :py:func:`Has_Base_Name`:
+  
+
+- :py:func:`Has_Interface_Declaration_Chain`:
+  
+
+- :py:func:`Has_Subprogram_Specification`:
+  
+
+- :py:func:`Has_Sequential_Statement_Chain`:
+  
+
+- :py:func:`Has_Simultaneous_Statement_Chain`:
+  
+
+- :py:func:`Has_Subprogram_Body`:
+  
+
+- :py:func:`Has_Overload_Number`:
+  
+
+- :py:func:`Has_Subprogram_Depth`:
+  
+
+- :py:func:`Has_Subprogram_Hash`:
+  
+
+- :py:func:`Has_Impure_Depth`:
+  
+
+- :py:func:`Has_Return_Type`:
+  
+
+- :py:func:`Has_Implicit_Definition`:
+  
+
+- :py:func:`Has_Uninstantiated_Subprogram_Name`:
+  
+
+- :py:func:`Has_Default_Value`:
+  
+
+- :py:func:`Has_Deferred_Declaration`:
+  
+
+- :py:func:`Has_Deferred_Declaration_Flag`:
+  
+
+- :py:func:`Has_Shared_Flag`:
+  
+
+- :py:func:`Has_Design_Unit`:
+  
+
+- :py:func:`Has_Block_Statement`:
+  
+
+- :py:func:`Has_Signal_Driver`:
+  
+
+- :py:func:`Has_Declaration_Chain`:
+  
+
+- :py:func:`Has_File_Logical_Name`:
+  
+
+- :py:func:`Has_File_Open_Kind`:
+  
+
+- :py:func:`Has_Element_Position`:
+  
+
+- :py:func:`Has_Use_Clause_Chain`:
+  
+
+- :py:func:`Has_Context_Reference_Chain`:
+  
+
+- :py:func:`Has_Selected_Name`:
+  
+
+- :py:func:`Has_Type_Declarator`:
+  
+
+- :py:func:`Has_Complete_Type_Definition`:
+  
+
+- :py:func:`Has_Incomplete_Type_Ref_Chain`:
+  
+
+- :py:func:`Has_Associated_Type`:
+  
+
+- :py:func:`Has_Enumeration_Literal_List`:
+  
+
+- :py:func:`Has_Entity_Class_Entry_Chain`:
+  
+
+- :py:func:`Has_Group_Constituent_List`:
+  
+
+- :py:func:`Has_Unit_Chain`:
+  
+
+- :py:func:`Has_Primary_Unit`:
+  
+
+- :py:func:`Has_Identifier`:
+  
+
+- :py:func:`Has_Label`:
+  
+
+- :py:func:`Has_Visible_Flag`:
+  
+
+- :py:func:`Has_Range_Constraint`:
+  
+
+- :py:func:`Has_Direction`:
+  
+
+- :py:func:`Has_Left_Limit`:
+  
+
+- :py:func:`Has_Right_Limit`:
+  
+
+- :py:func:`Has_Left_Limit_Expr`:
+  
+
+- :py:func:`Has_Right_Limit_Expr`:
+  
+
+- :py:func:`Has_Parent_Type`:
+  
+
+- :py:func:`Has_Simple_Nature`:
+  
+
+- :py:func:`Has_Base_Nature`:
+  
+
+- :py:func:`Has_Resolution_Indication`:
+  
+
+- :py:func:`Has_Record_Element_Resolution_Chain`:
+  
+
+- :py:func:`Has_Tolerance`:
+  
+
+- :py:func:`Has_Plus_Terminal_Name`:
+  
+
+- :py:func:`Has_Minus_Terminal_Name`:
+  
+
+- :py:func:`Has_Plus_Terminal`:
+  
+
+- :py:func:`Has_Minus_Terminal`:
+  
+
+- :py:func:`Has_Magnitude_Expression`:
+  
+
+- :py:func:`Has_Phase_Expression`:
+  
+
+- :py:func:`Has_Power_Expression`:
+  
+
+- :py:func:`Has_Simultaneous_Left`:
+  
+
+- :py:func:`Has_Simultaneous_Right`:
+  
+
+- :py:func:`Has_Text_File_Flag`:
+  
+
+- :py:func:`Has_Only_Characters_Flag`:
+  
+
+- :py:func:`Has_Is_Character_Type`:
+  
+
+- :py:func:`Has_Nature_Staticness`:
+  
+
+- :py:func:`Has_Type_Staticness`:
+  
+
+- :py:func:`Has_Constraint_State`:
+  
+
+- :py:func:`Has_Index_Subtype_List`:
+  
+
+- :py:func:`Has_Index_Subtype_Definition_List`:
+  
+
+- :py:func:`Has_Element_Subtype_Indication`:
+  
+
+- :py:func:`Has_Element_Subtype`:
+  
+
+- :py:func:`Has_Element_Subnature_Indication`:
+  
+
+- :py:func:`Has_Element_Subnature`:
+  
+
+- :py:func:`Has_Index_Constraint_List`:
+  
+
+- :py:func:`Has_Array_Element_Constraint`:
+  
+
+- :py:func:`Has_Has_Array_Constraint_Flag`:
+  
+
+- :py:func:`Has_Has_Element_Constraint_Flag`:
+  
+
+- :py:func:`Has_Elements_Declaration_List`:
+  
+
+- :py:func:`Has_Owned_Elements_Chain`:
+  
+
+- :py:func:`Has_Designated_Type`:
+  
+
+- :py:func:`Has_Designated_Subtype_Indication`:
+  
+
+- :py:func:`Has_Index_List`:
+  
+
+- :py:func:`Has_Reference`:
+  
+
+- :py:func:`Has_Nature_Declarator`:
+  
+
+- :py:func:`Has_Across_Type_Mark`:
+  
+
+- :py:func:`Has_Through_Type_Mark`:
+  
+
+- :py:func:`Has_Across_Type_Definition`:
+  
+
+- :py:func:`Has_Through_Type_Definition`:
+  
+
+- :py:func:`Has_Across_Type`:
+  
+
+- :py:func:`Has_Through_Type`:
+  
+
+- :py:func:`Has_Target`:
+  
+
+- :py:func:`Has_Waveform_Chain`:
+  
+
+- :py:func:`Has_Guard`:
+  
+
+- :py:func:`Has_Delay_Mechanism`:
+  
+
+- :py:func:`Has_Reject_Time_Expression`:
+  
+
+- :py:func:`Has_Force_Mode`:
+  
+
+- :py:func:`Has_Has_Force_Mode`:
+  
+
+- :py:func:`Has_Sensitivity_List`:
+  
+
+- :py:func:`Has_Process_Origin`:
+  
+
+- :py:func:`Has_Package_Origin`:
+  
+
+- :py:func:`Has_Condition_Clause`:
+  
+
+- :py:func:`Has_Break_Element`:
+  
+
+- :py:func:`Has_Selector_Quantity`:
+  
+
+- :py:func:`Has_Break_Quantity`:
+  
+
+- :py:func:`Has_Timeout_Clause`:
+  
+
+- :py:func:`Has_Postponed_Flag`:
+  
+
+- :py:func:`Has_Callees_List`:
+  
+
+- :py:func:`Has_Passive_Flag`:
+  
+
+- :py:func:`Has_Resolution_Function_Flag`:
+  
+
+- :py:func:`Has_Wait_State`:
+  
+
+- :py:func:`Has_All_Sensitized_State`:
+  
+
+- :py:func:`Has_Seen_Flag`:
+  
+
+- :py:func:`Has_Pure_Flag`:
+  
+
+- :py:func:`Has_Foreign_Flag`:
+  
+
+- :py:func:`Has_Resolved_Flag`:
+  
+
+- :py:func:`Has_Signal_Type_Flag`:
+  
+
+- :py:func:`Has_Has_Signal_Flag`:
+  
+
+- :py:func:`Has_Purity_State`:
+  
+
+- :py:func:`Has_Elab_Flag`:
+  
+
+- :py:func:`Has_Vendor_Library_Flag`:
+  
+
+- :py:func:`Has_Configuration_Mark_Flag`:
+  
+
+- :py:func:`Has_Configuration_Done_Flag`:
+  
+
+- :py:func:`Has_Index_Constraint_Flag`:
+  
+
+- :py:func:`Has_Hide_Implicit_Flag`:
+  
+
+- :py:func:`Has_Assertion_Condition`:
+  
+
+- :py:func:`Has_Report_Expression`:
+  
+
+- :py:func:`Has_Severity_Expression`:
+  
+
+- :py:func:`Has_Instantiated_Unit`:
+  
+
+- :py:func:`Has_Generic_Map_Aspect_Chain`:
+  
+
+- :py:func:`Has_Port_Map_Aspect_Chain`:
+  
+
+- :py:func:`Has_Configuration_Name`:
+  
+
+- :py:func:`Has_Component_Configuration`:
+  
+
+- :py:func:`Has_Configuration_Specification`:
+  
+
+- :py:func:`Has_Default_Binding_Indication`:
+  
+
+- :py:func:`Has_Default_Configuration_Declaration`:
+  
+
+- :py:func:`Has_Expression`:
+  
+
+- :py:func:`Has_Conditional_Expression_Chain`:
+  
+
+- :py:func:`Has_Allocator_Designated_Type`:
+  
+
+- :py:func:`Has_Selected_Waveform_Chain`:
+  
+
+- :py:func:`Has_Conditional_Waveform_Chain`:
+  
+
+- :py:func:`Has_Guard_Expression`:
+  
+
+- :py:func:`Has_Guard_Decl`:
+  
+
+- :py:func:`Has_Guard_Sensitivity_List`:
+  
+
+- :py:func:`Has_Signal_Attribute_Chain`:
+  
+
+- :py:func:`Has_Block_Block_Configuration`:
+  
+
+- :py:func:`Has_Package_Header`:
+  
+
+- :py:func:`Has_Block_Header`:
+  
+
+- :py:func:`Has_Uninstantiated_Package_Name`:
+  
+
+- :py:func:`Has_Uninstantiated_Package_Decl`:
+  
+
+- :py:func:`Has_Instance_Source_File`:
+  
+
+- :py:func:`Has_Generate_Block_Configuration`:
+  
+
+- :py:func:`Has_Generate_Statement_Body`:
+  
+
+- :py:func:`Has_Alternative_Label`:
+  
+
+- :py:func:`Has_Generate_Else_Clause`:
+  
+
+- :py:func:`Has_Condition`:
+  
+
+- :py:func:`Has_Else_Clause`:
+  
+
+- :py:func:`Has_Parameter_Specification`:
+  
+
+- :py:func:`Has_Parent`:
+  
+
+- :py:func:`Has_Loop_Label`:
+  
+
+- :py:func:`Has_Exit_Flag`:
+  
+
+- :py:func:`Has_Next_Flag`:
+  
+
+- :py:func:`Has_Component_Name`:
+  
+
+- :py:func:`Has_Instantiation_List`:
+  
+
+- :py:func:`Has_Entity_Aspect`:
+  
+
+- :py:func:`Has_Default_Entity_Aspect`:
+  
+
+- :py:func:`Has_Binding_Indication`:
+  
+
+- :py:func:`Has_Named_Entity`:
+  
+
+- :py:func:`Has_Referenced_Name`:
+  
+
+- :py:func:`Has_Expr_Staticness`:
+  
+
+- :py:func:`Has_Scalar_Size`:
+  
+
+- :py:func:`Has_Error_Origin`:
+  
+
+- :py:func:`Has_Operand`:
+  
+
+- :py:func:`Has_Left`:
+  
+
+- :py:func:`Has_Right`:
+  
+
+- :py:func:`Has_Unit_Name`:
+  
+
+- :py:func:`Has_Name`:
+  
+
+- :py:func:`Has_Group_Template_Name`:
+  
+
+- :py:func:`Has_Name_Staticness`:
+  
+
+- :py:func:`Has_Prefix`:
+  
+
+- :py:func:`Has_Signature_Prefix`:
+  
+
+- :py:func:`Has_External_Pathname`:
+  
+
+- :py:func:`Has_Pathname_Suffix`:
+  
+
+- :py:func:`Has_Pathname_Expression`:
+  
+
+- :py:func:`Has_In_Formal_Flag`:
+  
+
+- :py:func:`Has_Slice_Subtype`:
+  
+
+- :py:func:`Has_Suffix`:
+  
+
+- :py:func:`Has_Index_Subtype`:
+  
+
+- :py:func:`Has_Parameter`:
+  
+
+- :py:func:`Has_Parameter_2`:
+  
+
+- :py:func:`Has_Parameter_3`:
+  
+
+- :py:func:`Has_Parameter_4`:
+  
+
+- :py:func:`Has_Attr_Chain`:
+  
+
+- :py:func:`Has_Signal_Attribute_Declaration`:
+  
+
+- :py:func:`Has_Actual_Type`:
+  
+
+- :py:func:`Has_Actual_Type_Definition`:
+  
+
+- :py:func:`Has_Association_Chain`:
+  
+
+- :py:func:`Has_Individual_Association_Chain`:
+  
+
+- :py:func:`Has_Subprogram_Association_Chain`:
+  
+
+- :py:func:`Has_Aggregate_Info`:
+  
+
+- :py:func:`Has_Sub_Aggregate_Info`:
+  
+
+- :py:func:`Has_Aggr_Dynamic_Flag`:
+  
+
+- :py:func:`Has_Aggr_Min_Length`:
+  
+
+- :py:func:`Has_Aggr_Low_Limit`:
+  
+
+- :py:func:`Has_Aggr_High_Limit`:
+  
+
+- :py:func:`Has_Aggr_Others_Flag`:
+  
+
+- :py:func:`Has_Aggr_Named_Flag`:
+  
+
+- :py:func:`Has_Aggregate_Expand_Flag`:
+  
+
+- :py:func:`Has_Association_Choices_Chain`:
+  
+
+- :py:func:`Has_Case_Statement_Alternative_Chain`:
+  
+
+- :py:func:`Has_Choice_Staticness`:
+  
+
+- :py:func:`Has_Procedure_Call`:
+  
+
+- :py:func:`Has_Implementation`:
+  
+
+- :py:func:`Has_Parameter_Association_Chain`:
+  
+
+- :py:func:`Has_Method_Object`:
+  
+
+- :py:func:`Has_Subtype_Type_Mark`:
+  
+
+- :py:func:`Has_Subnature_Nature_Mark`:
+  
+
+- :py:func:`Has_Type_Conversion_Subtype`:
+  
+
+- :py:func:`Has_Type_Mark`:
+  
+
+- :py:func:`Has_File_Type_Mark`:
+  
+
+- :py:func:`Has_Return_Type_Mark`:
+  
+
+- :py:func:`Has_Has_Disconnect_Flag`:
+  
+
+- :py:func:`Has_Has_Active_Flag`:
+  
+
+- :py:func:`Has_Is_Within_Flag`:
+  
+
+- :py:func:`Has_Type_Marks_List`:
+  
+
+- :py:func:`Has_Implicit_Alias_Flag`:
+  
+
+- :py:func:`Has_Alias_Signature`:
+  
+
+- :py:func:`Has_Attribute_Signature`:
+  
+
+- :py:func:`Has_Overload_List`:
+  
+
+- :py:func:`Has_Simple_Name_Identifier`:
+  
+
+- :py:func:`Has_Simple_Name_Subtype`:
+  
+
+- :py:func:`Has_Protected_Type_Body`:
+  
+
+- :py:func:`Has_Protected_Type_Declaration`:
+  
+
+- :py:func:`Has_Use_Flag`:
+  
+
+- :py:func:`Has_End_Has_Reserved_Id`:
+  
+
+- :py:func:`Has_End_Has_Identifier`:
+  
+
+- :py:func:`Has_End_Has_Postponed`:
+  
+
+- :py:func:`Has_Has_Label`:
+  
+
+- :py:func:`Has_Has_Begin`:
+  
+
+- :py:func:`Has_Has_End`:
+  
+
+- :py:func:`Has_Has_Is`:
+  
+
+- :py:func:`Has_Has_Pure`:
+  
+
+- :py:func:`Has_Has_Body`:
+  
+
+- :py:func:`Has_Has_Parameter`:
+  
+
+- :py:func:`Has_Has_Component`:
+  
+
+- :py:func:`Has_Has_Identifier_List`:
+  
+
+- :py:func:`Has_Has_Mode`:
+  
+
+- :py:func:`Has_Has_Class`:
+  
+
+- :py:func:`Has_Has_Delay_Mechanism`:
+  
+
+- :py:func:`Has_Suspend_Flag`:
+  
+
+- :py:func:`Has_Is_Ref`:
+  
+
+- :py:func:`Has_Is_Forward_Ref`:
+  
+
+- :py:func:`Has_Psl_Property`:
+  
+
+- :py:func:`Has_Psl_Sequence`:
+  
+
+- :py:func:`Has_Psl_Declaration`:
+  
+
+- :py:func:`Has_Psl_Expression`:
+  
+
+- :py:func:`Has_Psl_Boolean`:
+  
+
+- :py:func:`Has_PSL_Clock`:
+  
+
+- :py:func:`Has_PSL_NFA`:
+  
+
+- :py:func:`Has_PSL_Nbr_States`:
+  
+
+- :py:func:`Has_PSL_Clock_Sensitivity`:
+  
+
+- :py:func:`Has_PSL_EOS_Flag`:
+  
+
+- :py:func:`Has_Count_Expression`:
+  
+
+- :py:func:`Has_Clock_Expression`:
+  
+
+- :py:func:`Has_Default_Clock`:
+  
+
+- :py:func:`Has_Foreign_Node`:
+  
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: types
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: types
+
+   .. rubric:: Members
+
+.. autoclass:: Attr
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Attr
+
+   .. rubric:: Members
+
+.. autoclass:: fields
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: fields
+
+   .. rubric:: Members
+
+
+.. #-----------------------------------
+
+**Functions**
+
+
+.. autofunction:: get_fields_first
+
+.. autofunction:: get_fields_last
+
+.. autofunction:: get_field_by_index
+
+.. autofunction:: get_field_type
+
+.. autofunction:: get_field_attribute
+
+.. autofunction:: Has_First_Design_Unit
+
+.. autofunction:: Has_Last_Design_Unit
+
+.. autofunction:: Has_Library_Declaration
+
+.. autofunction:: Has_File_Checksum
+
+.. autofunction:: Has_Analysis_Time_Stamp
+
+.. autofunction:: Has_Design_File_Source
+
+.. autofunction:: Has_Library
+
+.. autofunction:: Has_File_Dependence_List
+
+.. autofunction:: Has_Design_File_Filename
+
+.. autofunction:: Has_Design_File_Directory
+
+.. autofunction:: Has_Design_File
+
+.. autofunction:: Has_Design_File_Chain
+
+.. autofunction:: Has_Library_Directory
+
+.. autofunction:: Has_Date
+
+.. autofunction:: Has_Context_Items
+
+.. autofunction:: Has_Dependence_List
+
+.. autofunction:: Has_Analysis_Checks_List
+
+.. autofunction:: Has_Date_State
+
+.. autofunction:: Has_Guarded_Target_State
+
+.. autofunction:: Has_Library_Unit
+
+.. autofunction:: Has_Hash_Chain
+
+.. autofunction:: Has_Design_Unit_Source_Pos
+
+.. autofunction:: Has_Design_Unit_Source_Line
+
+.. autofunction:: Has_Design_Unit_Source_Col
+
+.. autofunction:: Has_Value
+
+.. autofunction:: Has_Enum_Pos
+
+.. autofunction:: Has_Physical_Literal
+
+.. autofunction:: Has_Fp_Value
+
+.. autofunction:: Has_Simple_Aggregate_List
+
+.. autofunction:: Has_String8_Id
+
+.. autofunction:: Has_String_Length
+
+.. autofunction:: Has_Bit_String_Base
+
+.. autofunction:: Has_Has_Signed
+
+.. autofunction:: Has_Has_Sign
+
+.. autofunction:: Has_Has_Length
+
+.. autofunction:: Has_Literal_Length
+
+.. autofunction:: Has_Literal_Origin
+
+.. autofunction:: Has_Range_Origin
+
+.. autofunction:: Has_Literal_Subtype
+
+.. autofunction:: Has_Allocator_Subtype
+
+.. autofunction:: Has_Entity_Class
+
+.. autofunction:: Has_Entity_Name_List
+
+.. autofunction:: Has_Attribute_Designator
+
+.. autofunction:: Has_Attribute_Specification_Chain
+
+.. autofunction:: Has_Attribute_Specification
+
+.. autofunction:: Has_Static_Attribute_Flag
+
+.. autofunction:: Has_Signal_List
+
+.. autofunction:: Has_Quantity_List
+
+.. autofunction:: Has_Designated_Entity
+
+.. autofunction:: Has_Formal
+
+.. autofunction:: Has_Actual
+
+.. autofunction:: Has_Actual_Conversion
+
+.. autofunction:: Has_Formal_Conversion
+
+.. autofunction:: Has_Whole_Association_Flag
+
+.. autofunction:: Has_Collapse_Signal_Flag
+
+.. autofunction:: Has_Artificial_Flag
+
+.. autofunction:: Has_Open_Flag
+
+.. autofunction:: Has_After_Drivers_Flag
+
+.. autofunction:: Has_We_Value
+
+.. autofunction:: Has_Time
+
+.. autofunction:: Has_Associated_Expr
+
+.. autofunction:: Has_Associated_Block
+
+.. autofunction:: Has_Associated_Chain
+
+.. autofunction:: Has_Choice_Name
+
+.. autofunction:: Has_Choice_Expression
+
+.. autofunction:: Has_Choice_Range
+
+.. autofunction:: Has_Same_Alternative_Flag
+
+.. autofunction:: Has_Element_Type_Flag
+
+.. autofunction:: Has_Architecture
+
+.. autofunction:: Has_Block_Specification
+
+.. autofunction:: Has_Prev_Block_Configuration
+
+.. autofunction:: Has_Configuration_Item_Chain
+
+.. autofunction:: Has_Attribute_Value_Chain
+
+.. autofunction:: Has_Spec_Chain
+
+.. autofunction:: Has_Value_Chain
+
+.. autofunction:: Has_Attribute_Value_Spec_Chain
+
+.. autofunction:: Has_Entity_Name
+
+.. autofunction:: Has_Package
+
+.. autofunction:: Has_Package_Body
+
+.. autofunction:: Has_Instance_Package_Body
+
+.. autofunction:: Has_Need_Body
+
+.. autofunction:: Has_Macro_Expanded_Flag
+
+.. autofunction:: Has_Need_Instance_Bodies
+
+.. autofunction:: Has_Hierarchical_Name
+
+.. autofunction:: Has_Inherit_Spec_Chain
+
+.. autofunction:: Has_Vunit_Item_Chain
+
+.. autofunction:: Has_Bound_Vunit_Chain
+
+.. autofunction:: Has_Verification_Block_Configuration
+
+.. autofunction:: Has_Block_Configuration
+
+.. autofunction:: Has_Concurrent_Statement_Chain
+
+.. autofunction:: Has_Chain
+
+.. autofunction:: Has_Port_Chain
+
+.. autofunction:: Has_Generic_Chain
+
+.. autofunction:: Has_Type
+
+.. autofunction:: Has_Subtype_Indication
+
+.. autofunction:: Has_Discrete_Range
+
+.. autofunction:: Has_Type_Definition
+
+.. autofunction:: Has_Subtype_Definition
+
+.. autofunction:: Has_Incomplete_Type_Declaration
+
+.. autofunction:: Has_Interface_Type_Subprograms
+
+.. autofunction:: Has_Nature_Definition
+
+.. autofunction:: Has_Nature
+
+.. autofunction:: Has_Subnature_Indication
+
+.. autofunction:: Has_Mode
+
+.. autofunction:: Has_Guarded_Signal_Flag
+
+.. autofunction:: Has_Signal_Kind
+
+.. autofunction:: Has_Base_Name
+
+.. autofunction:: Has_Interface_Declaration_Chain
+
+.. autofunction:: Has_Subprogram_Specification
+
+.. autofunction:: Has_Sequential_Statement_Chain
+
+.. autofunction:: Has_Simultaneous_Statement_Chain
+
+.. autofunction:: Has_Subprogram_Body
+
+.. autofunction:: Has_Overload_Number
+
+.. autofunction:: Has_Subprogram_Depth
+
+.. autofunction:: Has_Subprogram_Hash
+
+.. autofunction:: Has_Impure_Depth
+
+.. autofunction:: Has_Return_Type
+
+.. autofunction:: Has_Implicit_Definition
+
+.. autofunction:: Has_Uninstantiated_Subprogram_Name
+
+.. autofunction:: Has_Default_Value
+
+.. autofunction:: Has_Deferred_Declaration
+
+.. autofunction:: Has_Deferred_Declaration_Flag
+
+.. autofunction:: Has_Shared_Flag
+
+.. autofunction:: Has_Design_Unit
+
+.. autofunction:: Has_Block_Statement
+
+.. autofunction:: Has_Signal_Driver
+
+.. autofunction:: Has_Declaration_Chain
+
+.. autofunction:: Has_File_Logical_Name
+
+.. autofunction:: Has_File_Open_Kind
+
+.. autofunction:: Has_Element_Position
+
+.. autofunction:: Has_Use_Clause_Chain
+
+.. autofunction:: Has_Context_Reference_Chain
+
+.. autofunction:: Has_Selected_Name
+
+.. autofunction:: Has_Type_Declarator
+
+.. autofunction:: Has_Complete_Type_Definition
+
+.. autofunction:: Has_Incomplete_Type_Ref_Chain
+
+.. autofunction:: Has_Associated_Type
+
+.. autofunction:: Has_Enumeration_Literal_List
+
+.. autofunction:: Has_Entity_Class_Entry_Chain
+
+.. autofunction:: Has_Group_Constituent_List
+
+.. autofunction:: Has_Unit_Chain
+
+.. autofunction:: Has_Primary_Unit
+
+.. autofunction:: Has_Identifier
+
+.. autofunction:: Has_Label
+
+.. autofunction:: Has_Visible_Flag
+
+.. autofunction:: Has_Range_Constraint
+
+.. autofunction:: Has_Direction
+
+.. autofunction:: Has_Left_Limit
+
+.. autofunction:: Has_Right_Limit
+
+.. autofunction:: Has_Left_Limit_Expr
+
+.. autofunction:: Has_Right_Limit_Expr
+
+.. autofunction:: Has_Parent_Type
+
+.. autofunction:: Has_Simple_Nature
+
+.. autofunction:: Has_Base_Nature
+
+.. autofunction:: Has_Resolution_Indication
+
+.. autofunction:: Has_Record_Element_Resolution_Chain
+
+.. autofunction:: Has_Tolerance
+
+.. autofunction:: Has_Plus_Terminal_Name
+
+.. autofunction:: Has_Minus_Terminal_Name
+
+.. autofunction:: Has_Plus_Terminal
+
+.. autofunction:: Has_Minus_Terminal
+
+.. autofunction:: Has_Magnitude_Expression
+
+.. autofunction:: Has_Phase_Expression
+
+.. autofunction:: Has_Power_Expression
+
+.. autofunction:: Has_Simultaneous_Left
+
+.. autofunction:: Has_Simultaneous_Right
+
+.. autofunction:: Has_Text_File_Flag
+
+.. autofunction:: Has_Only_Characters_Flag
+
+.. autofunction:: Has_Is_Character_Type
+
+.. autofunction:: Has_Nature_Staticness
+
+.. autofunction:: Has_Type_Staticness
+
+.. autofunction:: Has_Constraint_State
+
+.. autofunction:: Has_Index_Subtype_List
+
+.. autofunction:: Has_Index_Subtype_Definition_List
+
+.. autofunction:: Has_Element_Subtype_Indication
+
+.. autofunction:: Has_Element_Subtype
+
+.. autofunction:: Has_Element_Subnature_Indication
+
+.. autofunction:: Has_Element_Subnature
+
+.. autofunction:: Has_Index_Constraint_List
+
+.. autofunction:: Has_Array_Element_Constraint
+
+.. autofunction:: Has_Has_Array_Constraint_Flag
+
+.. autofunction:: Has_Has_Element_Constraint_Flag
+
+.. autofunction:: Has_Elements_Declaration_List
+
+.. autofunction:: Has_Owned_Elements_Chain
+
+.. autofunction:: Has_Designated_Type
+
+.. autofunction:: Has_Designated_Subtype_Indication
+
+.. autofunction:: Has_Index_List
+
+.. autofunction:: Has_Reference
+
+.. autofunction:: Has_Nature_Declarator
+
+.. autofunction:: Has_Across_Type_Mark
+
+.. autofunction:: Has_Through_Type_Mark
+
+.. autofunction:: Has_Across_Type_Definition
+
+.. autofunction:: Has_Through_Type_Definition
+
+.. autofunction:: Has_Across_Type
+
+.. autofunction:: Has_Through_Type
+
+.. autofunction:: Has_Target
+
+.. autofunction:: Has_Waveform_Chain
+
+.. autofunction:: Has_Guard
+
+.. autofunction:: Has_Delay_Mechanism
+
+.. autofunction:: Has_Reject_Time_Expression
+
+.. autofunction:: Has_Force_Mode
+
+.. autofunction:: Has_Has_Force_Mode
+
+.. autofunction:: Has_Sensitivity_List
+
+.. autofunction:: Has_Process_Origin
+
+.. autofunction:: Has_Package_Origin
+
+.. autofunction:: Has_Condition_Clause
+
+.. autofunction:: Has_Break_Element
+
+.. autofunction:: Has_Selector_Quantity
+
+.. autofunction:: Has_Break_Quantity
+
+.. autofunction:: Has_Timeout_Clause
+
+.. autofunction:: Has_Postponed_Flag
+
+.. autofunction:: Has_Callees_List
+
+.. autofunction:: Has_Passive_Flag
+
+.. autofunction:: Has_Resolution_Function_Flag
+
+.. autofunction:: Has_Wait_State
+
+.. autofunction:: Has_All_Sensitized_State
+
+.. autofunction:: Has_Seen_Flag
+
+.. autofunction:: Has_Pure_Flag
+
+.. autofunction:: Has_Foreign_Flag
+
+.. autofunction:: Has_Resolved_Flag
+
+.. autofunction:: Has_Signal_Type_Flag
+
+.. autofunction:: Has_Has_Signal_Flag
+
+.. autofunction:: Has_Purity_State
+
+.. autofunction:: Has_Elab_Flag
+
+.. autofunction:: Has_Vendor_Library_Flag
+
+.. autofunction:: Has_Configuration_Mark_Flag
+
+.. autofunction:: Has_Configuration_Done_Flag
+
+.. autofunction:: Has_Index_Constraint_Flag
+
+.. autofunction:: Has_Hide_Implicit_Flag
+
+.. autofunction:: Has_Assertion_Condition
+
+.. autofunction:: Has_Report_Expression
+
+.. autofunction:: Has_Severity_Expression
+
+.. autofunction:: Has_Instantiated_Unit
+
+.. autofunction:: Has_Generic_Map_Aspect_Chain
+
+.. autofunction:: Has_Port_Map_Aspect_Chain
+
+.. autofunction:: Has_Configuration_Name
+
+.. autofunction:: Has_Component_Configuration
+
+.. autofunction:: Has_Configuration_Specification
+
+.. autofunction:: Has_Default_Binding_Indication
+
+.. autofunction:: Has_Default_Configuration_Declaration
+
+.. autofunction:: Has_Expression
+
+.. autofunction:: Has_Conditional_Expression_Chain
+
+.. autofunction:: Has_Allocator_Designated_Type
+
+.. autofunction:: Has_Selected_Waveform_Chain
+
+.. autofunction:: Has_Conditional_Waveform_Chain
+
+.. autofunction:: Has_Guard_Expression
+
+.. autofunction:: Has_Guard_Decl
+
+.. autofunction:: Has_Guard_Sensitivity_List
+
+.. autofunction:: Has_Signal_Attribute_Chain
+
+.. autofunction:: Has_Block_Block_Configuration
+
+.. autofunction:: Has_Package_Header
+
+.. autofunction:: Has_Block_Header
+
+.. autofunction:: Has_Uninstantiated_Package_Name
+
+.. autofunction:: Has_Uninstantiated_Package_Decl
+
+.. autofunction:: Has_Instance_Source_File
+
+.. autofunction:: Has_Generate_Block_Configuration
+
+.. autofunction:: Has_Generate_Statement_Body
+
+.. autofunction:: Has_Alternative_Label
+
+.. autofunction:: Has_Generate_Else_Clause
+
+.. autofunction:: Has_Condition
+
+.. autofunction:: Has_Else_Clause
+
+.. autofunction:: Has_Parameter_Specification
+
+.. autofunction:: Has_Parent
+
+.. autofunction:: Has_Loop_Label
+
+.. autofunction:: Has_Exit_Flag
+
+.. autofunction:: Has_Next_Flag
+
+.. autofunction:: Has_Component_Name
+
+.. autofunction:: Has_Instantiation_List
+
+.. autofunction:: Has_Entity_Aspect
+
+.. autofunction:: Has_Default_Entity_Aspect
+
+.. autofunction:: Has_Binding_Indication
+
+.. autofunction:: Has_Named_Entity
+
+.. autofunction:: Has_Referenced_Name
+
+.. autofunction:: Has_Expr_Staticness
+
+.. autofunction:: Has_Scalar_Size
+
+.. autofunction:: Has_Error_Origin
+
+.. autofunction:: Has_Operand
+
+.. autofunction:: Has_Left
+
+.. autofunction:: Has_Right
+
+.. autofunction:: Has_Unit_Name
+
+.. autofunction:: Has_Name
+
+.. autofunction:: Has_Group_Template_Name
+
+.. autofunction:: Has_Name_Staticness
+
+.. autofunction:: Has_Prefix
+
+.. autofunction:: Has_Signature_Prefix
+
+.. autofunction:: Has_External_Pathname
+
+.. autofunction:: Has_Pathname_Suffix
+
+.. autofunction:: Has_Pathname_Expression
+
+.. autofunction:: Has_In_Formal_Flag
+
+.. autofunction:: Has_Slice_Subtype
+
+.. autofunction:: Has_Suffix
+
+.. autofunction:: Has_Index_Subtype
+
+.. autofunction:: Has_Parameter
+
+.. autofunction:: Has_Parameter_2
+
+.. autofunction:: Has_Parameter_3
+
+.. autofunction:: Has_Parameter_4
+
+.. autofunction:: Has_Attr_Chain
+
+.. autofunction:: Has_Signal_Attribute_Declaration
+
+.. autofunction:: Has_Actual_Type
+
+.. autofunction:: Has_Actual_Type_Definition
+
+.. autofunction:: Has_Association_Chain
+
+.. autofunction:: Has_Individual_Association_Chain
+
+.. autofunction:: Has_Subprogram_Association_Chain
+
+.. autofunction:: Has_Aggregate_Info
+
+.. autofunction:: Has_Sub_Aggregate_Info
+
+.. autofunction:: Has_Aggr_Dynamic_Flag
+
+.. autofunction:: Has_Aggr_Min_Length
+
+.. autofunction:: Has_Aggr_Low_Limit
+
+.. autofunction:: Has_Aggr_High_Limit
+
+.. autofunction:: Has_Aggr_Others_Flag
+
+.. autofunction:: Has_Aggr_Named_Flag
+
+.. autofunction:: Has_Aggregate_Expand_Flag
+
+.. autofunction:: Has_Association_Choices_Chain
+
+.. autofunction:: Has_Case_Statement_Alternative_Chain
+
+.. autofunction:: Has_Choice_Staticness
+
+.. autofunction:: Has_Procedure_Call
+
+.. autofunction:: Has_Implementation
+
+.. autofunction:: Has_Parameter_Association_Chain
+
+.. autofunction:: Has_Method_Object
+
+.. autofunction:: Has_Subtype_Type_Mark
+
+.. autofunction:: Has_Subnature_Nature_Mark
+
+.. autofunction:: Has_Type_Conversion_Subtype
+
+.. autofunction:: Has_Type_Mark
+
+.. autofunction:: Has_File_Type_Mark
+
+.. autofunction:: Has_Return_Type_Mark
+
+.. autofunction:: Has_Has_Disconnect_Flag
+
+.. autofunction:: Has_Has_Active_Flag
+
+.. autofunction:: Has_Is_Within_Flag
+
+.. autofunction:: Has_Type_Marks_List
+
+.. autofunction:: Has_Implicit_Alias_Flag
+
+.. autofunction:: Has_Alias_Signature
+
+.. autofunction:: Has_Attribute_Signature
+
+.. autofunction:: Has_Overload_List
+
+.. autofunction:: Has_Simple_Name_Identifier
+
+.. autofunction:: Has_Simple_Name_Subtype
+
+.. autofunction:: Has_Protected_Type_Body
+
+.. autofunction:: Has_Protected_Type_Declaration
+
+.. autofunction:: Has_Use_Flag
+
+.. autofunction:: Has_End_Has_Reserved_Id
+
+.. autofunction:: Has_End_Has_Identifier
+
+.. autofunction:: Has_End_Has_Postponed
+
+.. autofunction:: Has_Has_Label
+
+.. autofunction:: Has_Has_Begin
+
+.. autofunction:: Has_Has_End
+
+.. autofunction:: Has_Has_Is
+
+.. autofunction:: Has_Has_Pure
+
+.. autofunction:: Has_Has_Body
+
+.. autofunction:: Has_Has_Parameter
+
+.. autofunction:: Has_Has_Component
+
+.. autofunction:: Has_Has_Identifier_List
+
+.. autofunction:: Has_Has_Mode
+
+.. autofunction:: Has_Has_Class
+
+.. autofunction:: Has_Has_Delay_Mechanism
+
+.. autofunction:: Has_Suspend_Flag
+
+.. autofunction:: Has_Is_Ref
+
+.. autofunction:: Has_Is_Forward_Ref
+
+.. autofunction:: Has_Psl_Property
+
+.. autofunction:: Has_Psl_Sequence
+
+.. autofunction:: Has_Psl_Declaration
+
+.. autofunction:: Has_Psl_Expression
+
+.. autofunction:: Has_Psl_Boolean
+
+.. autofunction:: Has_PSL_Clock
+
+.. autofunction:: Has_PSL_NFA
+
+.. autofunction:: Has_PSL_Nbr_States
+
+.. autofunction:: Has_PSL_Clock_Sensitivity
+
+.. autofunction:: Has_PSL_EOS_Flag
+
+.. autofunction:: Has_Count_Expression
+
+.. autofunction:: Has_Clock_Expression
+
+.. autofunction:: Has_Default_Clock
+
+.. autofunction:: Has_Foreign_Node

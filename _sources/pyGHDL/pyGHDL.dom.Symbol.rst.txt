@@ -1,0 +1,102 @@
+pyGHDL.dom.Symbol
+=====================
+
+.. automodule:: pyGHDL.dom.Symbol
+
+
+.. currentmodule:: pyGHDL.dom.Symbol
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`EntitySymbol`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`SimpleSubtypeSymbol`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`ConstrainedScalarSubtypeSymbol`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`ConstrainedCompositeSubtypeSymbol`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`SimpleObjectOrFunctionCallSymbol`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`IndexedObjectOrFunctionCallSymbol`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: EntitySymbol
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: EntitySymbol
+
+   .. rubric:: Members
+
+.. autoclass:: SimpleSubtypeSymbol
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SimpleSubtypeSymbol
+
+   .. rubric:: Members
+
+.. autoclass:: ConstrainedScalarSubtypeSymbol
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ConstrainedScalarSubtypeSymbol
+
+   .. rubric:: Members
+
+.. autoclass:: ConstrainedCompositeSubtypeSymbol
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ConstrainedCompositeSubtypeSymbol
+
+   .. rubric:: Members
+
+.. autoclass:: SimpleObjectOrFunctionCallSymbol
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SimpleObjectOrFunctionCallSymbol
+
+   .. rubric:: Members
+
+.. autoclass:: IndexedObjectOrFunctionCallSymbol
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IndexedObjectOrFunctionCallSymbol
+
+   .. rubric:: Members

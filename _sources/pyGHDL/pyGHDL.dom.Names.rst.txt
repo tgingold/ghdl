@@ -1,0 +1,116 @@
+pyGHDL.dom.Names
+====================
+
+.. automodule:: pyGHDL.dom.Names
+
+
+.. currentmodule:: pyGHDL.dom.Names
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`SimpleName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+- :py:class:`ParenthesisName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+- :py:class:`IndexedName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+- :py:class:`SlicedName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+- :py:class:`SelectedName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+- :py:class:`AttributeName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+- :py:class:`AllName`:
+  ``Name`` is the base class for all *names* in the VHDL language model.
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: SimpleName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SimpleName
+
+   .. rubric:: Members
+
+.. autoclass:: ParenthesisName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ParenthesisName
+
+   .. rubric:: Members
+
+.. autoclass:: IndexedName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IndexedName
+
+   .. rubric:: Members
+
+.. autoclass:: SlicedName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SlicedName
+
+   .. rubric:: Members
+
+.. autoclass:: SelectedName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SelectedName
+
+   .. rubric:: Members
+
+.. autoclass:: AttributeName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: AttributeName
+
+   .. rubric:: Members
+
+.. autoclass:: AllName
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: AllName
+
+   .. rubric:: Members

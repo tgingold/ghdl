@@ -1,0 +1,102 @@
+pyGHDL.dom.Object
+=====================
+
+.. automodule:: pyGHDL.dom.Object
+
+
+.. currentmodule:: pyGHDL.dom.Object
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`Constant`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`DeferredConstant`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`Variable`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`SharedVariable`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`Signal`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`File`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: Constant
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Constant
+
+   .. rubric:: Members
+
+.. autoclass:: DeferredConstant
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: DeferredConstant
+
+   .. rubric:: Members
+
+.. autoclass:: Variable
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Variable
+
+   .. rubric:: Members
+
+.. autoclass:: SharedVariable
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SharedVariable
+
+   .. rubric:: Members
+
+.. autoclass:: Signal
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Signal
+
+   .. rubric:: Members
+
+.. autoclass:: File
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: File
+
+   .. rubric:: Members

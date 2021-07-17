@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom.PSL &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyGHDL.dom.Range" href="pyGHDL.dom.Range.html" />
+    <link rel="prev" title="pyGHDL.dom.Object" href="pyGHDL.dom.Object.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="pyGHDL.html">Python Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.cli.html">pyGHDL.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyGHDL.dom.html">pyGHDL.dom</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Aggregates.html">pyGHDL.dom.Aggregates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Attribute.html">pyGHDL.dom.Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.DesignUnit.html">pyGHDL.dom.DesignUnit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Expression.html">pyGHDL.dom.Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.InterfaceItem.html">pyGHDL.dom.InterfaceItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Literal.html">pyGHDL.dom.Literal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Misc.html">pyGHDL.dom.Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Names.html">pyGHDL.dom.Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.NonStandard.html">pyGHDL.dom.NonStandard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Object.html">pyGHDL.dom.Object</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pyGHDL.dom.PSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Range.html">pyGHDL.dom.Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Subprogram.html">pyGHDL.dom.Subprogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Symbol.html">pyGHDL.dom.Symbol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.Type.html">pyGHDL.dom.Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom._Translate.html">pyGHDL.dom._Translate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom._Utils.html">pyGHDL.dom._Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyGHDL.dom.formatting.html">pyGHDL.dom.formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.libghdl.html">pyGHDL.libghdl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyGHDL.lsp.html">pyGHDL.lsp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="pyGHDL.dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom.PSL</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/ghdl/ghdl/blob/master/doc/pyGHDL/pyGHDL.dom.PSL.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyGHDL.dom.PSL">
+<span id="pyghdl-dom-psl"></span><h1>pyGHDL.dom.PSL<a class="headerlink" href="#module-pyGHDL.dom.PSL" title="Permalink to this headline">¶</a></h1>
+<p>This module contains all DOM classes for VHDL’s design units (<code class="xref py py-class docutils literal notranslate"><span class="pre">context</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">architecture</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">package</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">package</span> <span class="pre">body</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">context</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">configuration</span></code>.</p>
+<p><strong>Classes</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyGHDL.dom.PSL.VerificationUnit" title="pyGHDL.dom.PSL.VerificationUnit"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerificationUnit</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">PrimaryUnit</span></code> is a base-class for all primary units.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.PSL.VerificationProperty" title="pyGHDL.dom.PSL.VerificationProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerificationProperty</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">PrimaryUnit</span></code> is a base-class for all primary units.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.PSL.VerificationMode" title="pyGHDL.dom.PSL.VerificationMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerificationMode</span></code></a>:
+A <code class="docutils literal notranslate"><span class="pre">PrimaryUnit</span></code> is a base-class for all primary units.</p></li>
+<li><p><a class="reference internal" href="#pyGHDL.dom.PSL.DefaultClock" title="pyGHDL.dom.PSL.DefaultClock"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultClock</span></code></a>:
+<code class="docutils literal notranslate"><span class="pre">ModelEntity</span></code> is the base class for all classes in the VHDL language model,</p></li>
+</ul>
+<dl class="py class">
+<dt id="pyGHDL.dom.PSL.VerificationUnit">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.PSL.</code><code class="sig-name descname">VerificationUnit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#VerificationUnit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-d76838564a12400a73e965907e5dd33f4b087c01.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of VerificationUnit</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationUnit.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vunitNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#VerificationUnit.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationUnit.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationUnit.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationUnit.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationUnit._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationUnit._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationUnit._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationUnit._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationUnit._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.PSL.VerificationProperty">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.PSL.</code><code class="sig-name descname">VerificationProperty</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#VerificationProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-2576eb8244e948bb1eb661743c958aaf57dfda90.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of VerificationProperty</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationProperty.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vpropNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#VerificationProperty.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationProperty.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationProperty.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationProperty.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationProperty._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationProperty._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationProperty._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationProperty._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationProperty._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.PSL.VerificationMode">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.PSL.</code><code class="sig-name descname">VerificationMode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#VerificationMode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-f347cafc90b76608f88da1b967499a98f4c0a74e.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of VerificationMode</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationMode.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vmodeNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#VerificationMode.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationMode.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a model entity’s identifier (name).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationMode.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.VerificationMode.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationMode._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationMode._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationMode._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.VerificationMode._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.PSL.VerificationMode._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyGHDL.dom.PSL.DefaultClock">
+<em class="property">class </em><code class="sig-prename descclassname">pyGHDL.dom.PSL.</code><code class="sig-name descname">DefaultClock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">identifier</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#DefaultClock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Inheritance</p>
+<div class="graphviz"><object data="../_images/inheritance-6c3d274b0b578d1906a55334fa849facfac4121b.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of DefaultClock</p></object></div>
+<p class="rubric">Members</p>
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.DefaultClock.parse">
+<em class="property">classmethod </em><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">defaultClockNode</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyGHDL/dom/PSL.html#DefaultClock.parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.DefaultClock.Identifier">
+<em class="property">property </em><code class="sig-name descname">Identifier</code><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.DefaultClock.Parent">
+<em class="property">property </em><code class="sig-name descname">Parent</code><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock.Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the parent entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelEntity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyGHDL.dom.PSL.DefaultClock.Position">
+<em class="property">property </em><code class="sig-name descname">Position</code><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock.Position" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.DefaultClock._position">
+<code class="sig-name descname">_position</code><em class="property">: <a class="reference internal" href="pyGHDL.dom.html#pyGHDL.dom.Position" title="pyGHDL.dom.Position">pyGHDL.dom.Position</a></em><em class="property"> = None</em><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock._position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.DefaultClock._identifier">
+<code class="sig-name descname">_identifier</code><em class="property">: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock._identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.DefaultClock._parent">
+<code class="sig-name descname">_parent</code><em class="property">: <a class="reference external" href="https://vhdl.github.io/pyVHDLModel/pyVHDLModel/pyVHDLModel.VHDLModel.html#pyVHDLModel.VHDLModel.ModelEntity" title="(in pyVHDLModel v0.11)">pyVHDLModel.VHDLModel.ModelEntity</a></em><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock._parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pyGHDL.dom.PSL.DefaultClock._iirNode">
+<code class="sig-name descname">_iirNode</code><em class="property">: Iir</em><a class="headerlink" href="#pyGHDL.dom.PSL.DefaultClock._iirNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyGHDL.dom.Range.html" class="btn btn-neutral float-right" title="pyGHDL.dom.Range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyGHDL.dom.Object.html" class="btn btn-neutral float-left" title="pyGHDL.dom.Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

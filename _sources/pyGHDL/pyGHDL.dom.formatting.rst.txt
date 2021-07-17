@@ -1,0 +1,19 @@
+pyGHDL.dom.formatting
+=========================
+
+.. automodule:: pyGHDL.dom.formatting
+
+
+
+.. #-----------------------------------
+
+**Submodules**
+
+.. toctree::
+
+   pyGHDL.dom.formatting.prettyprint
+
+.. currentmodule:: pyGHDL.dom.formatting
+
+
+.. #-----------------------------------

@@ -1,0 +1,44 @@
+pyGHDL
+==========
+
+.. automodule:: pyGHDL
+
+
+
+.. #-----------------------------------
+
+**Submodules**
+
+.. toctree::
+
+   pyGHDL.cli
+   pyGHDL.dom
+   pyGHDL.libghdl
+   pyGHDL.lsp
+
+.. currentmodule:: pyGHDL
+
+
+.. #-----------------------------------
+
+
+**Exceptions**
+
+- :py:exc:`GHDLBaseException`:
+  Common base class for all non-exit exceptions.
+
+
+
+.. #-----------------------------------
+
+
+.. autoexception:: GHDLBaseException
+   :members:
+   :private-members:
+   :inherited-members:
+   :undoc-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: GHDLBaseException
+
+   .. rubric:: Members

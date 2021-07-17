@@ -1,0 +1,180 @@
+pyGHDL.libghdl.vhdl.elocations
+==================================
+
+.. automodule:: pyGHDL.libghdl.vhdl.elocations
+
+
+.. currentmodule:: pyGHDL.libghdl.vhdl.elocations
+
+
+.. #-----------------------------------
+
+
+**Functions**
+
+- :py:func:`Get_Start_Location`:
+  Undocumented.
+
+- :py:func:`Set_Start_Location`:
+  Undocumented.
+
+- :py:func:`Get_Right_Paren_Location`:
+  Undocumented.
+
+- :py:func:`Set_Right_Paren_Location`:
+  Undocumented.
+
+- :py:func:`Get_End_Location`:
+  Undocumented.
+
+- :py:func:`Set_End_Location`:
+  Undocumented.
+
+- :py:func:`Get_Is_Location`:
+  Undocumented.
+
+- :py:func:`Set_Is_Location`:
+  Undocumented.
+
+- :py:func:`Get_Begin_Location`:
+  Undocumented.
+
+- :py:func:`Set_Begin_Location`:
+  Undocumented.
+
+- :py:func:`Get_Then_Location`:
+  Undocumented.
+
+- :py:func:`Set_Then_Location`:
+  Undocumented.
+
+- :py:func:`Get_Use_Location`:
+  Undocumented.
+
+- :py:func:`Set_Use_Location`:
+  Undocumented.
+
+- :py:func:`Get_Loop_Location`:
+  Undocumented.
+
+- :py:func:`Set_Loop_Location`:
+  Undocumented.
+
+- :py:func:`Get_Generate_Location`:
+  Undocumented.
+
+- :py:func:`Set_Generate_Location`:
+  Undocumented.
+
+- :py:func:`Get_Generic_Location`:
+  Undocumented.
+
+- :py:func:`Set_Generic_Location`:
+  Undocumented.
+
+- :py:func:`Get_Port_Location`:
+  Undocumented.
+
+- :py:func:`Set_Port_Location`:
+  Undocumented.
+
+- :py:func:`Get_Generic_Map_Location`:
+  Undocumented.
+
+- :py:func:`Set_Generic_Map_Location`:
+  Undocumented.
+
+- :py:func:`Get_Port_Map_Location`:
+  Undocumented.
+
+- :py:func:`Set_Port_Map_Location`:
+  Undocumented.
+
+- :py:func:`Get_Arrow_Location`:
+  Undocumented.
+
+- :py:func:`Set_Arrow_Location`:
+  Undocumented.
+
+- :py:func:`Get_Colon_Location`:
+  Undocumented.
+
+- :py:func:`Set_Colon_Location`:
+  Undocumented.
+
+- :py:func:`Get_Assign_Location`:
+  Undocumented.
+
+- :py:func:`Set_Assign_Location`:
+  Undocumented.
+
+
+
+.. #-----------------------------------
+
+**Functions**
+
+
+.. autofunction:: Get_Start_Location
+
+.. autofunction:: Set_Start_Location
+
+.. autofunction:: Get_Right_Paren_Location
+
+.. autofunction:: Set_Right_Paren_Location
+
+.. autofunction:: Get_End_Location
+
+.. autofunction:: Set_End_Location
+
+.. autofunction:: Get_Is_Location
+
+.. autofunction:: Set_Is_Location
+
+.. autofunction:: Get_Begin_Location
+
+.. autofunction:: Set_Begin_Location
+
+.. autofunction:: Get_Then_Location
+
+.. autofunction:: Set_Then_Location
+
+.. autofunction:: Get_Use_Location
+
+.. autofunction:: Set_Use_Location
+
+.. autofunction:: Get_Loop_Location
+
+.. autofunction:: Set_Loop_Location
+
+.. autofunction:: Get_Generate_Location
+
+.. autofunction:: Set_Generate_Location
+
+.. autofunction:: Get_Generic_Location
+
+.. autofunction:: Set_Generic_Location
+
+.. autofunction:: Get_Port_Location
+
+.. autofunction:: Set_Port_Location
+
+.. autofunction:: Get_Generic_Map_Location
+
+.. autofunction:: Set_Generic_Map_Location
+
+.. autofunction:: Get_Port_Map_Location
+
+.. autofunction:: Set_Port_Map_Location
+
+.. autofunction:: Get_Arrow_Location
+
+.. autofunction:: Set_Arrow_Location
+
+.. autofunction:: Get_Colon_Location
+
+.. autofunction:: Set_Colon_Location
+
+.. autofunction:: Get_Assign_Location
+
+.. autofunction:: Set_Assign_Location

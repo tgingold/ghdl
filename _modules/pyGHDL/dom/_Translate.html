@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom._Translate &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyGHDL/pyGHDL.html">Python Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="../dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom._Translate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyGHDL.dom._Translate</h1><div class="highlight"><pre>
+<span></span><span class="c1"># =============================================================================</span>
+<span class="c1">#               ____ _   _ ____  _          _</span>
+<span class="c1">#  _ __  _   _ / ___| | | |  _ \| |      __| | ___  _ __ ___</span>
+<span class="c1"># | &#39;_ \| | | | |  _| |_| | | | | |     / _` |/ _ \| &#39;_ ` _ \</span>
+<span class="c1"># | |_) | |_| | |_| |  _  | |_| | |___ | (_| | (_) | | | | | |</span>
+<span class="c1"># | .__/ \__, |\____|_| |_|____/|_____(_)__,_|\___/|_| |_| |_|</span>
+<span class="c1"># |_|    |___/</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Authors:</span>
+<span class="c1">#   Patrick Lehmann</span>
+<span class="c1">#</span>
+<span class="c1"># Package module:   DOM: Interface items (e.g. generic or port)</span>
+<span class="c1">#</span>
+<span class="c1"># License:</span>
+<span class="c1"># ============================================================================</span>
+<span class="c1">#  Copyright (C) 2019-2021 Tristan Gingold</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation, either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License</span>
+<span class="c1">#  along with this program.  If not, see &lt;gnu.org/licenses&gt;.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: GPL-2.0-or-later</span>
+<span class="c1"># ============================================================================</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Generator</span>
+
+<span class="kn">from</span> <span class="nn">pydecor</span> <span class="kn">import</span> <span class="n">export</span>
+
+<span class="kn">from</span> <span class="nn">pyGHDL.dom</span> <span class="kn">import</span> <span class="n">Position</span><span class="p">,</span> <span class="n">DOMException</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Object</span> <span class="kn">import</span> <span class="n">Variable</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.PSL</span> <span class="kn">import</span> <span class="n">DefaultClock</span>
+<span class="kn">from</span> <span class="nn">pyVHDLModel.VHDLModel</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Constraint</span><span class="p">,</span>
+    <span class="n">Direction</span><span class="p">,</span>
+    <span class="n">Expression</span><span class="p">,</span>
+    <span class="n">SubtypeOrSymbol</span><span class="p">,</span>
+    <span class="n">BaseType</span><span class="p">,</span>
+    <span class="n">GenericInterfaceItem</span><span class="p">,</span>
+    <span class="n">PortInterfaceItem</span><span class="p">,</span>
+    <span class="n">ParameterInterfaceItem</span><span class="p">,</span>
+    <span class="n">ModelEntity</span><span class="p">,</span>
+    <span class="n">Name</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl._types</span> <span class="kn">import</span> <span class="n">Iir</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl.vhdl</span> <span class="kn">import</span> <span class="n">nodes</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom._Utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GetNameOfNode</span><span class="p">,</span>
+    <span class="n">GetIirKindOfNode</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Names</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SimpleName</span><span class="p">,</span>
+    <span class="n">SelectedName</span><span class="p">,</span>
+    <span class="n">AttributeName</span><span class="p">,</span>
+    <span class="n">ParenthesisName</span><span class="p">,</span>
+    <span class="n">AllName</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Symbol</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SimpleObjectOrFunctionCallSymbol</span><span class="p">,</span>
+    <span class="n">SimpleSubtypeSymbol</span><span class="p">,</span>
+    <span class="n">ConstrainedCompositeSubtypeSymbol</span><span class="p">,</span>
+    <span class="n">IndexedObjectOrFunctionCallSymbol</span><span class="p">,</span>
+    <span class="n">ConstrainedScalarSubtypeSymbol</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Type</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IntegerType</span><span class="p">,</span>
+    <span class="n">Subtype</span><span class="p">,</span>
+    <span class="n">ArrayType</span><span class="p">,</span>
+    <span class="n">RecordType</span><span class="p">,</span>
+    <span class="n">EnumeratedType</span><span class="p">,</span>
+    <span class="n">AccessType</span><span class="p">,</span>
+    <span class="n">ProtectedType</span><span class="p">,</span>
+    <span class="n">ProtectedTypeBody</span><span class="p">,</span>
+    <span class="n">FileType</span><span class="p">,</span>
+    <span class="n">PhysicalType</span><span class="p">,</span>
+    <span class="n">IncompleteType</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Range</span> <span class="kn">import</span> <span class="n">Range</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Literal</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IntegerLiteral</span><span class="p">,</span>
+    <span class="n">CharacterLiteral</span><span class="p">,</span>
+    <span class="n">FloatingPointLiteral</span><span class="p">,</span>
+    <span class="n">StringLiteral</span><span class="p">,</span>
+    <span class="n">PhysicalIntegerLiteral</span><span class="p">,</span>
+    <span class="n">PhysicalFloatingLiteral</span><span class="p">,</span>
+    <span class="n">NullLiteral</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Expression</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SubtractionExpression</span><span class="p">,</span>
+    <span class="n">AdditionExpression</span><span class="p">,</span>
+    <span class="n">MultiplyExpression</span><span class="p">,</span>
+    <span class="n">DivisionExpression</span><span class="p">,</span>
+    <span class="n">InverseExpression</span><span class="p">,</span>
+    <span class="n">ExponentiationExpression</span><span class="p">,</span>
+    <span class="n">Aggregate</span><span class="p">,</span>
+    <span class="n">NegationExpression</span><span class="p">,</span>
+    <span class="n">ParenthesisExpression</span><span class="p">,</span>
+    <span class="n">ConcatenationExpression</span><span class="p">,</span>
+    <span class="n">QualifiedExpression</span><span class="p">,</span>
+    <span class="n">ModuloExpression</span><span class="p">,</span>
+    <span class="n">RemainderExpression</span><span class="p">,</span>
+    <span class="n">AndExpression</span><span class="p">,</span>
+    <span class="n">NandExpression</span><span class="p">,</span>
+    <span class="n">OrExpression</span><span class="p">,</span>
+    <span class="n">NorExpression</span><span class="p">,</span>
+    <span class="n">XorExpression</span><span class="p">,</span>
+    <span class="n">XnorExpression</span><span class="p">,</span>
+    <span class="n">EqualExpression</span><span class="p">,</span>
+    <span class="n">UnequalExpression</span><span class="p">,</span>
+    <span class="n">LessThanExpression</span><span class="p">,</span>
+    <span class="n">GreaterThanExpression</span><span class="p">,</span>
+    <span class="n">GreaterEqualExpression</span><span class="p">,</span>
+    <span class="n">LessEqualExpression</span><span class="p">,</span>
+    <span class="n">ShiftLeftLogicExpression</span><span class="p">,</span>
+    <span class="n">ShiftRightLogicExpression</span><span class="p">,</span>
+    <span class="n">ShiftLeftArithmeticExpression</span><span class="p">,</span>
+    <span class="n">ShiftRightArithmeticExpression</span><span class="p">,</span>
+    <span class="n">RotateLeftExpression</span><span class="p">,</span>
+    <span class="n">RotateRightExpression</span><span class="p">,</span>
+    <span class="n">RangeExpression</span><span class="p">,</span>
+    <span class="n">QualifiedExpressionAllocation</span><span class="p">,</span>
+    <span class="n">SubtypeAllocation</span><span class="p">,</span>
+    <span class="n">IdentityExpression</span><span class="p">,</span>
+    <span class="n">AbsoluteExpression</span><span class="p">,</span>
+    <span class="n">MatchingGreaterEqualExpression</span><span class="p">,</span>
+    <span class="n">MatchingEqualExpression</span><span class="p">,</span>
+    <span class="n">MatchingUnequalExpression</span><span class="p">,</span>
+    <span class="n">MatchingLessThanExpression</span><span class="p">,</span>
+    <span class="n">MatchingLessEqualExpression</span><span class="p">,</span>
+    <span class="n">MatchingGreaterThanExpression</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Subprogram</span> <span class="kn">import</span> <span class="n">Function</span><span class="p">,</span> <span class="n">Procedure</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Misc</span> <span class="kn">import</span> <span class="n">Alias</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<div class="viewcode-block" id="GetNameFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetNameFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetNameFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Name</span><span class="p">:</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Simple_Name</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SimpleName</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Selected_Name</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">prefixName</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Prefix</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">SelectedName</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">prefixName</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Name</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">prefixName</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Prefix</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">AttributeName</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">prefixName</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Parenthesis_Name</span><span class="p">:</span>
+        <span class="n">prefixName</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Prefix</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="n">associations</span> <span class="o">=</span> <span class="n">GetAssociations</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ParenthesisName</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">prefixName</span><span class="p">,</span> <span class="n">associations</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Selected_By_All_Name</span><span class="p">:</span>
+        <span class="n">prefixName</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Prefix</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">AllName</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">prefixName</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span><span class="s2">&quot;Unknown name kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div>
+
+
+<span class="k">def</span> <span class="nf">GetAssociations</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+    <span class="n">associations</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Association_Chain</span><span class="p">(</span><span class="n">node</span><span class="p">)):</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Association_Element_By_Expression</span><span class="p">:</span>
+            <span class="n">actual</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Actual</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="n">expr</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span>
+
+            <span class="n">associations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown association kind &#39;</span><span class="si">{kindName}</span><span class="s2">&#39;(</span><span class="si">{kind}</span><span class="s2">) in array index/slice or function call &#39;</span><span class="si">{node}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">kindName</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">associations</span>
+
+
+<div class="viewcode-block" id="GetArrayConstraintsFromSubtypeIndication"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetArrayConstraintsFromSubtypeIndication">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetArrayConstraintsFromSubtypeIndication</span><span class="p">(</span>
+    <span class="n">subtypeIndication</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Constraint</span><span class="p">]:</span>
+    <span class="n">constraints</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">flist_iter</span><span class="p">(</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Index_Constraint_List</span><span class="p">(</span><span class="n">subtypeIndication</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">constraintKind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">constraintKind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Range_Expression</span><span class="p">:</span>
+            <span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RangeExpression</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">constraint</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">constraintKind</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Simple_Name</span><span class="p">,</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Parenthesis_Name</span><span class="p">,</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Selected_Name</span><span class="p">,</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Name</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">constraint</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown constraint kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; for constraint &#39;</span><span class="si">{constraint}</span><span class="s2">&#39; in subtype indication &#39;</span><span class="si">{indication}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">constraintKind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">constraint</span><span class="o">=</span><span class="n">constraint</span><span class="p">,</span>
+                    <span class="n">indication</span><span class="o">=</span><span class="n">subtypeIndication</span><span class="p">,</span>
+                    <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                    <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">constraints</span></div>
+
+
+<div class="viewcode-block" id="GetTypeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetTypeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetTypeFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BaseType</span><span class="p">:</span>
+    <span class="n">typeName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">typeDefinition</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Type_Definition</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">typeDefinition</span> <span class="ow">is</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Null_Iir</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">IncompleteType</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">typeName</span><span class="p">)</span>
+
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Enumeration_Type_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">EnumeratedType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Array_Type_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ArrayType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Record_Type_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">RecordType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Access_Type_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">AccessType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">File_Type_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">FileType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Protected_Type_Declaration</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ProtectedType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+            <span class="s2">&quot;GetTypeFromNode: Unknown type definition kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; for type &#39;</span><span class="si">{name}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">typeName</span><span class="p">,</span>
+                <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetAnonymousTypeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetAnonymousTypeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetAnonymousTypeFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BaseType</span><span class="p">:</span>
+    <span class="n">typeName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">typeDefinition</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Type_Definition</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">typeDefinition</span> <span class="ow">is</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Null_Iir</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">typeName</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IncompleteType</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">typeName</span><span class="p">)</span>
+
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Range_Expression</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">GetRangeFromNode</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">IntegerType</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Name</span><span class="p">,</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Parenthesis_Name</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">IntegerType</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">typeName</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Physical_Type_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">PhysicalType</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeName</span><span class="p">,</span> <span class="n">typeDefinition</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Array_Subtype_Definition</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[NOT IMPLEMENTED] Array_Subtype_Definition&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ArrayType</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">,</span> <span class="s2">&quot;????&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">typeDefinition</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+            <span class="s2">&quot;GetAnonymousTypeFromNode: Unknown type definition kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; for type &#39;</span><span class="si">{name}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">typeName</span><span class="p">,</span>
+                <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetSubtypeIndicationFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetSubtypeIndicationFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetSubtypeIndicationFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubtypeOrSymbol</span><span class="p">:</span>
+    <span class="n">subtypeIndicationNode</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Subtype_Indication</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="c1">#     if subtypeIndicationNode is nodes.Null_Iir:</span>
+    <span class="c1">#         return None</span>
+    <span class="k">return</span> <span class="n">GetSubtypeIndicationFromIndicationNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetSubtypeIndicationFromIndicationNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetSubtypeIndicationFromIndicationNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetSubtypeIndicationFromIndicationNode</span><span class="p">(</span>
+    <span class="n">subtypeIndicationNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubtypeOrSymbol</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">subtypeIndicationNode</span> <span class="ow">is</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Null_Iir</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;[NOT IMPLEMENTED]: Unhandled multiple declarations for </span><span class="si">{entity}</span><span class="s2"> &#39;</span><span class="si">{name}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">entity</span><span class="o">=</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Simple_Name</span><span class="p">,</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Selected_Name</span><span class="p">,</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Name</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="n">GetSimpleTypeFromNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Subtype_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GetScalarConstrainedSubtypeFromNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Array_Subtype_Definition</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GetCompositeConstrainedSubtypeFromNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+            <span class="s2">&quot;Unknown kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; for an subtype indication in a </span><span class="si">{entity}</span><span class="s2"> of `</span><span class="si">{name}</span><span class="s2">`.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entity</span><span class="o">=</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetSimpleTypeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetSimpleTypeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetSimpleTypeFromNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimpleSubtypeSymbol</span><span class="p">:</span>
+    <span class="n">subtypeName</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SimpleSubtypeSymbol</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">,</span> <span class="n">subtypeName</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetScalarConstrainedSubtypeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetScalarConstrainedSubtypeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetScalarConstrainedSubtypeFromNode</span><span class="p">(</span>
+    <span class="n">subtypeIndicationNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConstrainedScalarSubtypeSymbol</span><span class="p">:</span>
+    <span class="n">typeMark</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Subtype_Type_Mark</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="n">typeMarkName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">typeMark</span><span class="p">)</span>
+    <span class="n">rangeConstraint</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Range_Constraint</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">GetRangeFromNode</span><span class="p">(</span><span class="n">rangeConstraint</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ConstrainedScalarSubtypeSymbol</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">,</span> <span class="n">typeMarkName</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetCompositeConstrainedSubtypeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetCompositeConstrainedSubtypeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetCompositeConstrainedSubtypeFromNode</span><span class="p">(</span>
+    <span class="n">subtypeIndicationNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConstrainedCompositeSubtypeSymbol</span><span class="p">:</span>
+    <span class="n">typeMark</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Subtype_Type_Mark</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="n">typeMarkName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">typeMark</span><span class="p">)</span>
+
+    <span class="n">constraints</span> <span class="o">=</span> <span class="n">GetArrayConstraintsFromSubtypeIndication</span><span class="p">(</span><span class="n">subtypeIndicationNode</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ConstrainedCompositeSubtypeSymbol</span><span class="p">(</span>
+        <span class="n">subtypeIndicationNode</span><span class="p">,</span> <span class="n">typeMarkName</span><span class="p">,</span> <span class="n">constraints</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetSubtypeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetSubtypeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetSubtypeFromNode</span><span class="p">(</span><span class="n">subtypeNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SubtypeOrSymbol</span><span class="p">:</span>
+    <span class="n">subtypeName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">subtypeNode</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Subtype</span><span class="p">(</span><span class="n">subtypeNode</span><span class="p">,</span> <span class="n">subtypeName</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetRangeFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetRangeFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetRangeFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Range</span><span class="p">:</span>
+    <span class="n">direction</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Direction</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">leftBound</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Left_Limit_Expr</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rightBound</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Right_Limit_Expr</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Range</span><span class="p">(</span>
+        <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">leftBound</span><span class="p">),</span>
+        <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">rightBound</span><span class="p">),</span>
+        <span class="n">Direction</span><span class="o">.</span><span class="n">DownTo</span> <span class="k">if</span> <span class="n">direction</span> <span class="k">else</span> <span class="n">Direction</span><span class="o">.</span><span class="n">To</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<span class="n">__EXPRESSION_TRANSLATION</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Simple_Name</span><span class="p">:</span> <span class="n">SimpleObjectOrFunctionCallSymbol</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Selected_Name</span><span class="p">:</span> <span class="n">IndexedObjectOrFunctionCallSymbol</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Name</span><span class="p">:</span> <span class="n">IndexedObjectOrFunctionCallSymbol</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Parenthesis_Name</span><span class="p">:</span> <span class="n">IndexedObjectOrFunctionCallSymbol</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Null_Literal</span><span class="p">:</span> <span class="n">NullLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Integer_Literal</span><span class="p">:</span> <span class="n">IntegerLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Floating_Point_Literal</span><span class="p">:</span> <span class="n">FloatingPointLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Physical_Int_Literal</span><span class="p">:</span> <span class="n">PhysicalIntegerLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Physical_Fp_Literal</span><span class="p">:</span> <span class="n">PhysicalFloatingLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Character_Literal</span><span class="p">:</span> <span class="n">CharacterLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">String_Literal8</span><span class="p">:</span> <span class="n">StringLiteral</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Identity_Operator</span><span class="p">:</span> <span class="n">IdentityExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Negation_Operator</span><span class="p">:</span> <span class="n">NegationExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Absolute_Operator</span><span class="p">:</span> <span class="n">AbsoluteExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Range_Expression</span><span class="p">:</span> <span class="n">RangeExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Addition_Operator</span><span class="p">:</span> <span class="n">AdditionExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Concatenation_Operator</span><span class="p">:</span> <span class="n">ConcatenationExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Not_Operator</span><span class="p">:</span> <span class="n">InverseExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Parenthesis_Expression</span><span class="p">:</span> <span class="n">ParenthesisExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Substraction_Operator</span><span class="p">:</span> <span class="n">SubtractionExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Multiplication_Operator</span><span class="p">:</span> <span class="n">MultiplyExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Division_Operator</span><span class="p">:</span> <span class="n">DivisionExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Modulus_Operator</span><span class="p">:</span> <span class="n">ModuloExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Remainder_Operator</span><span class="p">:</span> <span class="n">RemainderExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Exponentiation_Operator</span><span class="p">:</span> <span class="n">ExponentiationExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">And_Operator</span><span class="p">:</span> <span class="n">AndExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Nand_Operator</span><span class="p">:</span> <span class="n">NandExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Or_Operator</span><span class="p">:</span> <span class="n">OrExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Nor_Operator</span><span class="p">:</span> <span class="n">NorExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Xor_Operator</span><span class="p">:</span> <span class="n">XorExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Xnor_Operator</span><span class="p">:</span> <span class="n">XnorExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Equality_Operator</span><span class="p">:</span> <span class="n">EqualExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Inequality_Operator</span><span class="p">:</span> <span class="n">UnequalExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Less_Than_Operator</span><span class="p">:</span> <span class="n">LessThanExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Less_Than_Or_Equal_Operator</span><span class="p">:</span> <span class="n">LessEqualExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Greater_Than_Operator</span><span class="p">:</span> <span class="n">GreaterThanExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Greater_Than_Or_Equal_Operator</span><span class="p">:</span> <span class="n">MatchingGreaterEqualExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Match_Equality_Operator</span><span class="p">:</span> <span class="n">MatchingEqualExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Match_Inequality_Operator</span><span class="p">:</span> <span class="n">MatchingUnequalExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Match_Less_Than_Operator</span><span class="p">:</span> <span class="n">MatchingLessThanExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Match_Less_Than_Or_Equal_Operator</span><span class="p">:</span> <span class="n">MatchingLessEqualExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Match_Greater_Than_Operator</span><span class="p">:</span> <span class="n">MatchingGreaterThanExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Match_Greater_Than_Or_Equal_Operator</span><span class="p">:</span> <span class="n">MatchingGreaterEqualExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Sll_Operator</span><span class="p">:</span> <span class="n">ShiftLeftLogicExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Srl_Operator</span><span class="p">:</span> <span class="n">ShiftRightLogicExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Sla_Operator</span><span class="p">:</span> <span class="n">ShiftLeftArithmeticExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Sra_Operator</span><span class="p">:</span> <span class="n">ShiftRightArithmeticExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Rol_Operator</span><span class="p">:</span> <span class="n">RotateLeftExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Ror_Operator</span><span class="p">:</span> <span class="n">RotateRightExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Qualified_Expression</span><span class="p">:</span> <span class="n">QualifiedExpression</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Aggregate</span><span class="p">:</span> <span class="n">Aggregate</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Allocator_By_Subtype</span><span class="p">:</span> <span class="n">SubtypeAllocation</span><span class="p">,</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Allocator_By_Expression</span><span class="p">:</span> <span class="n">QualifiedExpressionAllocation</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="GetExpressionFromNode"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetExpressionFromNode">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetExpressionFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="n">__EXPRESSION_TRANSLATION</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+            <span class="s2">&quot;Unknown expression kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; in expression &#39;</span><span class="si">{expr}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">expr</span><span class="o">=</span><span class="n">node</span><span class="p">,</span>
+                <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetGenericsFromChainedNodes"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetGenericsFromChainedNodes">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetGenericsFromChainedNodes</span><span class="p">(</span>
+    <span class="n">nodeChain</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">GenericInterfaceItem</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">GenericTypeInterfaceItem</span><span class="p">,</span>
+        <span class="n">GenericPackageInterfaceItem</span><span class="p">,</span>
+        <span class="n">GenericProcedureInterfaceItem</span><span class="p">,</span>
+        <span class="n">GenericFunctionInterfaceItem</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">generic</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodeChain</span><span class="p">):</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Constant_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="n">GenericConstantInterfaceItem</span>
+
+            <span class="k">yield</span> <span class="n">GenericConstantInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Type_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GenericTypeInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Package_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GenericPackageInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Procedure_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GenericProcedureInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Function_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GenericFunctionInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">generic</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown generic kind &#39;</span><span class="si">{kindName}</span><span class="s2">&#39;(</span><span class="si">{kind}</span><span class="s2">) in generic &#39;</span><span class="si">{generic}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
+                    <span class="n">kindName</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">generic</span><span class="o">=</span><span class="n">generic</span><span class="p">,</span>
+                    <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                    <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetPortsFromChainedNodes"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetPortsFromChainedNodes">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetPortsFromChainedNodes</span><span class="p">(</span>
+    <span class="n">nodeChain</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">PortInterfaceItem</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodeChain</span><span class="p">):</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Signal_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="n">PortSignalInterfaceItem</span>
+
+            <span class="n">portSignal</span> <span class="o">=</span> <span class="n">PortSignalInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+
+            <span class="k">yield</span> <span class="n">portSignal</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown port kind &#39;</span><span class="si">{kindName}</span><span class="s2">&#39;(</span><span class="si">{kind}</span><span class="s2">) in port &#39;</span><span class="si">{port}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
+                    <span class="n">kindName</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+                    <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                    <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GetParameterFromChainedNodes"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom._Translate.html#pyGHDL.dom._Translate.GetParameterFromChainedNodes">[docs]</a><span class="nd">@export</span>
+<span class="k">def</span> <span class="nf">GetParameterFromChainedNodes</span><span class="p">(</span>
+    <span class="n">nodeChain</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">ParameterInterfaceItem</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodeChain</span><span class="p">):</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Constant_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="n">ParameterConstantInterfaceItem</span>
+
+            <span class="k">yield</span> <span class="n">ParameterConstantInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Variable_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="n">ParameterVariableInterfaceItem</span>
+
+            <span class="k">yield</span> <span class="n">ParameterVariableInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_Signal_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="n">ParameterSignalInterfaceItem</span>
+
+            <span class="k">yield</span> <span class="n">ParameterSignalInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Interface_File_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.InterfaceItem</span> <span class="kn">import</span> <span class="n">ParameterFileInterfaceItem</span>
+
+            <span class="k">yield</span> <span class="n">ParameterFileInterfaceItem</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown parameter kind &#39;</span><span class="si">{kindName}</span><span class="s2">&#39;(</span><span class="si">{kind}</span><span class="s2">) in parameter &#39;</span><span class="si">{param}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
+                    <span class="n">kindName</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">param</span><span class="o">=</span><span class="n">parameter</span><span class="p">,</span>
+                    <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                    <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">GetDeclaredItemsFromChainedNodes</span><span class="p">(</span>
+    <span class="n">nodeChain</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">ModelEntity</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">nodeChain</span><span class="p">):</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Constant_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.Object</span> <span class="kn">import</span> <span class="n">Constant</span>
+
+            <span class="k">yield</span> <span class="n">Constant</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Variable_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.Object</span> <span class="kn">import</span> <span class="n">SharedVariable</span>
+
+            <span class="k">if</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Shared_Flag</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">SharedVariable</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">Variable</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="c1">#                raise DOMException(&quot;Found non-shared variable.&quot;)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Signal_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.Object</span> <span class="kn">import</span> <span class="n">Signal</span>
+
+            <span class="k">yield</span> <span class="n">Signal</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">File_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.Object</span> <span class="kn">import</span> <span class="n">File</span>
+
+            <span class="k">yield</span> <span class="n">File</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Type_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GetTypeFromNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Anonymous_Type_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GetAnonymousTypeFromNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Subtype_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GetSubtypeFromNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Function_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">Function</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Function_Body</span><span class="p">:</span>
+            <span class="c1">#                procedureName = NodeToName(item)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found function body &#39;</span><span class="si">{name}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;????&quot;</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Procedure_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">Procedure</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Procedure_Body</span><span class="p">:</span>
+            <span class="c1">#                procedureName = NodeToName(item)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found procedure body &#39;</span><span class="si">{name}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;????&quot;</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Protected_Type_Body</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">ProtectedTypeBody</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Object_Alias_Declaration</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">GetAliasFromNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Component_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.DesignUnit</span> <span class="kn">import</span> <span class="n">Component</span>
+
+            <span class="k">yield</span> <span class="n">Component</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.Attribute</span> <span class="kn">import</span> <span class="n">Attribute</span>
+
+            <span class="k">yield</span> <span class="n">Attribute</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Attribute_Specification</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.Attribute</span> <span class="kn">import</span> <span class="n">AttributeSpecification</span>
+
+            <span class="k">yield</span> <span class="n">AttributeSpecification</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Use_Clause</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.DesignUnit</span> <span class="kn">import</span> <span class="n">UseClause</span>
+
+            <span class="k">yield</span> <span class="n">UseClause</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Package_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.DesignUnit</span> <span class="kn">import</span> <span class="n">Package</span>
+
+            <span class="k">yield</span> <span class="n">Package</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Package_Instantiation_Declaration</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">pyGHDL.dom.DesignUnit</span> <span class="kn">import</span> <span class="n">PackageInstantiation</span>
+
+            <span class="k">yield</span> <span class="n">PackageInstantiation</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Configuration_Specification</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;[NOT IMPLEMENTED] Configuration specification in </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Psl_Default_Clock</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">DefaultClock</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Group_Declaration</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[NOT IMPLEMENTED] Group declaration in </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Group_Template_Declaration</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;[NOT IMPLEMENTED] Group template declaration in </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Disconnection_Specification</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;[NOT IMPLEMENTED] Disconnect specification in </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">Position</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                <span class="s2">&quot;Unknown declared item kind &#39;</span><span class="si">{kind}</span><span class="s2">&#39; in </span><span class="si">{entity}</span><span class="s2"> &#39;</span><span class="si">{name}</span><span class="s2">&#39; at </span><span class="si">{file}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">:</span><span class="si">{column}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">entity</span><span class="o">=</span><span class="n">entity</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">file</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Filename</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Line</span><span class="p">,</span>
+                    <span class="n">column</span><span class="o">=</span><span class="n">position</span><span class="o">.</span><span class="n">Column</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">GetAliasFromNode</span><span class="p">(</span><span class="n">aliasNode</span><span class="p">:</span> <span class="n">Iir</span><span class="p">):</span>
+    <span class="n">aliasName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">aliasNode</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Alias</span><span class="p">(</span><span class="n">aliasNode</span><span class="p">,</span> <span class="n">aliasName</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

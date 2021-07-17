@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyGHDL.dom.Expression &mdash; GHDL 2.0.0-dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting.html">Getting | Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html">Copyrights | Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GHDL usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/InvokingGHDL.html">Invoking GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/Simulation.html">Simulation (runtime)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/Synthesis.html">Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/CommandReference.html">Additional Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/ImplementationOfVHDL.html">Implementation of VHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using/ImplementationOfVITAL.html">Implementation of VITAL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Directories.html">Directory structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/building/index.html">Building GHDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pyGHDL/pyGHDL.html">Python Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ghw/index.html">GHDL Waveform (GHW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/CodingStyle.html">Coding Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/Scripts.html">Scripts</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internals</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/Frontend.html">Front-end</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/AST.html">AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../internals/RTI.html">Run Time Information (RTI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gnatdoc/index.html">GNATdoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">GHDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../pyGHDL.html">pyGHDL</a> &raquo;</li>
+        
+          <li><a href="../dom.html">pyGHDL.dom</a> &raquo;</li>
+        
+      <li>pyGHDL.dom.Expression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyGHDL.dom.Expression</h1><div class="highlight"><pre>
+<span></span><span class="c1"># =============================================================================</span>
+<span class="c1">#               ____ _   _ ____  _          _</span>
+<span class="c1">#  _ __  _   _ / ___| | | |  _ \| |      __| | ___  _ __ ___</span>
+<span class="c1"># | &#39;_ \| | | | |  _| |_| | | | | |     / _` |/ _ \| &#39;_ ` _ \</span>
+<span class="c1"># | |_) | |_| | |_| |  _  | |_| | |___ | (_| | (_) | | | | | |</span>
+<span class="c1"># | .__/ \__, |\____|_| |_|____/|_____(_)__,_|\___/|_| |_| |_|</span>
+<span class="c1"># |_|    |___/</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1"># Authors:</span>
+<span class="c1">#   Patrick Lehmann</span>
+<span class="c1">#</span>
+<span class="c1"># Package module:   DOM: Interface items (e.g. generic or port)</span>
+<span class="c1">#</span>
+<span class="c1"># License:</span>
+<span class="c1"># ============================================================================</span>
+<span class="c1">#  Copyright (C) 2019-2021 Tristan Gingold</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is free software: you can redistribute it and/or modify</span>
+<span class="c1">#  it under the terms of the GNU General Public License as published by</span>
+<span class="c1">#  the Free Software Foundation, either version 2 of the License, or</span>
+<span class="c1">#  (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1">#  This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1">#  You should have received a copy of the GNU General Public License</span>
+<span class="c1">#  along with this program.  If not, see &lt;gnu.org/licenses&gt;.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: GPL-2.0-or-later</span>
+<span class="c1"># ============================================================================</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pydecor</span> <span class="kn">import</span> <span class="n">export</span>
+
+<span class="kn">from</span> <span class="nn">pyGHDL.dom</span> <span class="kn">import</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">DOMException</span>
+<span class="kn">from</span> <span class="nn">pyVHDLModel.VHDLModel</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">UnaryExpression</span> <span class="k">as</span> <span class="n">VHDLModel_UnaryExpression</span><span class="p">,</span>
+    <span class="n">BinaryExpression</span> <span class="k">as</span> <span class="n">VHDLModel_BinaryExpression</span><span class="p">,</span>
+    <span class="n">InverseExpression</span> <span class="k">as</span> <span class="n">VHDLModel_InverseExpression</span><span class="p">,</span>
+    <span class="n">IdentityExpression</span> <span class="k">as</span> <span class="n">VHDLModel_IdentityExpression</span><span class="p">,</span>
+    <span class="n">NegationExpression</span> <span class="k">as</span> <span class="n">VHDLModel_NegationExpression</span><span class="p">,</span>
+    <span class="n">AbsoluteExpression</span> <span class="k">as</span> <span class="n">VHDLModel_AbsoluteExpression</span><span class="p">,</span>
+    <span class="n">SubExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ParenthesisExpression</span><span class="p">,</span>
+    <span class="n">TypeConversion</span> <span class="k">as</span> <span class="n">VHDLModel_TypeConversion</span><span class="p">,</span>
+    <span class="n">FunctionCall</span> <span class="k">as</span> <span class="n">VHDLModel_FunctionCall</span><span class="p">,</span>
+    <span class="n">QualifiedExpression</span> <span class="k">as</span> <span class="n">VHDLModel_QualifiedExpression</span><span class="p">,</span>
+    <span class="n">RangeExpression</span> <span class="k">as</span> <span class="n">VHDLModel_RangeExpression</span><span class="p">,</span>
+    <span class="n">AscendingRangeExpression</span> <span class="k">as</span> <span class="n">VHDLModel_AscendingRangeExpression</span><span class="p">,</span>
+    <span class="n">DescendingRangeExpression</span> <span class="k">as</span> <span class="n">VHDLModel_DescendingRangeExpression</span><span class="p">,</span>
+    <span class="n">AdditionExpression</span> <span class="k">as</span> <span class="n">VHDLModel_AdditionExpression</span><span class="p">,</span>
+    <span class="n">SubtractionExpression</span> <span class="k">as</span> <span class="n">VHDLModel_SubtractionExpression</span><span class="p">,</span>
+    <span class="n">ConcatenationExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ConcatenationExpression</span><span class="p">,</span>
+    <span class="n">MultiplyExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MultiplyExpression</span><span class="p">,</span>
+    <span class="n">DivisionExpression</span> <span class="k">as</span> <span class="n">VHDLModel_DivisionExpression</span><span class="p">,</span>
+    <span class="n">RemainderExpression</span> <span class="k">as</span> <span class="n">VHDLModel_RemainderExpression</span><span class="p">,</span>
+    <span class="n">ModuloExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ModuloExpression</span><span class="p">,</span>
+    <span class="n">ExponentiationExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ExponentiationExpression</span><span class="p">,</span>
+    <span class="n">AndExpression</span> <span class="k">as</span> <span class="n">VHDLModel_AndExpression</span><span class="p">,</span>
+    <span class="n">NandExpression</span> <span class="k">as</span> <span class="n">VHDLModel_NandExpression</span><span class="p">,</span>
+    <span class="n">OrExpression</span> <span class="k">as</span> <span class="n">VHDLModel_OrExpression</span><span class="p">,</span>
+    <span class="n">NorExpression</span> <span class="k">as</span> <span class="n">VHDLModel_NorExpression</span><span class="p">,</span>
+    <span class="n">XorExpression</span> <span class="k">as</span> <span class="n">VHDLModel_XorExpression</span><span class="p">,</span>
+    <span class="n">XnorExpression</span> <span class="k">as</span> <span class="n">VHDLModel_XnorExpression</span><span class="p">,</span>
+    <span class="n">EqualExpression</span> <span class="k">as</span> <span class="n">VHDLModel_EqualExpression</span><span class="p">,</span>
+    <span class="n">UnequalExpression</span> <span class="k">as</span> <span class="n">VHDLModel_UnequalExpression</span><span class="p">,</span>
+    <span class="n">LessThanExpression</span> <span class="k">as</span> <span class="n">VHDLModel_LessThanExpression</span><span class="p">,</span>
+    <span class="n">LessEqualExpression</span> <span class="k">as</span> <span class="n">VHDLModel_LessEqualExpression</span><span class="p">,</span>
+    <span class="n">GreaterThanExpression</span> <span class="k">as</span> <span class="n">VHDLModel_GreaterThanExpression</span><span class="p">,</span>
+    <span class="n">GreaterEqualExpression</span> <span class="k">as</span> <span class="n">VHDLModel_GreaterEqualExpression</span><span class="p">,</span>
+    <span class="n">MatchingEqualExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MatchingEqualExpression</span><span class="p">,</span>
+    <span class="n">MatchingUnequalExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MatchingUnequalExpression</span><span class="p">,</span>
+    <span class="n">MatchingLessThanExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MatchingLessThanExpression</span><span class="p">,</span>
+    <span class="n">MatchingLessEqualExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MatchingLessEqualExpression</span><span class="p">,</span>
+    <span class="n">MatchingGreaterThanExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MatchingGreaterThanExpression</span><span class="p">,</span>
+    <span class="n">MatchingGreaterEqualExpression</span> <span class="k">as</span> <span class="n">VHDLModel_MatchingGreaterEqualExpression</span><span class="p">,</span>
+    <span class="n">ShiftRightLogicExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ShiftRightLogicExpression</span><span class="p">,</span>
+    <span class="n">ShiftLeftLogicExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ShiftLeftLogicExpression</span><span class="p">,</span>
+    <span class="n">ShiftRightArithmeticExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ShiftRightArithmeticExpression</span><span class="p">,</span>
+    <span class="n">ShiftLeftArithmeticExpression</span> <span class="k">as</span> <span class="n">VHDLModel_ShiftLeftArithmeticExpression</span><span class="p">,</span>
+    <span class="n">RotateRightExpression</span> <span class="k">as</span> <span class="n">VHDLModel_RotateRightExpression</span><span class="p">,</span>
+    <span class="n">RotateLeftExpression</span> <span class="k">as</span> <span class="n">VHDLModel_RotateLeftExpression</span><span class="p">,</span>
+    <span class="n">SubtypeAllocation</span> <span class="k">as</span> <span class="n">VHDLModel_SubtypeAllocation</span><span class="p">,</span>
+    <span class="n">QualifiedExpressionAllocation</span> <span class="k">as</span> <span class="n">VHDLModel_QualifiedExpressionAllocation</span><span class="p">,</span>
+    <span class="n">Aggregate</span> <span class="k">as</span> <span class="n">VHDLModel_Aggregate</span><span class="p">,</span>
+    <span class="n">Expression</span><span class="p">,</span>
+    <span class="n">AggregateElement</span><span class="p">,</span>
+    <span class="n">SubtypeOrSymbol</span><span class="p">,</span>
+    <span class="n">Symbol</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl._types</span> <span class="kn">import</span> <span class="n">Iir</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.libghdl.vhdl</span> <span class="kn">import</span> <span class="n">nodes</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom._Utils</span> <span class="kn">import</span> <span class="n">GetIirKindOfNode</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Symbol</span> <span class="kn">import</span> <span class="n">SimpleSubtypeSymbol</span>
+<span class="kn">from</span> <span class="nn">pyGHDL.dom.Aggregates</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">OthersAggregateElement</span><span class="p">,</span>
+    <span class="n">SimpleAggregateElement</span><span class="p">,</span>
+    <span class="n">RangedAggregateElement</span><span class="p">,</span>
+    <span class="n">IndexedAggregateElement</span><span class="p">,</span>
+    <span class="n">NamedAggregateElement</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">class</span> <span class="nc">_ParseUnaryExpressionMixin</span><span class="p">:</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VHDLModel_UnaryExpression</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetExpressionFromNode</span>
+
+        <span class="n">operand</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Operand</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">operand</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_ParseBinaryExpressionMixin</span><span class="p">:</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VHDLModel_BinaryExpression</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetExpressionFromNode</span>
+
+        <span class="n">left</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Left</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Right</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="InverseExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.InverseExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">InverseExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_InverseExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseUnaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IdentityExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.IdentityExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">IdentityExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_IdentityExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseUnaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NegationExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.NegationExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">NegationExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_NegationExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseUnaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AbsoluteExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.AbsoluteExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">AbsoluteExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_AbsoluteExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseUnaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ParenthesisExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ParenthesisExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ParenthesisExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ParenthesisExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseUnaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ParenthesisExpression.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ParenthesisExpression.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ParenthesisExpression&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetExpressionFromNode</span>
+
+        <span class="n">operand</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Expression</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">operand</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TypeConversion"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.TypeConversion">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">TypeConversion</span><span class="p">(</span><span class="n">VHDLModel_TypeConversion</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FunctionCall"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.FunctionCall">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">FunctionCall</span><span class="p">(</span><span class="n">VHDLModel_FunctionCall</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">RangeExpression</span><span class="p">(</span><span class="n">VHDLModel_RangeExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;AscendingRangeExpression&quot;</span><span class="p">,</span> <span class="s2">&quot;DescendingRangeExpression&quot;</span><span class="p">]:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetExpressionFromNode</span>
+
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Direction</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">leftBound</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Left_Limit_Expr</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="n">rightBound</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Right_Limit_Expr</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">direction</span><span class="p">:</span>  <span class="c1"># ascending</span>
+            <span class="k">return</span> <span class="n">AscendingRangeExpression</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">leftBound</span><span class="p">,</span> <span class="n">rightBound</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">DescendingRangeExpression</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">leftBound</span><span class="p">,</span> <span class="n">rightBound</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AscendingRangeExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.AscendingRangeExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">AscendingRangeExpression</span><span class="p">(</span><span class="n">VHDLModel_AscendingRangeExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DescendingRangeExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.DescendingRangeExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">DescendingRangeExpression</span><span class="p">(</span><span class="n">VHDLModel_DescendingRangeExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdditionExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.AdditionExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">AdditionExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_AdditionExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SubtractionExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.SubtractionExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">SubtractionExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_SubtractionExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConcatenationExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ConcatenationExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ConcatenationExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ConcatenationExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MultiplyExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MultiplyExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MultiplyExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MultiplyExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DivisionExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.DivisionExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">DivisionExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_DivisionExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RemainderExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.RemainderExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">RemainderExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_RemainderExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ModuloExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ModuloExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ModuloExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ModuloExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ExponentiationExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ExponentiationExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ExponentiationExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ExponentiationExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AndExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.AndExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">AndExpression</span><span class="p">(</span><span class="n">VHDLModel_AndExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NandExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.NandExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">NandExpression</span><span class="p">(</span><span class="n">VHDLModel_NandExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OrExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.OrExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">OrExpression</span><span class="p">(</span><span class="n">VHDLModel_OrExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NorExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.NorExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">NorExpression</span><span class="p">(</span><span class="n">VHDLModel_NorExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XorExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.XorExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">XorExpression</span><span class="p">(</span><span class="n">VHDLModel_XorExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="XnorExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.XnorExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">XnorExpression</span><span class="p">(</span><span class="n">VHDLModel_XnorExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EqualExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.EqualExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">EqualExpression</span><span class="p">(</span><span class="n">VHDLModel_EqualExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="UnequalExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.UnequalExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">UnequalExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_UnequalExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LessThanExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.LessThanExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">LessThanExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_LessThanExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LessEqualExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.LessEqualExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">LessEqualExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_LessEqualExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GreaterThanExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.GreaterThanExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">GreaterThanExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_GreaterThanExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GreaterEqualExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.GreaterEqualExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">GreaterEqualExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_GreaterEqualExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MatchingEqualExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MatchingEqualExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MatchingEqualExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MatchingEqualExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MatchingUnequalExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MatchingUnequalExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MatchingUnequalExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MatchingUnequalExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MatchingLessThanExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MatchingLessThanExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MatchingLessThanExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MatchingLessThanExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MatchingLessEqualExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MatchingLessEqualExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MatchingLessEqualExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MatchingLessEqualExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MatchingGreaterThanExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MatchingGreaterThanExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MatchingGreaterThanExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MatchingGreaterThanExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MatchingGreaterEqualExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.MatchingGreaterEqualExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">MatchingGreaterEqualExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_MatchingGreaterEqualExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShiftRightLogicExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ShiftRightLogicExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ShiftRightLogicExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ShiftRightLogicExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShiftLeftLogicExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ShiftLeftLogicExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ShiftLeftLogicExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ShiftLeftLogicExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShiftRightArithmeticExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ShiftRightArithmeticExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ShiftRightArithmeticExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ShiftRightArithmeticExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShiftLeftArithmeticExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.ShiftLeftArithmeticExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ShiftLeftArithmeticExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_ShiftLeftArithmeticExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RotateRightExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.RotateRightExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">RotateRightExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_RotateRightExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RotateLeftExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.RotateLeftExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">RotateLeftExpression</span><span class="p">(</span>
+    <span class="n">VHDLModel_RotateLeftExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">,</span> <span class="n">_ParseBinaryExpressionMixin</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QualifiedExpression"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.QualifiedExpression">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">QualifiedExpression</span><span class="p">(</span><span class="n">VHDLModel_QualifiedExpression</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">subtype</span><span class="p">:</span> <span class="n">SubtypeOrSymbol</span><span class="p">,</span> <span class="n">operand</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subtype</span><span class="p">,</span> <span class="n">operand</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="QualifiedExpression.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.QualifiedExpression.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;QualifiedExpression&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetExpressionFromNode</span><span class="p">,</span> <span class="n">GetNameOfNode</span>
+
+        <span class="n">typeMarkName</span> <span class="o">=</span> <span class="n">GetNameOfNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Type_Mark</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="n">subtype</span> <span class="o">=</span> <span class="n">SimpleSubtypeSymbol</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">typeMarkName</span><span class="p">)</span>
+        <span class="n">operand</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Expression</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">subtype</span><span class="p">,</span> <span class="n">operand</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SubtypeAllocation"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.SubtypeAllocation">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">SubtypeAllocation</span><span class="p">(</span><span class="n">VHDLModel_SubtypeAllocation</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">subtype</span><span class="p">:</span> <span class="n">Symbol</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subtype</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SubtypeAllocation.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.SubtypeAllocation.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;QualifiedExpressionAllocation&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetSubtypeIndicationFromNode</span>
+
+        <span class="n">subtype</span> <span class="o">=</span> <span class="n">GetSubtypeIndicationFromNode</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s2">&quot;allocation&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="QualifiedExpressionAllocation"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.QualifiedExpressionAllocation">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">QualifiedExpressionAllocation</span><span class="p">(</span><span class="n">VHDLModel_QualifiedExpressionAllocation</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">qualifiedExpression</span><span class="p">:</span> <span class="n">QualifiedExpression</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">qualifiedExpression</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="QualifiedExpressionAllocation.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.QualifiedExpressionAllocation.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;QualifiedExpressionAllocation&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="n">GetExpressionFromNode</span>
+
+        <span class="n">expression</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Expression</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">expression</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Aggregate"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.Aggregate">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Aggregate</span><span class="p">(</span><span class="n">VHDLModel_Aggregate</span><span class="p">,</span> <span class="n">DOMMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AggregateElement</span><span class="p">]):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+        <span class="n">DOMMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Aggregate.parse"><a class="viewcode-back" href="../../../pyGHDL/pyGHDL.dom.Expression.html#pyGHDL.dom.Expression.Aggregate.parse">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Iir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Aggregate&quot;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">pyGHDL.dom._Translate</span> <span class="kn">import</span> <span class="p">(</span>
+            <span class="n">GetExpressionFromNode</span><span class="p">,</span>
+            <span class="n">GetRangeFromNode</span><span class="p">,</span>
+            <span class="n">GetNameFromNode</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">choices</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">choicesChain</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Get_Association_Choices_Chain</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">chain_iter</span><span class="p">(</span><span class="n">choicesChain</span><span class="p">):</span>
+            <span class="n">kind</span> <span class="o">=</span> <span class="n">GetIirKindOfNode</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Associated_Expr</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Choice_By_None</span><span class="p">:</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SimpleAggregateElement</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Choice_By_Expression</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">GetExpressionFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Choice_Expression</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">IndexedAggregateElement</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Choice_By_Range</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">GetRangeFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Choice_Range</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RangedAggregateElement</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Choice_By_Name</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">GetNameFromNode</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Get_Choice_Name</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="n">symbol</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">NamedAggregateElement</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Iir_Kind</span><span class="o">.</span><span class="n">Choice_By_Others</span><span class="p">:</span>
+                <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">OthersAggregateElement</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">DOMException</span><span class="p">(</span>
+                    <span class="s2">&quot;Unknown choice kind &#39;</span><span class="si">{kindName}</span><span class="s2">&#39;(</span><span class="si">{kind}</span><span class="s2">) in aggregate &#39;</span><span class="si">{aggr}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">kindName</span><span class="o">=</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">aggr</span><span class="o">=</span><span class="n">node</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">choices</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2002-2021, Tristan Gingold and contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

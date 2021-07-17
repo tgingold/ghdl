@@ -1,0 +1,144 @@
+pyGHDL.dom.DesignUnit
+=========================
+
+.. automodule:: pyGHDL.dom.DesignUnit
+
+
+.. currentmodule:: pyGHDL.dom.DesignUnit
+
+
+.. #-----------------------------------
+
+
+**Classes**
+
+- :py:class:`UseClause`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`Entity`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`Architecture`:
+  A ``SecondaryUnit`` is a base-class for all secondary units.
+
+- :py:class:`Component`:
+  ``ModelEntity`` is the base class for all classes in the VHDL language model,
+
+- :py:class:`Package`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`PackageBody`:
+  A ``SecondaryUnit`` is a base-class for all secondary units.
+
+- :py:class:`PackageInstantiation`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`Context`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+- :py:class:`Configuration`:
+  A ``PrimaryUnit`` is a base-class for all primary units.
+
+
+
+.. #-----------------------------------
+
+
+.. autoclass:: UseClause
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: UseClause
+
+   .. rubric:: Members
+
+.. autoclass:: Entity
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Entity
+
+   .. rubric:: Members
+
+.. autoclass:: Architecture
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Architecture
+
+   .. rubric:: Members
+
+.. autoclass:: Component
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Component
+
+   .. rubric:: Members
+
+.. autoclass:: Package
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Package
+
+   .. rubric:: Members
+
+.. autoclass:: PackageBody
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PackageBody
+
+   .. rubric:: Members
+
+.. autoclass:: PackageInstantiation
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: PackageInstantiation
+
+   .. rubric:: Members
+
+.. autoclass:: Context
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Context
+
+   .. rubric:: Members
+
+.. autoclass:: Configuration
+   :members:
+   :private-members:
+   :undoc-members:
+   :inherited-members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Configuration
+
+   .. rubric:: Members

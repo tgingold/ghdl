@@ -1,0 +1,10 @@
+pyGHDL.cli.dom
+==================
+
+.. automodule:: pyGHDL.cli.dom
+
+
+.. currentmodule:: pyGHDL.cli.dom
+
+
+.. #-----------------------------------
